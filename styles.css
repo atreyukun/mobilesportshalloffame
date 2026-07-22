@@ -748,6 +748,18 @@ img, video { max-width: 100%; display: block; }
   text-underline-offset: 2px;
 }
 
+.prose a.btn {
+  text-decoration: none;
+}
+
+.prose a.btn-primary {
+  color: #ffffff;
+}
+
+.prose a.btn-secondary {
+  color: var(--text);
+}
+
 /* Mission trio on about */
 .mission-trio {
   display: grid;
