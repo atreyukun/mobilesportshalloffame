@@ -642,10 +642,12 @@ img, video { max-width: 100%; display: block; }
   aspect-ratio: 16 / 11;
 }
 
-.event-band-media img {
+.event-band-media img,
+.event-band-media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .event-meta {
