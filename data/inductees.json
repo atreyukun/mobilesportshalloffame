@@ -309,7 +309,10 @@
     "name": "HENRY “HANK” AARON",
     "year": 1988,
     "summary": "National Baseball Hall of Fame Inductee – 1982. 23-Year MLB career with Braves and Brewers (1954-76). Set major league record with 755 career home runs. Member of Baseball’s All-Century Team.",
-    "letter": "H"
+    "letter": "H",
+    "video": "assets/hof-hank-aaron.mp4",
+    "bio": "Sports Illustrated put him on the cover in 1969 as he led the Atlanta Braves toward the World Series, and \"Hammerin' Hank\" was already chasing Babe Ruth's record of 714 home runs while stacking toward 3,000 hits. Known for a quiet demeanor, Aaron spent his career in smaller markets like Milwaukee and Atlanta as he pursued those milestones and cemented one of baseball's greatest legacies.",
+    "displayName": "Hank Aaron"
   },
   {
     "name": "HERMAN MAISEL",

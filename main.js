@@ -84,6 +84,7 @@ async function initHof(root) {
   const letters = root.querySelector("[data-hof-letters]");
   const count = root.querySelector("[data-hof-count]");
   const empty = root.querySelector("[data-hof-empty]");
+  const modal = document.getElementById("hof-modal");
 
   let inductees = [];
   let activeLetter = "ALL";
@@ -122,6 +123,77 @@ async function initHof(root) {
     });
   }
 
+  function openModal(person) {
+    if (!modal) return;
+    const title = person.displayName || person.name;
+    const banner = (person.displayName || person.name).replace(/[“”"]/g, "").toUpperCase();
+    const bioText = person.bio || person.summary || "";
+
+    modal.querySelector("[data-hof-modal-title]").textContent = title;
+    modal.querySelector("[data-hof-modal-banner]").textContent = banner;
+    modal.querySelector("[data-hof-modal-year]").textContent = `Inducted ${person.year}`;
+    modal.querySelector("[data-hof-modal-bio]").innerHTML = bioText
+      .split(/\n+/)
+      .filter(Boolean)
+      .map((para) => `<p>${escapeHtml(para)}</p>`)
+      .join("");
+
+    const video = modal.querySelector("[data-hof-modal-video]");
+    const fallback = modal.querySelector("[data-hof-modal-fallback]");
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+
+    if (person.video) {
+      fallback.hidden = true;
+      video.hidden = false;
+      video.src = person.video;
+      video.muted = true;
+      const play = video.play();
+      if (play && typeof play.catch === "function") play.catch(() => {});
+    } else {
+      video.hidden = true;
+      fallback.hidden = false;
+    }
+
+    modal.hidden = false;
+    document.body.classList.add("hof-modal-open");
+    modal.querySelector(".hof-modal-close")?.focus();
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    const video = modal.querySelector("[data-hof-modal-video]");
+    if (video) {
+      video.pause();
+      video.removeAttribute("src");
+      video.load();
+    }
+    modal.hidden = true;
+    document.body.classList.remove("hof-modal-open");
+  }
+
+  if (modal) {
+    modal.querySelectorAll("[data-hof-close]").forEach((el) => {
+      el.addEventListener("click", closeModal);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !modal.hidden) closeModal();
+    });
+  }
+
+  if (grid) {
+    grid.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-hof-open]");
+      if (!btn) return;
+      const idx = Number(btn.dataset.hofOpen);
+      const person = filteredCache[idx];
+      if (person) openModal(person);
+    });
+  }
+
+  let filteredCache = [];
+
   function render() {
     const filtered = inductees.filter((p) => {
       const letterOk = activeLetter === "ALL" || p.letter === activeLetter;
@@ -132,6 +204,7 @@ async function initHof(root) {
         (p.summary || "").toLowerCase().includes(query);
       return letterOk && qOk;
     });
+    filteredCache = filtered;
 
     if (count) {
       count.textContent = `${filtered.length} inductee${filtered.length === 1 ? "" : "s"}`;
@@ -148,11 +221,14 @@ async function initHof(root) {
     if (empty) empty.hidden = true;
     grid.innerHTML = filtered
       .map(
-        (p) => `
+        (p, i) => `
       <article class="hof-card">
-        <div class="hof-card-year">${p.year}</div>
-        <h3>${escapeHtml(p.name)}</h3>
-        <p>${escapeHtml(p.summary || "")}</p>
+        <button type="button" class="hof-card-hit" data-hof-open="${i}" aria-label="View ${escapeHtml(p.displayName || p.name)}">
+          <div class="hof-card-year">${p.year}</div>
+          <h3>${escapeHtml(p.name)}</h3>
+          <p>${escapeHtml(p.summary || "")}</p>
+          <span class="hof-card-more">Read more</span>
+        </button>
       </article>`
       )
       .join("");

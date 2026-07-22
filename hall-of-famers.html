@@ -71,6 +71,28 @@
     </section>
   </main>
 
+  <div class="hof-modal" id="hof-modal" hidden>
+    <div class="hof-modal-backdrop" data-hof-close></div>
+    <div class="hof-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="hof-modal-title">
+      <button type="button" class="hof-modal-close" data-hof-close aria-label="Close">&times;</button>
+      <header class="hof-modal-header">
+        <p id="hof-modal-title" data-hof-modal-title></p>
+      </header>
+      <div class="hof-modal-media">
+        <video data-hof-modal-video muted playsinline loop autoplay preload="metadata"></video>
+        <div class="hof-modal-media-fallback" data-hof-modal-fallback aria-hidden="true"></div>
+        <img src="assets/crest.png" alt="" class="hof-modal-crest" />
+        <div class="hof-modal-banner">
+          <span data-hof-modal-banner></span>
+        </div>
+      </div>
+      <div class="hof-modal-body">
+        <p class="hof-modal-year" data-hof-modal-year></p>
+        <div class="hof-modal-bio" data-hof-modal-bio></div>
+      </div>
+    </div>
+  </div>
+
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
