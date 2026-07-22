@@ -563,22 +563,30 @@ img, video { max-width: 100%; display: block; }
 
 .pillar-scroll-track {
   position: absolute;
-  inset: 0 auto 0 0;
+  top: 0;
+  left: 0;
   display: flex;
+  flex-wrap: nowrap;
   height: 100%;
   width: max-content;
   will-change: transform;
   animation: pillarGentleScroll 120s linear infinite;
 }
 
-.pillar-scroll-tile {
-  flex: 0 0 auto;
+/* Natural panorama width (taller than the card is wide) so the loop seam stays off-screen */
+.pillar-card-media--scroll .pillar-scroll-img {
+  display: block;
   height: 100%;
-  /* Match vintage team panorama aspect so the full photo scrolls, not a cropped center */
-  aspect-ratio: 1024 / 314;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% 100%;
+  width: auto;
+  max-width: none;
+  flex: 0 0 auto;
+  object-fit: fill;
+  object-position: center;
+  transition: none;
+}
+
+.pillar-card:hover .pillar-card-media--scroll .pillar-scroll-img {
+  transform: none;
 }
 
 @keyframes pillarGentleScroll {
@@ -589,11 +597,9 @@ img, video { max-width: 100%; display: block; }
 @media (prefers-reduced-motion: reduce) {
   .pillar-scroll-track {
     animation: none;
-    left: 50%;
-    transform: translate3d(-25%, 0, 0);
   }
 
-  .pillar-scroll-tile:last-child {
+  .pillar-card-media--scroll .pillar-scroll-img:last-child {
     display: none;
   }
 }
