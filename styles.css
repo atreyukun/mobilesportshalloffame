@@ -278,12 +278,43 @@ img, video { max-width: 100%; display: block; }
   object-position: center top;
 }
 
+/* Home hero — gentle horizontal scroll (from animated.txt) */
+.hero-bg--animated {
+  overflow: hidden;
+  background-image: url("assets/hero-banquet-seamless.jpg");
+  background-repeat: repeat-x;
+  background-position: 0 50%;
+  background-size: auto 100%;
+  animation: gentleScroll 50s linear infinite;
+}
+
+@keyframes gentleScroll {
+  from { background-position: 0 50%; }
+  to { background-position: -50% 50%; }
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.82) 100%),
     radial-gradient(ellipse at 30% 20%, rgba(74, 53, 104, 0.35), transparent 55%);
+}
+
+.hero-bg--animated .hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.82) 100%),
+    rgba(20, 40, 80, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg--animated {
+    animation: none;
+    background-image: url("assets/hero-banquet.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+  }
 }
 
 .hero-orb {
