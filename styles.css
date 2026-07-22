@@ -278,24 +278,41 @@ img, video { max-width: 100%; display: block; }
   object-position: center top;
 }
 
-/* Home hero — gentle horizontal scroll (from animated.txt) */
+/* Home hero — gentle horizontal scroll (transform loop; % background-position is unreliable) */
 .hero-bg--animated {
   overflow: hidden;
-  background-image: url("assets/hero-banquet-seamless.jpg");
-  background-repeat: repeat-x;
-  background-position: 0 50%;
-  background-size: auto 100%;
-  animation: gentleScroll 50s linear infinite;
+  background: #0a1628;
+}
+
+.hero-scroll-track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 200%;
+  height: 100%;
+  will-change: transform;
+  animation: gentleScroll 40s linear infinite;
+}
+
+.hero-scroll-tile {
+  flex: 0 0 50%;
+  width: 50%;
+  height: 100%;
+  background-image: url("assets/hero-banquet.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
 }
 
 @keyframes gentleScroll {
-  from { background-position: 0 50%; }
-  to { background-position: -50% 50%; }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background:
     linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.82) 100%),
     radial-gradient(ellipse at 30% 20%, rgba(74, 53, 104, 0.35), transparent 55%);
@@ -307,13 +324,23 @@ img, video { max-width: 100%; display: block; }
     rgba(20, 40, 80, 0.35);
 }
 
+.hero-bg--animated .hero-orb {
+  z-index: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-bg--animated {
+  .hero-scroll-track {
     animation: none;
-    background-image: url("assets/hero-banquet.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
+    width: 100%;
+  }
+
+  .hero-scroll-tile:last-child {
+    display: none;
+  }
+
+  .hero-scroll-tile {
+    flex-basis: 100%;
+    width: 100%;
   }
 }
 
