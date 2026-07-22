@@ -556,7 +556,7 @@ img, video { max-width: 100%; display: block; }
   transform: scale(1.04);
 }
 
-/* Remembering the Past — very slow panoramic scroll */
+/* Pillar panoramas — slow horizontal loop (cropped edges keep the seam clean) */
 .pillar-card-media--scroll {
   background: #f3f3f3;
 }
@@ -570,7 +570,7 @@ img, video { max-width: 100%; display: block; }
   height: 100%;
   width: max-content;
   will-change: transform;
-  animation: pillarGentleScroll 120s linear infinite;
+  animation: pillarGentleScroll 48s linear infinite;
 }
 
 /* Natural panorama width (taller than the card is wide) so the loop seam stays off-screen */
