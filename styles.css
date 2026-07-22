@@ -556,6 +556,51 @@ img, video { max-width: 100%; display: block; }
   transform: scale(1.04);
 }
 
+/* Remembering the Past — very slow panoramic scroll */
+.pillar-card-media--scroll {
+  background: #1a1a1a;
+}
+
+.pillar-scroll-track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 200%;
+  height: 100%;
+  will-change: transform;
+  animation: pillarGentleScroll 120s linear infinite;
+}
+
+.pillar-scroll-tile {
+  flex: 0 0 50%;
+  width: 50%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+@keyframes pillarGentleScroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pillar-scroll-track {
+    animation: none;
+    width: 100%;
+  }
+
+  .pillar-scroll-tile:last-child {
+    display: none;
+  }
+
+  .pillar-scroll-tile {
+    flex-basis: 100%;
+    width: 100%;
+  }
+}
+
 .pillar-card h3 {
   font-family: var(--font-serif);
   font-size: 26px;
