@@ -139,20 +139,27 @@ async function initHof(root) {
       .join("");
 
     const video = modal.querySelector("[data-hof-modal-video]");
+    const image = modal.querySelector("[data-hof-modal-image]");
     const fallback = modal.querySelector("[data-hof-modal-fallback]");
     video.pause();
     video.removeAttribute("src");
     video.load();
+    image.removeAttribute("src");
+    image.hidden = true;
+    video.hidden = true;
+    fallback.hidden = true;
 
     if (person.video) {
-      fallback.hidden = true;
       video.hidden = false;
       video.src = person.video;
       video.muted = true;
       const play = video.play();
       if (play && typeof play.catch === "function") play.catch(() => {});
+    } else if (person.image) {
+      image.hidden = false;
+      image.src = person.image;
+      image.alt = title;
     } else {
-      video.hidden = true;
       fallback.hidden = false;
     }
 
@@ -224,6 +231,11 @@ async function initHof(root) {
         (p, i) => `
       <article class="hof-card">
         <button type="button" class="hof-card-hit" data-hof-open="${i}" aria-label="View ${escapeHtml(p.displayName || p.name)}">
+          ${
+            p.image
+              ? `<div class="hof-card-thumb"><img src="${escapeHtml(p.image)}" alt="" loading="lazy" /></div>`
+              : ""
+          }
           <div class="hof-card-year">${p.year}</div>
           <h3>${escapeHtml(p.name)}</h3>
           <p>${escapeHtml(p.summary || "")}</p>

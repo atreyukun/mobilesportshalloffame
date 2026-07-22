@@ -988,12 +988,33 @@ body.hof-modal-open {
 }
 
 .hof-modal-media video,
-.hof-modal-media-fallback {
+.hof-modal-media-fallback,
+.hof-modal-media [data-hof-modal-image] {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.hof-modal-media [data-hof-modal-image][hidden],
+.hof-modal-media video[hidden],
+.hof-modal-media-fallback[hidden] {
+  display: none !important;
+}
+
+.hof-card-thumb {
+  margin: -22px -22px 16px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #111;
+}
+
+.hof-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .hof-modal-media-fallback {

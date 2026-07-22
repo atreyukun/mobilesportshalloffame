@@ -21,7 +21,8 @@
     "name": "AMOS OTIS",
     "year": 1992,
     "summary": "17-Year Major League Baseball career with Royals, Mets and Pirates (1967-84). Five-time American League All-Star and Three-time Gold Glove winner.",
-    "letter": "A"
+    "letter": "A",
+    "image": "assets/hof/amos-otis.jpg"
   },
   {
     "name": "AMY CHAPMAN KLEINSCHRODT",
@@ -33,7 +34,8 @@
     "name": "ANGELO HARRIS",
     "year": 2013,
     "summary": "Alabama High School Champion in the mile. All SEC and SEC record setter in Track and Cross Country at Alabama. 40 year Cross Country and Track Coach at McGill-Toolen High School. Coached 73 All-State Runners.",
-    "letter": "A"
+    "letter": "A",
+    "image": "assets/hof/angelo-harris.jpg"
   },
   {
     "name": "ANN SCHILLING",
@@ -45,31 +47,36 @@
     "name": "ANTONIO LANG",
     "year": 2011,
     "summary": "Star at Duke University and helped lead Blue Devils to National Championships in 1991 and 1992. Played six years in NBA. Led LeFlore H.S. to state title.",
-    "letter": "A"
+    "letter": "A",
+    "image": "assets/hof/antonio-lang.jpg"
   },
   {
     "name": "BECKY DICKINSON",
     "year": 1994,
     "summary": "One of winningest volleyball coaches in Alabama High School history, winning 11 state titles as head coach at McGill-Toolen. Also won three state basketball titles.",
-    "letter": "B"
+    "letter": "B",
+    "image": "assets/hof/becky-dickinson.jpg"
   },
   {
     "name": "BEN HARRIS",
     "year": 2013,
     "summary": "Quarterback at Toulminville High School and Alabama State. Won four state championships at Blount High School during the 1990’s. NFL High School Coach of the year in 1998. Member of the AHSAA Hall of Fame.",
-    "letter": "B"
+    "letter": "B",
+    "image": "assets/hof/ben-harris.jpg"
   },
   {
     "name": "BETH BARRY",
     "year": 2009,
     "summary": "Star golfer at the University of South Alabama (1966-70) and four-time Alabama State Women’s Golf Champion. Longtime high school golf coach.",
-    "letter": "B"
+    "letter": "B",
+    "image": "assets/hof/beth-barry.jpg"
   },
   {
     "name": "BILL DOOLEY",
     "year": 1993,
     "summary": "All-SEC offensive lineman at Mississippi State. Served as head football coach at North Carolina, Virginia Tech and Wake Forest (1967-92) and won three ACC titles and 161 games.",
-    "letter": "B"
+    "letter": "B",
+    "image": "assets/hof/bill-dooley.jpg"
   },
   {
     "name": "BILL MARTIN",
@@ -93,13 +100,15 @@
     "name": "BOBBY JACKSON",
     "year": 1997,
     "summary": "Starred at quarterback and defensive back at University of Alabama (1956-58). Played for NFL’s Packers, Eagles and Bears and was member of Eagles’ 1960 NFL Champs.",
-    "letter": "B"
+    "letter": "B",
+    "image": "assets/hof/bobby-jackson.jpg"
   },
   {
     "name": "BUDDY AYDELETTE",
     "year": 2009,
     "summary": "Star offensive lineman at the University of Alabama (1976-79). Played in NFL with Packers and Steelers and was a three-time All-Star in the USFL.",
-    "letter": "B"
+    "letter": "B",
+    "image": "assets/hof/buddy-aydelette.jpg"
   },
   {
     "name": "CAPTAIN MUNNERLYN",
@@ -111,7 +120,8 @@
     "name": "CARL BENTON",
     "year": 1998,
     "summary": "Football and track Star at UCLA. Helped lead Bruins to 10-1 season and berth in Rose Bowl in 1947.",
-    "letter": "C"
+    "letter": "C",
+    "image": "assets/hof/carl-benton.jpg"
   },
   {
     "name": "CARVEL “BAMA” ROWELL",
@@ -123,7 +133,8 @@
     "name": "CASEY CONVERSE",
     "year": 2014,
     "summary": "One of the United States’ pre-eminent distance swimmers during the 1970s. He set a pair of NCAA records while swimming for the University of Alabama and swam in the 1976 Summer Olympic Games in Montreal. For the last 29 years, Converse has been the head swimming coach at the Air Force Academy.",
-    "letter": "C"
+    "letter": "C",
+    "image": "assets/hof/casey-converse.jpg"
   },
   {
     "name": "CASIMIR P. NEWTON",
@@ -141,25 +152,29 @@
     "name": "CHARLIE “HOME RUN” DUFFEE",
     "year": 2014,
     "summary": "The first ever Mobile-born and Alabama-born major league baseball player. As a rookie in 1889 with the St. Louis Browns of the then major league American Association, Duffee finished third in the A.A. in home runs. He also played for the Columbus Solons, the Washington Senators, and the Cincinnati Reds before his promising career and life were cut short by tuberculosis. He died in 1894 at the age of 28.",
-    "letter": "C"
+    "letter": "C",
+    "image": "assets/hof/charlie-home-run-duffee.jpg"
   },
   {
     "name": "CHRIS SAMUELS",
     "year": 2011,
     "summary": "All-American offensive lineman at University of Alabama. Won Outland Trophy for best lineman in college football in 1999. Six-time Pro Bowl offensive lineman in the NFL.",
-    "letter": "C"
+    "letter": "C",
+    "image": "assets/hof/chris-samuels.jpg"
   },
   {
     "name": "CLEON JONES",
     "year": 1991,
     "summary": "14-Year Major League Baseball career with Mets and White Sox (1963-76). Starting left fielder for Mets’ 1969 World Champions.",
-    "letter": "C"
+    "letter": "C",
+    "image": "assets/hof/cleon-jones.jpg"
   },
   {
     "name": "CLIFF ELLIS",
     "year": 2003,
     "summary": "NCAA basketball coach at four schools – South Alabama, Clemson, Auburn and Coastal Carolina (1975-2010). Has recorded over 500 career victories and is all-time winningest coach at USA and Clemson",
-    "letter": "C"
+    "letter": "C",
+    "image": "assets/hof/cliff-ellis.jpg"
   },
   {
     "name": "CLIFTON McNEIL, JR.",
@@ -171,13 +186,15 @@
     "name": "CURTIS HORTON, SR.",
     "year": 2006,
     "summary": "All-Star running back at Tuskegee Institute. Longtime Mobile area high school football coach at Mobile County Training, McGill and Williamson.",
-    "letter": "C"
+    "letter": "C",
+    "image": "assets/hof/curtis-horton.jpg"
   },
   {
     "name": "DAMEYUNE CRAIG",
     "year": 2014,
     "summary": "Quarterbacked Blount High School to two state championships before starring at Auburn where he led the Tigers to the 1997 SEC Championship Game. Craig later played for the Carolina Panthers and in NFL Europe before embarking on a coaching career that has fea- tured stops with the Miami Dolphins, L.S.U., Florida State, South Alabama, and Auburn.",
-    "letter": "D"
+    "letter": "D",
+    "image": "assets/hof/dameyune-craig.jpg"
   },
   {
     "name": "DAN JENNINGS",
@@ -231,7 +248,8 @@
     "name": "EDDIE HOLMES",
     "year": 2003,
     "summary": "Three-sport star at UMS-Wright and baseball player at Spring Hill College. Coached basketball and golf for 30 years at UMS-Wright, winning 12 state championships in boys golf.",
-    "letter": "E"
+    "letter": "E",
+    "image": "assets/hof/eddie-holmes.jpg"
   },
   {
     "name": "EDDIE STANKY",
@@ -243,7 +261,8 @@
     "name": "EDMUND DYAS IV",
     "year": 1993,
     "summary": "Member of National Collegiate Football Hall of Fame. All-American running back at Auburn University (1958-60) who finished fourth in voting for the 1960 Heisman Trophy.",
-    "letter": "E"
+    "letter": "E",
+    "image": "assets/hof/edmund-dyas.jpg"
   },
   {
     "name": "EDWARD “ED” SCOTT, SR.",
@@ -255,25 +274,29 @@
     "name": "ERICK WALDER",
     "year": 2015,
     "summary": "Erick Walder attended Murphy High School and the University of Arkansas and is considered the greatest combination jumper in college track history. He still holds the collegiate outdoor long jump record with a leap of 8.53 meters – a record that has stood for 22 years. He is a medal winner at the Goodwill Games, the World Championships and the World Indoor Championships.",
-    "letter": "E"
+    "letter": "E",
+    "image": "assets/hof/erick-walder.jpg"
   },
   {
     "name": "FRANK BOLLING",
     "year": 1990,
     "summary": "13-Year Major League Baseball career with Tigers and Braves (1954-66). Two-time All-Star second baseman and Gold Glove Winner in 1958.",
-    "letter": "F"
+    "letter": "F",
+    "image": "assets/hof/frank-bolling.jpg"
   },
   {
     "name": "FRANK HOWARD",
     "year": 1990,
     "summary": "National Collegiate Football Hall of Fame Inductee. Head football coach at Clemson University for 30 seasons (1940-69) recording 7 conference titles and 165 victories.",
-    "letter": "F"
+    "letter": "F",
+    "image": "assets/hof/frank-howard.jpg"
   },
   {
     "name": "FRED CARLEY",
     "year": 2006,
     "summary": "SEC Track Champion at Auburn. Successful high school track and cross country coach in Alabama, winning 11 state titles at Murphy, and Florida.",
-    "letter": "F"
+    "letter": "F",
+    "image": "assets/hof/fred-carley.jpg"
   },
   {
     "name": "GORDON SMITH, JR.",
@@ -291,13 +314,15 @@
     "name": "HANFORD DIXON",
     "year": 2013,
     "summary": "Star defensive back at Theodore High and Southern Miss. 1st round draft pick in 1981. Three-time Pro Bowl defensive back for Cleveland Browns.",
-    "letter": "H"
+    "letter": "H",
+    "image": "assets/hof/hanford-dixon.jpg"
   },
   {
     "name": "HAROLD CLARK",
     "year": 1995,
     "summary": "Head football coach at Vigor High School (1974-94) who recorded 160 wins. Won two state championships (1987 & ’88) and 1988 team was named national champions by ESPN and USA Today.",
-    "letter": "H"
+    "letter": "H",
+    "image": "assets/hof/harold-clark.jpg"
   },
   {
     "name": "HENRY W. PAPA",
@@ -312,13 +337,15 @@
     "letter": "H",
     "video": "assets/hof-hank-aaron.mp4",
     "bio": "In 1969, Sports Illustrated put Hank Aaron on its cover for the first time. The Atlanta Braves were challenging for the pennant and \"Hammerin' Hank\" was closing in one of the most revered marks in baseball. No, not Babe Ruth's record of 714 home runs, but 3,000 hits.\n\nThe author wrote that Aaron, in part because he'd played in small markets (Milwaukee then Atlanta), and because of his quiet demeanor, had failed to achieve the level of stardom accorded to lesser players. However, this wrong was being righted as Aaron chased down hit 3,000.\n\nMickey Mantle was quoted calling Aaron the \"most underrated great hitter of all time.\" The story noted that, yes, Aaron would almost surely reach 3,000, but Ruth's home run mark? \"Since he is now 35, it is doubtful that Aaron will stay around long enough to hit the 176 homers he needs to pass Ruth,\" the author wrote.\n\nHenry Louis \"Hank\" Aaron was born in 1934 in the area of Mobile known as, \"Down the Bay,\" one of eight children of Herbert and Estella Aaron. One of his siblings, younger brother Tommie, joined him in the majors with two stints with the Braves.\n\nWhen Hank was a boy, the Aarons moved to Toulminville in a home his father built with scrap wood and whatever other supplies he could find. Aaron picked cotton as a child, and credited the labor with giving him the powerful hands that helped make him one of the most feared hitters in history.\n\n\"I tell a lot of people I was a vegetarian before they knew what a vegetarian was,\" Aaron told a reporter on the occasion of his 80th birthday. \"We didn't eat meat but once every two or three weeks.\"\n\nAaron, batting cross-handed, was a terror on the playgrounds. As a young teen, he played with semi-pro black teams, including the Mobile Black Bears. Local scout Ed Scott saw great promise in young Henry, and in 1951, signed him with the Negro League Indianapolis Clowns.\n\nIn 1952, the Boston Braves purchased Aaron's playing rights from the Clowns. Aaron destroyed minor league pitching for two years and in 1954 the Braves—by then in Milwaukee—called him up. There was no learning curve for Hank Aaron. In his second year, he was chosen for the first of 21 consecutive All-Star games.\n\nBecause of the Braves' lackluster record in the last half of Aaron's career, it's easy to forget that \"Hammerin' Hank\" enjoyed winning seasons his first 13 years in the league. From a personal and team standpoint, Aaron's greatest season was probably 1957. He led the National League in home runs (44) and RBIs (132), hit .322, and was named the National League MVP.\n\nAaron was carried off the field after rocking an 11th inning homer late that season to clinch the Braves first league title since 1914. In the World Series, he batted .393 as the Braves beat the New York Yankees in seven games. The Braves made it back to the series the next year, but lost to the Yankees.\n\nIn 1959, the player so associated with hitting for power led the league with a stratospheric .355 batting average.\n\nIn 1966, the Braves moved from Milwaukee to Atlanta. The team's performance was lackluster, despite Aaron's consistently Herculean output.\n\nIn 1973, the home run chase began in earnest. Aaron, at 39, hit 40 homers that year, but finished the season one shy of Ruth's mark. The chase, which had become a national obsession, would have to wait until the next season. Sports Illustrated reported that Aaron received almost a million letters in 1973. While some of it was hate mail, bigots angry that a black man would break Ruth's record, most came from fans rooting for the quiet, dignified Aaron.\n\nOn opening day of the 1974 season, he tied the record with a blast against the Reds in Cincinnati. From that point on, every Aaron at-bat was a national event.\n\nFour days later—against the Dodgers, and in Atlanta—Aaron connected on his historic shot. Two fans ran onto the field chasing the loping Aaron from second to third base. At home plate, his teammates hoisted the home run champ. His mother Estella raced onto the field and gave him a hard, long hug as Atlanta, and the nation, exulted. It was one of the most spine-tingling moments in the history of sports.\n\nIn 1975, Aaron returned to Milwaukee when the Braves traded him to the Brewers. He would hit his final 21 home runs—734 to 755—in the American League, his final dinger coming in 1976.\n\nNo player in baseball history has put up greater overall hitting numbers than Hank Aaron. Consider the following hitting categories, and Aaron's rank in each:\n\nRBIs: First, with 2,297.\n\nExtra-base hits: First, with 1,477\n\nTotal bases: First, with 6,856\n\nHome Runs: Second, with 755\n\nHits: Fourth, with 3,771.\n\nRuns: Fourth, with 2,174\n\nWithin months of his retirement as a player, Aaron was back with the Braves. As the team's director of player development, a position he held for years, Aaron was instrumental in turning the franchise from a cellar-dweller to a perennial playoff team.\n\nAaron was overwhelmingly voted into the Baseball Hall of Fame in 1982, his first year of eligibility. In 1997, the City of Mobile built Hank Aaron Stadium, the home for the minor league Mobile Bay Bears.\n\nIn 2007, Barry Bonds broke Aaron's record. However, Bonds' use of steroids during his career mars his record and many still consider Aaron the true holder of the career home run mark.\n\nIn 2010, the Bay Bears moved Aaron's childhood home to the stadium facility and opened the Hank Aaron Childhood Home & Museum. Joining Aaron for the grand opening were his old friend, Baseball Commissioner Bud Selig, and Hall of Famers Willie Mays, Bob Feller, Rickey Henderson, Bruce Sutter, Reggie Jackson and Ozzie Smith.\n\nIt seems impossible that's it's been more than 40 years since Aaron broke Ruth's record. In 2014, the Braves honored \"Hammerin' Hank\" by wearing a patch on their uniforms commemorating the record-breaking blast by Mobile's most famous citizen.",
-    "displayName": "Hank Aaron"
+    "displayName": "Hank Aaron",
+    "image": "assets/hof/henry-hank-aaron.jpg"
   },
   {
     "name": "HERMAN MAISEL",
     "year": 2000,
     "summary": "Successful high school head coach who won state championship as basketball coach at Murphy H.S. in 1955. Also won state title as head golf coach at Murphy.",
-    "letter": "H"
+    "letter": "H",
+    "image": "assets/hof/herman-maisel.jpg"
   },
   {
     "name": "IVAN MAISEL",
@@ -354,7 +381,8 @@
     "name": "JAMES TAYLOR",
     "year": 2015,
     "summary": "Taylor was named All-County and All-State after rushing for 3,200 yards and 16 touchdowns in just eight games at Citronelle High School. He went on to play for Bear Bryant at Alabama and was a member of the 1973 National Championship team. A member of the MOWA Choctaw tribe, Taylor is the first Native American inducted into the Mobile Sports Hall of Fame.",
-    "letter": "J"
+    "letter": "J",
+    "image": "assets/hof/james-taylor.jpg"
   },
   {
     "name": "JAMES “JIM” TATE",
@@ -384,13 +412,15 @@
     "name": "JIMMY GREEN",
     "year": 2016,
     "summary": "Standout collegate golfer at Auburn University[/vc_column_text]",
-    "letter": "J"
+    "letter": "J",
+    "image": "assets/hof/jimmy-green.jpg"
   },
   {
     "name": "JOE BULLARD, JR.",
     "year": 1999,
     "summary": "Five-sport star at UMS. Three-time All-South defensive back at Tulane University (1969-71). Still holds numerous school records for punt return yardage, average and TD’s.",
-    "letter": "J"
+    "letter": "J",
+    "image": "assets/hof/joe-bullard.jpg"
   },
   {
     "name": "JOE GOTTFRIED",
@@ -402,7 +432,8 @@
     "name": "JOEY JONES",
     "year": 2011,
     "summary": "University of Alabama All-SEC receiver. Member of Alabama’s All-Decade Team of the 1980s. Played three seasons in USFL and one year in NFL. Currently the head football coach at the University of South Alabama.",
-    "letter": "J"
+    "letter": "J",
+    "image": "assets/hof/joey-jones.jpg"
   },
   {
     "name": "JOHN MITCHELL",
@@ -420,7 +451,8 @@
     "name": "JOHNNY BROWN",
     "year": 2001,
     "summary": "Mobile Metro Golf Champion known as “The King” of Mobile Golf. Star golfer at the University of South Alabama.",
-    "letter": "J"
+    "letter": "J",
+    "image": "assets/hof/johnny-brown.jpg"
   },
   {
     "name": "JOHNNY “J.D.” SHELWOOD",
@@ -432,7 +464,8 @@
     "name": "JON LIEBER",
     "year": 2013,
     "summary": "All-American at South Alabama. 2nd round draft pick 1992 Kansas City Royals. 14 seasons in MLB. Winning 131 career games. Finished 4th for the Cy Young Award in 2001.",
-    "letter": "J"
+    "letter": "J",
+    "image": "assets/hof/jon-lieber.jpg"
   },
   {
     "name": "JOSH DONALDSON",
@@ -462,7 +495,8 @@
     "name": "KAREN MAYSON BAHNSEN",
     "year": 2015,
     "summary": "Now in her fourth decade as head coach of the LSU women’s golf team, she was named SEC Coach of the Year in 1995. As a player, Bahnsen led the LSU women’s golf team and at McGill-Toolen High School, she led the Yellow Jackets to two state titles. Her mother June Buckholtz Mayson is an inductee of the Mobile Sports Hall of Fame.",
-    "letter": "K"
+    "letter": "K",
+    "image": "assets/hof/karen-mayson-bahnsen.jpg"
   },
   {
     "name": "KELLI OGDAN HILLIER",
@@ -474,19 +508,22 @@
     "name": "KENNY STABLER",
     "year": 1989,
     "summary": "All-American QB at Alabama (1965-67). 17-Year NFL Career with Raiders, Oilers and Saints. NFL MVP in 1974 and led Raiders to Super Bowl victory in 1977.",
-    "letter": "K"
+    "letter": "K",
+    "image": "assets/hof/kenny-stabler.jpg"
   },
   {
     "name": "LANCE JOHNSON",
     "year": 2016,
     "summary": "All-Star baseball player in the Major Leagues and South Alabama Second Team All- American.",
-    "letter": "L"
+    "letter": "L",
+    "image": "assets/hof/lance-johnson.jpg"
   },
   {
     "name": "LAURETTA FREEMAN-HORN",
     "year": 2014,
     "summary": "Starred at Williamson High School before embarking on a remarkable career at Auburn University. Freeman led Auburn to the 1990 Final Four and was the SEC Player of the Year and First Team All America in 1993. She won a gold medal for the U.S. at the 1994 Good- will Games. Freeman played professional basketball overseas and in the ABL. After retiring, she has been an assistant coach at Auburn and a head high school coach in Mobile (St. Paul’s).",
-    "letter": "L"
+    "letter": "L",
+    "image": "assets/hof/lauretta-freeman-horn.jpg"
   },
   {
     "name": "LAWYER TILLMAN",
@@ -504,7 +541,8 @@
     "name": "LEROY “SATCHEL” PAIGE",
     "year": 1990,
     "summary": "National Baseball Hall of Fame Inductee – 1971 (First Negro League player inducted). Legendary baseball career that spanned 41 Years (1926-66). Oldest rookie in Major League history at age 42 in 1948.",
-    "letter": "L"
+    "letter": "L",
+    "image": "assets/hof/leroy-satchel-paige.jpg"
   },
   {
     "name": "LEVI WASHINGTON",
@@ -516,7 +554,8 @@
     "name": "LEWIS BRASSELL",
     "year": 2000,
     "summary": "Member of National Softball Hall of Fame. Commissioner of Mobile Metro Softball Association for 20 Years.",
-    "letter": "L"
+    "letter": "L",
+    "image": "assets/hof/lewis-brassell.jpg"
   },
   {
     "name": "LIONEL “RED” NOONAN",
@@ -528,7 +567,8 @@
     "name": "LOYD SKODA",
     "year": 2015,
     "summary": "Lloyd Skoda, a high school baseball for 39 years, retired with a record of 902-265. He coached future major leaguers Coco Duncan, P.J. Walters, and Josh Donaldson. He was inducted into the Alabama Baseball Association Hall of Fame in 2003.",
-    "letter": "L"
+    "letter": "L",
+    "image": "assets/hof/loyd-skoda.jpg"
   },
   {
     "name": "LUIS GONZALEZ",
@@ -540,7 +580,8 @@
     "name": "MABEL WALKER THORTON",
     "year": 2010,
     "summary": "Member of 1948 United States Olympic team, competing in the 100-yard dash and 440-relay at games held in London, England. Also starred on Tuskegee Institute’s track team.",
-    "letter": "M"
+    "letter": "M",
+    "image": "assets/hof/mabel-walker-thorton.jpg"
   },
   {
     "name": "MARK BARRON",
@@ -552,25 +593,29 @@
     "name": "MARYDYE McDOLE",
     "year": 2015,
     "summary": "McDole is generally regarded as the greatest receiver in the history of Mississippi State football. He left MSU as the school’s all-time leading receiver in yards (2,214) and catches (116). McDole was a 2nd round draft pick by the Minnesota Vikings in the 1981 NFL Draft. He also played for the Calgary Stampeders in the CFL and the Memphis Showboats in the USFL.",
-    "letter": "M"
+    "letter": "M",
+    "image": "assets/hof/marydye-mcdole.jpg"
   },
   {
     "name": "MIKE FULLER",
     "year": 1996,
     "summary": "Defensive back at Auburn University (1971-74). Also excelled as DB and kick returner in NFL for Bengals and Chargers (1975-82).",
-    "letter": "M"
+    "letter": "M",
+    "image": "assets/hof/mike-fuller.jpg"
   },
   {
     "name": "MIKE GOTTFRIED",
     "year": 2008,
     "summary": "NCAA football head coach at four schools – Murray State, Cincinnati, Kansas and Pittsburgh (1978-89) and longtime ESPN College Football analyst and commentator. Founded national community outreach program, Team Focus.",
-    "letter": "M"
+    "letter": "M",
+    "image": "assets/hof/mike-gottfried.jpg"
   },
   {
     "name": "MILTON BOLLING III",
     "year": 1992,
     "summary": "Major League Baseball shortstop with Red Sox, Senators and Tigers (1952-58). Served as executive with Red Sox organization from 1961-95",
-    "letter": "M"
+    "letter": "M",
+    "image": "assets/hof/milton-bolling.jpg"
   },
   {
     "name": "MONIQUE ADAMS WILLIAMS",
@@ -588,13 +633,15 @@
     "name": "OZZIE SMITH",
     "year": 1997,
     "summary": "National Baseball Hall of Fame Inductee – 2002. 19-Year career as shortstop with Padres and Cardinals (1978-96). Won 13 Straight Gold Glove Awards and was 15-Time All-Star.",
-    "letter": "O"
+    "letter": "O",
+    "image": "assets/hof/ozzie-smith.jpg"
   },
   {
     "name": "PAT GALLE",
     "year": 2009,
     "summary": "Highly successful high school head football, track and cross country coach. Has coached at UMS-Wright for 37 years, leading boys and girls teams that have won 32 state titles.",
-    "letter": "P"
+    "letter": "P",
+    "image": "assets/hof/pat-galle.jpg"
   },
   {
     "name": "PAT WHITE",
@@ -606,25 +653,29 @@
     "name": "PAUL CHRISTOPER HARRIS, SR.",
     "year": 2002,
     "summary": "All-SEC football star at the University of Alabama – 1973-76. Helped lead Alabama to 1974 and 1975 SEC Championships and played for NFL’s Buccaneers and Vikings.",
-    "letter": "P"
+    "letter": "P",
+    "image": "assets/hof/paul-christoper-harris.jpg"
   },
   {
     "name": "PAUL CRANE",
     "year": 1991,
     "summary": "All-American football player at the University of Alabama (1962-64). Played for NFL’s New York Jets from 1965-72 and was starting center in historic Super Bowl III victory.",
-    "letter": "P"
+    "letter": "P",
+    "image": "assets/hof/paul-crane.jpg"
   },
   {
     "name": "PEGGY MARTIN",
     "year": 2006,
     "summary": "Winningest volleyball coach in NCAA Division II history, recording 33 straight winning seasons and 1,064 wins at Central Missouri State.",
-    "letter": "P"
+    "letter": "P",
+    "image": "assets/hof/peggy-martin.jpg"
   },
   {
     "name": "PETE MYERS",
     "year": 2002,
     "summary": "Starred at Williamson High, Faulkner State, and Arkansas Little Rock. Drafted for the Chicago Bulls in 1986. Played 11 seasons in the NBA. Golden State Warriors Assistant Coach.",
-    "letter": "P"
+    "letter": "P",
+    "image": "assets/hof/pete-myers.jpg"
   },
   {
     "name": "PHIL SAVAGE",
@@ -648,7 +699,8 @@
     "name": "RAY “BUDDY” LAUTEN",
     "year": 2001,
     "summary": "Football and basketball Star at UMS. Record-setting basketball performer at Spring Hill College (1948-50) and Spring Hill College Hall of Fame inductee.",
-    "letter": "R"
+    "letter": "R",
+    "image": "assets/hof/ray-buddy-lauten.jpg"
   },
   {
     "name": "REA SCHUESSLER",
@@ -660,19 +712,22 @@
     "name": "REGGIE COPELAND, SR.",
     "year": 1999,
     "summary": "Former Murphy H.S. basketball and football star. Longtime SEC basketball official who officiated NCAA Championship Game. Major proponent of sports in Mobile as member of Mobile City Council.",
-    "letter": "R"
+    "letter": "R",
+    "image": "assets/hof/reggie-copeland.jpg"
   },
   {
     "name": "RICH CASTER",
     "year": 1995,
     "summary": "All-American football and track star at Jackson State. Had 13-Year NFL career with Jets, Redskins, Oilers and Saints (1970-82).",
-    "letter": "R"
+    "letter": "R",
+    "image": "assets/hof/rich-caster.jpg"
   },
   {
     "name": "RICHARD TODD",
     "year": 1997,
     "summary": "Star quarterback at the University of Alabama (1973-75) who helped lead Crimson Tide to three SEC Titles. Ten-year NFL career with Jets and Saints (1976-85).",
-    "letter": "R"
+    "letter": "R",
+    "image": "assets/hof/richard-todd.jpg"
   },
   {
     "name": "RICK TRICKETT",
@@ -684,13 +739,15 @@
     "name": "RILEY SMITH",
     "year": 1988,
     "summary": "All-American QB at Alabama who led team to 1935 Rose Bowl Victory. Played for Washington Redskins and was second player ever selected in NFL Draft (1936).",
-    "letter": "R"
+    "letter": "R",
+    "image": "assets/hof/riley-smith.jpg"
   },
   {
     "name": "ROBERT BRAZILE, JR.",
     "year": 1994,
     "summary": "All-American football star at Jackson State who had stellar 10-year NFL career with Houston Oilers. Seven-time Pro Bowl linebacker and five-time All-Pro.",
-    "letter": "R"
+    "letter": "R",
+    "image": "assets/hof/robert-brazile.jpg"
   },
   {
     "name": "RODNEY HUDSON",
@@ -708,25 +765,29 @@
     "name": "SAM PETTAWAY",
     "year": 2014,
     "summary": "A highly successful boys and girls track coach at Davidson High School from 1976-92. His boys’ teams won state championships in 1976, ’81, ’82, ’84, ’85, ’86, ’87. His girls’ teams won state championships in 1987 and ’88. Pettaway’s athletes earned more than forty All-American distinctions and many went on to successful college careers. Pettaway was also involved for many years with the City of Mobile Parks and Recreation Track program.",
-    "letter": "S"
+    "letter": "S",
+    "image": "assets/hof/sam-pettaway.jpg"
   },
   {
     "name": "SCOTT HUNTER",
     "year": 1996,
     "summary": "Record-setting QB at University of Alabama (1968-70). Enjoyed nine-year NFL Career with Packers, Falcons, Bills and Lions (1971-79).",
-    "letter": "S"
+    "letter": "S",
+    "image": "assets/hof/scott-hunter.jpg"
   },
   {
     "name": "STAN GALLE",
     "year": 1995,
     "summary": "Former Major League Baseball player with Senators. Served as head baseball coach at Spring Hill College for 27 seasons and school’s field is named in his honor.",
-    "letter": "S"
+    "letter": "S",
+    "image": "assets/hof/stan-galle.jpg"
   },
   {
     "name": "STEVE KITTRELL",
     "year": 2004,
     "summary": "Head baseball coach at University of South Alabama (1984-2010). All-time winningest coach in school history with over 1,000 wins.",
-    "letter": "S"
+    "letter": "S",
+    "image": "assets/hof/steve-kittrell.jpg"
   },
   {
     "name": "SUSIE REDMAN",
@@ -750,25 +811,29 @@
     "name": "TERRY ADAMS",
     "year": 2009,
     "summary": "11-Year Major League Baseball career as relief pitcher (1995-2005). Member of Red Sox 2004 World Series Champs.",
-    "letter": "T"
+    "letter": "T",
+    "image": "assets/hof/terry-adams.jpg"
   },
   {
     "name": "TERRY CURTIS",
     "year": 2005,
     "summary": "High school head football coach at Shaw, Murphy and UMS-Wright for 21 seasons. Has recorded over 200 victories and won four state titles at UMS (2001, ’02, 04 and ’08).",
-    "letter": "T"
+    "letter": "T",
+    "image": "assets/hof/terry-curtis.jpg"
   },
   {
     "name": "TERRY HOPPER",
     "year": 2008,
     "summary": "NAIA Hall of Fame Inductee. Men’s golf coach at University of Mobile (1984-2009) winning national title in 1997.",
-    "letter": "T"
+    "letter": "T",
+    "image": "assets/hof/terry-hopper.jpg"
   },
   {
     "name": "TOMMIE AGEE",
     "year": 1992,
     "summary": "12-Year Major League Baseball career with five teams (1962-73). 1966 A.L. Rookie of the Year and member of Mets’ 1969 World Series Champs.",
-    "letter": "T"
+    "letter": "T",
+    "image": "assets/hof/tommie-agee.jpg"
   },
   {
     "name": "TOMMY AARON",
@@ -786,7 +851,8 @@
     "name": "VINCE DOOLEY",
     "year": 1989,
     "summary": "Member of National Collegiate Football Hall of Fame. Head football coach at University of Georgia for 25 seasons (1964-88) winning 201 games, six SEC Titles and the 1980 National Championship.",
-    "letter": "V"
+    "letter": "V",
+    "image": "assets/hof/vince-dooley.jpg"
   },
   {
     "name": "W.J. “PETE” MILNE",
@@ -816,24 +882,28 @@
     "name": "WILLIAM “BILLY” COLEMAN",
     "year": 2002,
     "summary": "Star QB at Southern Mississippi (1961-62) who helped lead USM to 1962 Small College National Title. Longtime high school head football coach with 148 career victories.",
-    "letter": "W"
+    "letter": "W",
+    "image": "assets/hof/william-billy-coleman.jpg"
   },
   {
     "name": "WILLIAM “BILL” JESSIE",
     "year": 2004,
     "summary": "High school football coach at Central, Toulmanville and LeFlore high schools for 27 seasons, recording 145 victories. High School football official and AHSAA administrator for 35 years.",
-    "letter": "W"
+    "letter": "W",
+    "image": "assets/hof/william-bill-jessie.jpg"
   },
   {
     "name": "WILLIE ANDERSON",
     "year": 2011,
     "summary": "All-SEC offensive lineman at Auburn University. Four-time Pro Bowl selection and three-time first-team All-Pro (2004, ’05 and ’06) for NFL’s Cincinnati Bengals and Baltimore Ravens from 1996-2008.",
-    "letter": "W"
+    "letter": "W",
+    "image": "assets/hof/willie-anderson.jpg"
   },
   {
     "name": "WILLIE McCOVEY",
     "year": 1989,
     "summary": "National Baseball Hall of Fame Inductee (1986). 22-Year Major League Baseball career with Giants, Padres and A’s (1959-80). Six-time All-Star who hit 521 career home runs.",
-    "letter": "W"
+    "letter": "W",
+    "image": "assets/hof/willie-mccovey.jpg"
   }
 ]
