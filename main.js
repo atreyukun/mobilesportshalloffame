@@ -87,7 +87,7 @@ async function initHof(root) {
   const modal = document.getElementById("hof-modal");
 
   let inductees = [];
-  let activeLetter = "ALL";
+  let activeLetter = null; // nothing selected by default
   let query = "";
 
   try {
@@ -98,10 +98,15 @@ async function initHof(root) {
     return;
   }
 
+  // Index by last-name initial (standard directory style)
+  inductees.forEach((p) => {
+    p.letter = lastNameLetter(p.name);
+  });
+
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   if (letters) {
     letters.innerHTML =
-      `<button type="button" class="hof-letter is-active" data-letter="ALL">All</button>` +
+      `<button type="button" class="hof-letter" data-letter="ALL">All</button>` +
       alphabet
         .map((l) => `<button type="button" class="hof-letter" data-letter="${l}">${l}</button>`)
         .join("");
@@ -119,6 +124,7 @@ async function initHof(root) {
   if (search) {
     search.addEventListener("input", () => {
       query = search.value.trim().toLowerCase();
+      // Searching without a letter selected still works across everyone
       render();
     });
   }
@@ -203,7 +209,10 @@ async function initHof(root) {
 
   function render() {
     const filtered = inductees.filter((p) => {
-      const letterOk = activeLetter === "ALL" || p.letter === activeLetter;
+      const letterOk =
+        activeLetter == null
+          ? Boolean(query) // only show results before a letter pick if user is searching
+          : activeLetter === "ALL" || p.letter === activeLetter;
       const qOk =
         !query ||
         p.name.toLowerCase().includes(query) ||
@@ -214,14 +223,24 @@ async function initHof(root) {
     filteredCache = filtered;
 
     if (count) {
-      count.textContent = `${filtered.length} inductee${filtered.length === 1 ? "" : "s"}`;
+      if (activeLetter == null && !query) {
+        count.textContent = "Select a letter to browse";
+      } else {
+        count.textContent = `${filtered.length} inductee${filtered.length === 1 ? "" : "s"}`;
+      }
     }
 
     if (!grid) return;
 
     if (!filtered.length) {
       grid.innerHTML = "";
-      if (empty) empty.hidden = false;
+      if (empty) {
+        empty.hidden = false;
+        empty.textContent =
+          activeLetter == null && !query
+            ? "Choose a letter to browse inductees by last name."
+            : "No inductees match your search.";
+      }
       return;
     }
 
@@ -247,6 +266,22 @@ async function initHof(root) {
   }
 
   render();
+}
+
+/** First letter of last name (skips Jr/Sr/II/III/IV). */
+function lastNameLetter(name) {
+  const parts = String(name)
+    .toUpperCase()
+    .replace(/[“”"‘’']/g, "")
+    .split(/[^A-Z0-9]+/)
+    .filter(Boolean);
+  const suffixes = new Set(["JR", "SR", "II", "III", "IV", "V"]);
+  while (parts.length > 1 && suffixes.has(parts[parts.length - 1])) {
+    parts.pop();
+  }
+  const last = parts[parts.length - 1] || "";
+  const m = last.match(/[A-Z]/);
+  return m ? m[0] : "#";
 }
 
 function escapeHtml(str) {
