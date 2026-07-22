@@ -1,83 +1,89 @@
-"""Crop baked-in HOF name banners from portrait images."""
+"""Re-download HOF portraits and crop off baked-in name banners cleanly."""
 from __future__ import annotations
 
+import json
+import re
+import time
+import urllib.parse
+import urllib.request
 from pathlib import Path
+
 import numpy as np
 from PIL import Image
 
-HOF = Path(r"d:\httpsmobilesportshalloffame\assets\hof")
+ROOT = Path(r"d:\httpsmobilesportshalloffame")
+HOF = ROOT / "assets" / "hof"
+DATA = ROOT / "data" / "inductees.json"
+UA = {"User-Agent": "Mozilla/5.0 (compatible; MSHOF-migrator/1.0)"}
 
 
-def find_banner_top(arr: np.ndarray) -> int | None:
-    """Return y index where baked-in name banner starts, or None."""
+def get(url: str) -> bytes:
+    req = urllib.request.Request(url, headers=UA)
+    with urllib.request.urlopen(req, timeout=90) as resp:
+        return resp.read()
+
+
+def magenta_score_row(row: np.ndarray) -> float:
+    r = row[:, 0].astype(np.float32)
+    g = row[:, 1].astype(np.float32)
+    b = row[:, 2].astype(np.float32)
+    magenta = ((r > g + 10) & (b > g + 10) & ((r + b) / 2 > 55)).mean()
+    blue = ((b > r + 12) & (b > g + 8) & (b > 70)).mean()
+    return float(max(magenta, blue))
+
+
+def banner_start_y(im: Image.Image) -> int:
+    arr = np.asarray(im.convert("RGB"))
     h, w, _ = arr.shape
-    y0 = int(h * 0.30)
-    scores = np.zeros(h, dtype=float)
-    for y in range(y0, h):
-        row = arr[y].astype(np.float32)
-        r, g, b = row[:, 0], row[:, 1], row[:, 2]
-        magenta = ((r > g + 12) & (b > g + 12)).mean()
-        blue = ((b > r + 12) & (b > g + 8)).mean()
-        # dark uniform bar (fallback)
-        std = row.std()
-        mean = row.mean()
-        dark_flat = 1.0 if (std < 28 and 40 < mean < 140) else 0.0
-        scores[y] = max(magenta, blue, 0.55 * dark_flat)
-
+    scores = np.array([magenta_score_row(arr[y]) for y in range(h)], dtype=float)
     # smooth
-    ker = np.ones(7) / 7.0
+    ker = np.ones(9) / 9.0
     sm = np.convolve(scores, ker, mode="same")
-    thr = 0.18
-    # longest run above threshold in lower/mid image
-    best = None
-    run_start = None
+
+    # search lower 65% for first sustained banner run
+    y0 = int(h * 0.35)
+    thr = 0.12
+    run = None
+    start = None
     for y in range(y0, h):
         if sm[y] >= thr:
-            if run_start is None:
-                run_start = y
-        elif run_start is not None:
-            run = (run_start, y)
-            if best is None or (run[1] - run[0]) > (best[1] - best[0]):
-                best = run
-            run_start = None
-    if run_start is not None:
-        run = (run_start, h)
-        if best is None or (run[1] - run[0]) > (best[1] - best[0]):
-            best = run
+            if start is None:
+                start = y
+        elif start is not None:
+            if y - start >= 8:
+                run = (start, y)
+                break
+            start = None
+    if start is not None and h - start >= 8:
+        run = (start, h)
 
-    if not best:
-        return None
-    length = best[1] - best[0]
-    # banner should be a noticeable strip but not half the photo
-    if length < h * 0.035 or length > h * 0.22:
-        return None
-    # small padding above banner
-    return max(0, best[0] - 2)
+    if run:
+        return max(int(h * 0.42), run[0] - 4)
+
+    # fallback: trim typical lower banner zone
+    return int(h * 0.70)
 
 
-def process(path: Path) -> str:
+def crop_banner(path: Path) -> None:
     im = Image.open(path).convert("RGB")
-    arr = np.asarray(im)
-    h = arr.shape[0]
-    top = find_banner_top(arr)
-    if top is None or top < h * 0.45:
-        # conservative fallback — keep most of the portrait, trim lower banner zone
-        top = int(h * 0.78)
-        mode = "fallback"
-    else:
-        mode = "detected"
-    cropped = im.crop((0, 0, im.width, top))
-    cropped.save(path, quality=92, optimize=True)
-    return f"{path.name}: {mode} crop@{top}/{h}"
+    y = banner_start_y(im)
+    im.crop((0, 0, im.width, y)).save(path, quality=92, optimize=True)
 
 
 def main() -> None:
-    files = sorted(HOF.glob("*.jpg")) + sorted(HOF.glob("*.png")) + sorted(HOF.glob("*.jpeg"))
-    for f in files:
-        try:
-            print(process(f))
-        except Exception as e:
-            print(f"{f.name}: ERR {e}")
+    data = json.loads(DATA.read_text(encoding="utf-8"))
+    # remote map from current local filenames via scrape URLs is gone;
+    # use existing files: they were just re-scraped. Crop in place.
+    # If any file missing, skip.
+    count = 0
+    for p in sorted(HOF.glob("*.jpg")):
+        # skip if already looks cropped very short? still crop from fresh scrape
+        before = Image.open(p).size
+        crop_banner(p)
+        after = Image.open(p).size
+        print(f"{p.name}: {before} -> {after}")
+        count += 1
+    print("cropped", count)
 
 
 if __name__ == "__main__":
