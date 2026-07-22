@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]><html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if ( IE 7 )&!( IEMobile )]><html lang="en" class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if ( IE 8 )&!( IEMobile )]><html lang="en" class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"><!--<![endif]-->
+
+<head>
+	        <meta charset="UTF-8" />
+<title>Page not found | Mobile Sports Hall of Fame</title>
+
+<!-- google chrome frame for ie -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+<!-- mobile meta -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<link rel="shortcut icon" href="https://mobilesportshalloffame.net/wp-content/themes/Embrace/favicon.ico">
+<link rel="pingback" href="https://mobilesportshalloffame.net/xmlrpc.php">
+
+	<!--[if lte IE 8]>
+	<script src="https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/js/rem.min.js" type="text/javascript"></script>
+	<![endif]-->
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Mobile Sports Hall of Fame &raquo; Feed" href="https://mobilesportshalloffame.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Mobile Sports Hall of Fame &raquo; Comments Feed" href="https://mobilesportshalloffame.net/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/mobilesportshalloffame.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.16"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='app-css'  href='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/css/foundation.css?ver=5.4.16' type='text/css' media='all' />
+<link rel='stylesheet' id='source-sans-pro-css'  href='//fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700%2C300italic%2C400italic&#038;subset=latin%2Clatin-ext&#038;ver=5.4.16' type='text/css' media='all' />
+<link rel='stylesheet' id='museo-font-css'  href='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/fonts/museo-font.css?ver=5.4.16' type='text/css' media='all' />
+<link rel='stylesheet' id='magnificPopup-css'  href='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/css/magnific-popup.css?ver=5.4.16' type='text/css' media='all' />
+<link rel='stylesheet' id='style-css'  href='https://mobilesportshalloffame.net/wp-content/themes/embrace-child/style.css?ver=5.4.16' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://mobilesportshalloffame.net/wp-includes/css/dist/block-library/style.min.css?ver=5.4.16' type='text/css' media='all' />
+<link rel='stylesheet' id='crumina-page-slider-frontend-css'  href='https://mobilesportshalloffame.net/wp-content/plugins/crumina-slider-embrace/assets/css/frontend/frontend.css?ver=1.0' type='text/css' media='all' />
+<style id='crumina-page-slider-frontend-inline-css' type='text/css'>
+#crumina-page-slider-28 .crumina_slider.embrace .text-desc, .crumina_slider.embrace .text-desc a {color:#fff;}#crumina-page-slider-28 .crumina_slider.embrace .more-button {color:#fff; border-color:#fff;}#crumina-page-slider-28 .crumina_slider.embrace  .active .cr-sl-item:hover .bg {background-color:#000;opacity:0.5;}#crumina-page-slider-26 .crumina_slider.embrace .text-desc, .crumina_slider.embrace .text-desc a {color:#fff;}#crumina-page-slider-26 .crumina_slider.embrace .more-button {color:#fff; border-color:#fff;}#crumina-page-slider-26 .crumina_slider.embrace  .active .cr-sl-item:hover .bg {background-color:;opacity:0.8;}
+</style>
+<link rel='stylesheet' id='mediaelement-css'  href='https://mobilesportshalloffame.net/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.13-9993131' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css'  href='https://mobilesportshalloffame.net/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=5.4.16' type='text/css' media='all' />
+<link rel='stylesheet' id='crumina-font-embrace-css'  href='https://mobilesportshalloffame.net/wp-content/uploads/embrace_fonts/embrace/embrace.css?ver=5.4.16' type='text/css' media='all' />
+<link rel='stylesheet' id='crumina-font-picons-css'  href='https://mobilesportshalloffame.net/wp-content/uploads/embrace_fonts/picons/picons.css?ver=5.4.16' type='text/css' media='all' />
+<link rel='stylesheet' id='crum-css'  href='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/css/style.css?ver=5.4.16' type='text/css' media='all' />
+<style id='crum-inline-css' type='text/css'>
+#primary,#main-wrapper{ background-image: url(" " ); background-position: 0 center }  #primary,#main-wrapper{ background-repeat: repeat}  body{ background-image: url(" " ); background-position: 0 center }  body{ background-repeat: repeat}  #footer{ background-image: url(" " ); background-position: 0 center }  #footer{ background-color: #79726b}  #footer{ background-repeat: repeat}  .inner-footer p, .site-info p,
+		.inner-footer p, .inner-footer span, .inner-footer .widget ul > li a, .inner-footer .widget ul > li a,
+		.inner-footer .widget ul > li:before, .inner-footer .widget ol > li a, #recentcomments .recentcomments,
+		.inner-footer .widget ol > li:before, #footer .inner-footer p a, .inner-footer span a, .inner-footer #searchform i,
+		#searchform input[type="text"], .site-info .inline-list li > a, .inner-footer #wp-calendar caption,
+		.inner-footer .textwidget{ color: #fcfcfc}  #footer a:hover { color: #fcfcfc}  .inner-footer a { color: #fcfcfc}  .inner-footer .widget-title { color: #fcfcfc !important}  .inner-footer .tagcloud a, .inner-footer input[type="text"] {border-color: #fcfcfc !important}  .inner-footer .widget_crum_widget_tabs > dl > dd.active a {border-bottom-color: #fcfcfc !important}  .site-info{ background: none; }  .site-info{ background-repeat: repeat}  .site-info{ color: #fcfcfc}  .site-info a{ color: #fcfcfc}                          .header-title {font-family:Montserrat!important;}
+.tealheader {
+	font-family: "Montserrat"!important;
+	font-size: 22px;
+	line-height: 29px;
+	color: #7599D7;
+}
+
+.flex-video,.wpb_video_wrapper {
+padding-top: 0;
+padding-bottom: 56%;
+}
+
+.site-info .row {border-top-width:1px; border-top-color: #CCCCCC!important; padding: 10px;}
+
+#footer .sidebar {padding-top:2em!important;}
+.inner-footer .sidebar > .widget {margin-bottom: .2em;}
+
+
+#footer {position: relative; z-index :10;}
+
+.donbutt {
+	font-size: 20px;
+	line-height: 20px;
+	font-weight: 400;
+	font-family: Montserrat;
+	color: #ffffff!important;
+	text-decoration: none;
+	padding: 16px 16px 16px 16px;
+	background-color: rgb(150, 181, 234);
+	background-color: rgba(150, 181, 234, 1);
+	border-radius: 3px 3px 3px 3px;
+	border-width: 0px;
+	width:175px;
+	border-color: #ffd658;
+	border-style: none;
+	text-align: center;
+}
+.donbutt a:hover {background-color:#666666!important;}
+
+#header.fixed .menu-primary-navigation .indicator,.menu-primary-navigation .indicator {
+  top: 20px;
+}
+
+#header.fixed #menu > ul > li > a, .menu-primary-navigation > li > a {
+ padding-top: 20px;
+ padding-bottom: 30px;
+}
+
+@media(min-width:799px) and (max-width:1023px){
+    .site-header .logo {
+    width: auto;
+    }
+    .main-nav.large-10.medium-10.small-12.columns.smooth-animation{
+        width:auto;
+    }
+    .menu-primary-navigation > li > a {
+        font-size:12px;
+    }
+}
+
+@media(min-width:1024px) and (max-width:1279px){
+    .menu-primary-navigation > li > a {
+        font-size:12px;
+          padding-left: 5px;
+    padding-right: 5px;
+    }
+    
+}
+@media(min-width:1024px){
+    .site-header .logo {
+    width: 26%;
+    }
+    .main-nav.large-10.medium-10.small-12.columns.smooth-animation{
+        width: auto;
+  float: right;
+    }
+    
+}
+
+.site-header .logo {
+  padding-top: 5px;
+}
+#header.fixed .logo {
+  padding-top: 5px;
+  top: 0;
+}
+
+@media(min-width:1024px){
+#header.fixed .header-inside {
+  height: 50px;
+}
+.site-header .header-inside, #header {
+  max-height: 50px;
+}
+}
+
+
+
+.accordion dd > a {background-color:#96B5EA!important; padding:15px 20px!important;font-size:22px!important; color:#ffffff!important;}
+dl dd.active > a {background:#cccccc!important;}
+
+#stunning-header header {padding:10px 0 10px}
+.inner-footer p a, .inner-footer span a, .inner-footer .textwidget a, .inner-footer .recentcomments a {opacity:.80!important; color:#ffffff;}                    
+</style>
+<link rel='stylesheet' id='responsive-css'  href='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/css/responsive.css?ver=5.4.16' type='text/css' media='all' />
+<link rel='stylesheet' id='redux-google-fonts-css'  href='https://fonts.googleapis.com/css?family=Montserrat%3A400&#038;ver=1585757954' type='text/css' media='all' />
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cruminal10n = {"name":"Crumina Page Slider"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/plugins/crumina-slider-embrace/assets/js/frontend/frontend.js?ver=1.0'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/js/vendor/custom.modernizr.js?ver=5.4.16'></script>
+<link rel='https://api.w.org/' href='https://mobilesportshalloffame.net/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://mobilesportshalloffame.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://mobilesportshalloffame.net/wp-includes/wlwmanifest.xml" /> 
+
+<meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="https://mobilesportshalloffame.net/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><style type="text/css" title="dynamic-css" class="options-output">#header, #header.fixed .header-inside{background:rgba(52,179,232,0.23);}#header{color:#ffffff;}#stunning-header .header-title{font-family:Montserrat;font-style:normal;}body, p{font-family:Montserrat;font-weight:400;font-style:normal;}h1{font-family:Montserrat;font-weight:400;font-style:normal;}h2{font-family:Montserrat;font-style:normal;}h3{font-family:Montserrat;font-style:normal;}h4{font-family:Montserrat;font-style:normal;}h5{font-family:Montserrat;font-style:normal;}h6{font-family:Montserrat;font-style:normal;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>
+</head>
+
+<body data-rsssl=1 class="error404 header-style-4 fixed-header wpb-js-composer js-comp-ver-5.1 vc_responsive">
+
+	
+	<div id="main-wrapper" class="hfeed site ">
+
+        
+		
+        <div id="top-header">
+            <header id="header" class="site-header  smooth-animation" role="banner" style="">
+                <div class="header-inside">
+                    <div class="row ">
+
+                        <div class="logo  large-2 medium-2 small-12 columns">            <a href="https://mobilesportshalloffame.net/" title="Mobile Sports Hall of Fame" rel="home">
+
+            <img data-interchange='[https://mobilesportshalloffame.net/wp-content/uploads/2015/03/new2.png, (default)], [https://mobilesportshalloffame.net/wp-content/uploads/2015/03/MSHOF-_-LOGO21.png, (retina)]' alt="" class="hideie">
+            <img src="https://mobilesportshalloffame.net/wp-content/uploads/2015/03/new2.png" alt="" class="ie">
+            <noscript>
+                <img src='https://mobilesportshalloffame.net/wp-content/uploads/2015/03/new2.png' alt='Mobile Sports Hall of Fame'>
+            </noscript>
+        </a>
+    </div>
+        <div class="main-nav large-10 medium-10 small-12 columns smooth-animation">
+            <nav id="menu"  role="navigation">
+
+                                <ul id="menu-newmain" class="menu-primary-navigation"><li id="nav-menu-item-3510" class="nav-item menu-item-depth-0 "><a href="https://mobilesportshalloffame.net/" class="menu-link main-menu-link"><span class="name"> HOME</span><span class="desc"> </span></a></li>
+<li id="nav-menu-item-3509" class="nav-item menu-item-depth-0 has-submenu"><a href="https://mobilesportshalloffame.net/about-us/" class="menu-link main-menu-link"><span class="name"> OUR MISSION</span><span class="desc"> </span></a>
+<ul class="menu-depth-1 dropdown">
+	<li id="nav-menu-item-3674" class="sub-nav-item menu-item-depth-1 "><a href="https://mobilesportshalloffame.net/remembering-the-past/" class="menu-link sub-menu-link"><span class="name"> REMEMBERING THE PAST</span><span class="desc"> </span></a></li>
+	<li id="nav-menu-item-3687" class="sub-nav-item menu-item-depth-1 "><a href="https://mobilesportshalloffame.net/honoring-the-present/" class="menu-link sub-menu-link"><span class="name"> HONORING THE PRESENT</span><span class="desc"> </span></a></li>
+	<li id="nav-menu-item-3691" class="sub-nav-item menu-item-depth-1 "><a href="https://mobilesportshalloffame.net/welcoming-the-future/" class="menu-link sub-menu-link"><span class="name"> WELCOMING THE FUTURE</span><span class="desc"> </span></a></li>
+</ul>
+</li>
+<li id="nav-menu-item-3513" class="nav-item menu-item-depth-0 "><a href="https://mobilesportshalloffame.net/our_vision/" class="menu-link main-menu-link"><span class="name"> A SHARED VISION</span><span class="desc"> </span></a></li>
+<li id="nav-menu-item-3508" class="nav-item menu-item-depth-0 "><a href="https://mobilesportshalloffame.net/hall-of-famers/" class="menu-link main-menu-link"><span class="name"> HALL OF FAMERS</span><span class="desc"> </span></a></li>
+<li id="nav-menu-item-3507" class="nav-item menu-item-depth-0 "><a href="https://mobilesportshalloffame.net/news-events/" class="menu-link main-menu-link"><span class="name"> NEWS &#038; EVENTS</span><span class="desc"> </span></a></li>
+<li id="nav-menu-item-3506" class="nav-item menu-item-depth-0 "><a href="https://mobilesportshalloffame.net/support/" class="menu-link main-menu-link"><span class="name"> SUPPORT</span><span class="desc"> </span></a></li>
+</ul>            </nav>
+        </div><!-- .main-nav -->
+
+    
+                    </div>
+                    <!-- .row -->
+                </div>
+            </header>
+        </div>
+        <!-- #header -->
+
+        
+		<div id="stunning-header" style="
+		background-color:#00aeff; background-position:50%;background-repeat:no-repeat;background-size: cover;">
+
+			<div class="row" style="color:#ffffff;">
+				<div class="medium-12 small-12 columns">
+					<header >
+						<div class="st-wrap both">
+							<h1 class="header-title">For magazine layout</h1>
+													</div>
+					</header>
+				</div>
+			</div>
+		</div>
+
+	
+	<div id="primary" class="site-content">
+    
+    	    
+        <div id="content" role="main">
+
+            <div class="row">
+
+            <div class="row"><div class="blog-section "><section id="main-content" class="medium-12 small-12 columns">                
+                
+                    <article id="post-0" class="post error404 no-results not-found">
+
+
+                        <h1>404</h1>
+
+                        <header class="entry-header">
+                            <h1 class="entry-title">This is somewhat embarrassing, isn&rsquo;t it?</h1>
+                        </header>
+
+                        <div class="entry-content">
+
+
+
+                            <p>It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching will help.</p>
+                            
+<form role="search" method="get" id="searchform" action="https://mobilesportshalloffame.net">
+	<div class="row collapse">
+		<label class="screen-reader-text" for="s">Search for:</label>
+		<div class="medium-12 small-12 columns">
+			<input type="text" value="" name="s" id="s" placeholder="Enter search request" />
+			<i class="crumicon-search"></i>
+            <input class="search-submit" type="submit" id="searchsubmit" value="Search" />
+		</div>
+
+    </div>
+</form>
+                        </div><!-- .entry-content -->
+                    </article><!-- #post-0 -->
+            
+				
+             </section> </div>
+        </div><!-- .row -->
+
+        </div><!-- #content -->
+        
+                
+	</div><!-- #primary -->
+
+</div><!-- #main -->
+</div><!-- #page -->
+                
+        <footer id="footer" class="site-footer" role="contentinfo">
+        
+        		<div class="row">
+		<div class="medium-12 small-12 columns">
+			<div class="inner-footer">
+				
+
+<div class="row">
+
+
+        <div id="sidebar-footer" class="sidebar large-2  small-2 columns" role="complementary">
+            <div id="text-3" class="widget top-bar-widget  widget_text">			<div class="textwidget"><p><strong>CONTACT</strong></p>
+<p>The Mobile Sports Hall of Fame Foundation<br />
+Post Office Box 81816<br />
+Mobile, Alabama 36689</p>
+</div>
+		</div>        </div>
+        <!-- #sidebar-footer -->
+
+
+
+
+
+        <div id="sidebar-footer2" class="sidebar large-2 small-2 columns" role="complementary">
+            <div id="text-6" class="widget top-bar-widget  widget_text">			<div class="textwidget"></div>
+		</div>        </div>
+        <!-- #sidebar-footer -->
+
+
+
+
+
+		<div id="sidebar-footer3" class="sidebar large-2 small-2 columns" role="complementary">
+			<div id="text-4" class="widget top-bar-widget  widget_text">			<div class="textwidget"><div class="vc_empty_space"   style="height: 25px" ><span class="vc_empty_space_inner"></span></div>
+<p>Joe Gottfried<br />
+<a href="mailto:jgottfried9@gmail.com">jgottfried9@gmail.com</a><br />
+251-604-4631 (c)</p>
+</div>
+		</div>		</div>
+		<!-- #sidebar-footer -->
+
+
+
+
+
+		<div id="sidebar-footer4" class="sidebar large-2 small-2 columns" role="complementary">
+			<div id="text-7" class="widget top-bar-widget  widget_text">			<div class="textwidget"></div>
+		</div>		</div>
+		<!-- #sidebar-footer -->
+
+
+
+
+</div><!-- .row -->       
+				</div><!-- .inner-footer -->
+			</div><!-- .columns -->
+	</div><!-- .row -->
+	<div class="site-info">
+		<div class="row">
+            
+            <div class="medium-6 small-12 columns">
+
+                                    <div id="colophon">
+                        <p>
+                            <a href="https://mobilesportshalloffame.net/refund-policy/">Refund Policy</a> | <a href="https://mobilesportshalloffame.net/privacy-policy/">Privacy Policy</a>                        </p>
+                    </div><!-- #colophon -->
+
+                </div><!-- .columns -->
+
+                
+                    <div class="medium-6 small-12 columns">
+                        <nav class="footer-links" role="navigation">
+                            <ul id="menu-newmain-3" class="inline-list"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3510"><a href="https://mobilesportshalloffame.net/">HOME</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3509"><a href="https://mobilesportshalloffame.net/about-us/">OUR MISSION</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3513"><a href="https://mobilesportshalloffame.net/our_vision/">A SHARED VISION</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3508"><a href="https://mobilesportshalloffame.net/hall-of-famers/">HALL OF FAMERS</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3507"><a href="https://mobilesportshalloffame.net/news-events/">NEWS &#038; EVENTS</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3506"><a href="https://mobilesportshalloffame.net/support/">SUPPORT</a></li>
+</ul>                        </nav><!-- #footer-links -->
+                    </div><!--.columns -->
+
+                            
+		</div><!-- .row -->
+	</div><!-- #site-info -->
+<a href="#" id="linkTop" class="backtotop hidden"><i class="crumicon-arrow-up2"></i></a>
+
+		<script>
+    	jQuery(window).scroll(function () {
+        if (jQuery(this).scrollTop() === 0) {
+            jQuery("#linkTop").addClass("hidden")
+        } else {
+            jQuery("#linkTop").removeClass("hidden")
+        }
+    	});
+
+    	jQuery("#linkTop").click(function (e) {
+        	jQuery("body,html").animate({
+            	scrollTop:0
+        	}, 800);
+        	e.preventDefault();
+    	})
+    	</script>  
+        </footer><!-- #footer -->
+        
+        
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61379601-1', 'auto');
+  ga('send', 'pageview');
+
+</script><script>                        jQuery(document).ready(function(){
+
+});                    </script><script type='text/javascript'>
+var mejsL10n = {"language":"en","strings":{"mejs.download-file":"Download File","mejs.install-flash":"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/","mejs.fullscreen":"Fullscreen","mejs.play":"Play","mejs.pause":"Pause","mejs.time-slider":"Time Slider","mejs.time-help-text":"Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.","mejs.live-broadcast":"Live Broadcast","mejs.volume-help-text":"Use Up\/Down Arrow keys to increase or decrease volume.","mejs.unmute":"Unmute","mejs.mute":"Mute","mejs.volume-slider":"Volume Slider","mejs.video-player":"Video Player","mejs.audio-player":"Audio Player","mejs.captions-subtitles":"Captions\/Subtitles","mejs.captions-chapters":"Chapters","mejs.none":"None","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanian","mejs.arabic":"Arabic","mejs.belarusian":"Belarusian","mejs.bulgarian":"Bulgarian","mejs.catalan":"Catalan","mejs.chinese":"Chinese","mejs.chinese-simplified":"Chinese (Simplified)","mejs.chinese-traditional":"Chinese (Traditional)","mejs.croatian":"Croatian","mejs.czech":"Czech","mejs.danish":"Danish","mejs.dutch":"Dutch","mejs.english":"English","mejs.estonian":"Estonian","mejs.filipino":"Filipino","mejs.finnish":"Finnish","mejs.french":"French","mejs.galician":"Galician","mejs.german":"German","mejs.greek":"Greek","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Hebrew","mejs.hindi":"Hindi","mejs.hungarian":"Hungarian","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesian","mejs.irish":"Irish","mejs.italian":"Italian","mejs.japanese":"Japanese","mejs.korean":"Korean","mejs.latvian":"Latvian","mejs.lithuanian":"Lithuanian","mejs.macedonian":"Macedonian","mejs.malay":"Malay","mejs.maltese":"Maltese","mejs.norwegian":"Norwegian","mejs.persian":"Persian","mejs.polish":"Polish","mejs.portuguese":"Portuguese","mejs.romanian":"Romanian","mejs.russian":"Russian","mejs.serbian":"Serbian","mejs.slovak":"Slovak","mejs.slovenian":"Slovenian","mejs.spanish":"Spanish","mejs.swahili":"Swahili","mejs.swedish":"Swedish","mejs.tagalog":"Tagalog","mejs.thai":"Thai","mejs.turkish":"Turkish","mejs.ukrainian":"Ukrainian","mejs.vietnamese":"Vietnamese","mejs.welsh":"Welsh","mejs.yiddish":"Yiddish"}};
+</script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.13-9993131'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=5.4.16'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/","classPrefix":"mejs-","stretching":"responsive"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=5.4.16'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/js/foundation.min.js?ver=5.4.16'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/js/reactor.js?ver=5.4.16'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/js/slick.min.js?ver=5.4.16'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/js/jquery_cookie.min.js?ver=5.4.16'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/js/jquery.magnific-popup.min.js?ver=5.4.16'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/js/animation.min.js?ver=5.4.16'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/js/lazysizes.min.js?ver=5.4.16'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/js/isotope.min.js?ver=5.4.16'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/inc/crum-vc-ultimate/assets/js/ultimate_bg.js?ver=1.0'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/inc/crum-vc-ultimate/assets/js/jquery.appear.js?ver=1.5'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/themes/Embrace/library/inc/crum-vc-ultimate/assets/js/custom.js?ver=1.5'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-includes/js/wp-embed.min.js?ver=5.4.16'></script>
+<script type='text/javascript' src='https://mobilesportshalloffame.net/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=5.1'></script>
+<!-- 60 queries in 0.324 seconds, using 38.70MB memory --></body>
+</html>
