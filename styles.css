@@ -456,6 +456,48 @@ img, video { max-width: 100%; display: block; }
   font-size: clamp(36px, 5vw, 64px);
 }
 
+/* News & Events page hero — panoramic horizontal scroll */
+.hero-bg--page-scroll {
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.page-hero-scroll-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
+  width: max-content;
+  will-change: transform;
+  animation: pillarGentleScroll 48s linear infinite;
+  opacity: 0.55;
+}
+
+.page-hero-scroll-img {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  flex: 0 0 auto;
+  object-fit: cover;
+}
+
+.hero-bg--page-scroll .hero-overlay {
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-hero-scroll-track {
+    animation: none;
+  }
+
+  .page-hero-scroll-img:last-child {
+    display: none;
+  }
+}
+
 /* Sections */
 .section {
   padding: clamp(64px, 10vw, 120px) clamp(20px, 4vw, 48px);
@@ -640,6 +682,8 @@ img, video { max-width: 100%; display: block; }
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 16 / 11;
+  position: relative;
+  background: #111;
 }
 
 .event-band-media img,
@@ -648,6 +692,10 @@ img, video { max-width: 100%; display: block; }
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.event-band-media--scroll {
+  background: #0a1628;
 }
 
 .event-meta {
