@@ -252,7 +252,11 @@ async function initHof(root) {
         <button type="button" class="hof-card-hit" data-hof-open="${i}" aria-label="View ${escapeHtml(p.displayName || p.name)}">
           ${
             p.image
-              ? `<div class="hof-card-thumb"><img src="${escapeHtml(p.image)}" alt="" loading="lazy" /></div>`
+              ? `<div class="hof-card-thumb"><img src="${escapeHtml(p.image)}" alt="" loading="lazy"${
+                  p.imagePosition
+                    ? ` style="object-position:${escapeHtml(p.imagePosition)}"`
+                    : ""
+                } /></div>`
               : ""
           }
           <div class="hof-card-year">${p.year}</div>
