@@ -78,6 +78,14 @@
   }
 })();
 
+// Bumped whenever the inductee photos are re-exported, so browsers holding an
+// older copy of a same-named file fetch the new one.
+const PHOTO_VERSION = 5;
+
+function photoUrl(path) {
+  return `${path}?v=${PHOTO_VERSION}`;
+}
+
 async function initHof(root) {
   const grid = root.querySelector("[data-hof-grid]");
   const search = root.querySelector("[data-hof-search]");
@@ -167,8 +175,16 @@ async function initHof(root) {
       if (crest) crest.hidden = false;
     } else if (person.image) {
       image.hidden = false;
-      image.src = person.image;
+      image.src = photoUrl(person.image);
       image.alt = title;
+      // This box is narrower than the photos, so anchor the crop away from the
+      // crest rather than slicing through it.
+      image.style.objectPosition =
+        person.crestSide === "left"
+          ? "left top"
+          : person.crestSide === "right"
+            ? "right top"
+            : "center top";
       if (crest) crest.hidden = !person.crest;
     } else {
       fallback.hidden = false;
@@ -258,7 +274,7 @@ async function initHof(root) {
         <button type="button" class="hof-card-hit" data-hof-open="${i}" aria-label="View ${escapeHtml(p.displayName || p.name)}">
           ${
             p.image
-              ? `<div class="hof-card-thumb"><img src="${escapeHtml(p.image)}" alt="" loading="lazy"${
+              ? `<div class="hof-card-thumb"><img src="${escapeHtml(photoUrl(p.image))}" alt="" loading="lazy"${
                   p.imagePosition
                     ? ` style="object-position:${escapeHtml(p.imagePosition)}"`
                     : ""

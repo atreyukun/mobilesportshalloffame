@@ -86,7 +86,8 @@ def main() -> None:
         search_box = page.locator("[data-hof-search]")
         for label, term in (
             ("video", "Kenny Stabler"),
-            ("photo-baked-crest", "Amos Otis"),
+            ("photo-crest-right", "Amos Otis"),
+            ("photo-crest-left", "Jon Lieber"),
             ("video-overlay-crest", "Mark Barron"),
             ("no-media-fallback", "Ann Schilling"),
         ):

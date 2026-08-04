@@ -1,0 +1,562 @@
+{
+  "assets/hof/amos-otis.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.8760000467300415
+  },
+  "assets/hof/angelo-harris.jpg": {
+    "x": 415,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.312666654586792
+  },
+  "assets/hof/antonio-lang.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0806666612625122
+  },
+  "assets/hof/becky-dickinson.jpg": {
+    "x": 40,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.327333450317383
+  },
+  "assets/hof/ben-harris.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.100000023841858
+  },
+  "assets/hof/beth-barry.jpg": {
+    "x": 420,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.2953333854675293
+  },
+  "assets/hof/bill-dooley.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0920000076293945
+  },
+  "assets/hof/bobby-jackson.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0713332891464233
+  },
+  "assets/hof/buddy-aydelette.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0219999551773071
+  },
+  "assets/hof/carl-benton.jpg": {
+    "x": 415,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.2860000133514404
+  },
+  "assets/hof/casey-converse.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0673333406448364
+  },
+  "assets/hof/charlie-home-run-duffee.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0420000553131104
+  },
+  "assets/hof/chris-samuels.jpg": {
+    "x": 20,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.308000087738037
+  },
+  "assets/hof/cleon-jones.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.034000039100647
+  },
+  "assets/hof/cliff-ellis.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0453333854675293
+  },
+  "assets/hof/curtis-horton.jpg": {
+    "x": 40,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.2980000972747803
+  },
+  "assets/hof/dameyune-craig.jpg": {
+    "x": 40,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.3293333053588867
+  },
+  "assets/hof/eddie-holmes.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.8293333053588867
+  },
+  "assets/hof/edmund-dyas.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0520000457763672
+  },
+  "assets/hof/erick-walder.jpg": {
+    "x": 421,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.319999933242798
+  },
+  "assets/hof/frank-bolling.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0839999914169312
+  },
+  "assets/hof/frank-howard.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0693333148956299
+  },
+  "assets/hof/fred-carley.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0753333568572998
+  },
+  "assets/hof/hanford-dixon.jpg": {
+    "x": 414,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.327333450317383
+  },
+  "assets/hof/harold-clark.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0666667222976685
+  },
+  "assets/hof/henry-hank-aaron.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0093333721160889
+  },
+  "assets/hof/herman-maisel.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0959999561309814
+  },
+  "assets/hof/james-taylor.jpg": {
+    "x": 414,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.316666603088379
+  },
+  "assets/hof/jimmy-green.jpg": {
+    "x": 5,
+    "y": 11,
+    "w": 125,
+    "h": 123,
+    "scale": 0.8,
+    "score": 17.874000549316406
+  },
+  "assets/hof/joe-bullard.jpg": {
+    "x": 40,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.2746665477752686
+  },
+  "assets/hof/joey-jones.jpg": {
+    "x": 420,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.328000068664551
+  },
+  "assets/hof/johnny-brown.jpg": {
+    "x": 420,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.31933331489563
+  },
+  "assets/hof/jon-lieber.jpg": {
+    "x": 40,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.257333278656006
+  },
+  "assets/hof/karen-mayson-bahnsen.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.006666660308838
+  },
+  "assets/hof/kenny-stabler.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0080000162124634
+  },
+  "assets/hof/lance-johnson.jpg": {
+    "x": 16,
+    "y": 36,
+    "w": 296,
+    "h": 293,
+    "scale": 1.9,
+    "score": 12.428667068481445
+  },
+  "assets/hof/lauretta-freeman-horn.jpg": {
+    "x": 40,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.2720000743865967
+  },
+  "assets/hof/leroy-satchel-paige.jpg": {
+    "x": 25,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.3326666355133057
+  },
+  "assets/hof/lewis-brassell.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.065333366394043
+  },
+  "assets/hof/loyd-skoda.jpg": {
+    "x": 21,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.3239998817443848
+  },
+  "assets/hof/mabel-walker-thorton.jpg": {
+    "x": 27,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.9606666564941406
+  },
+  "assets/hof/marydye-mcdole.jpg": {
+    "x": 420,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.2873332500457764
+  },
+  "assets/hof/mike-fuller.jpg": {
+    "x": 40,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.2739999294281006
+  },
+  "assets/hof/mike-gottfried.jpg": {
+    "x": 420,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.314666748046875
+  },
+  "assets/hof/milton-bolling.jpg": {
+    "x": 414,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.368000030517578
+  },
+  "assets/hof/ozzie-smith.jpg": {
+    "x": 28,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.3499999046325684
+  },
+  "assets/hof/pat-galle.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0700000524520874
+  },
+  "assets/hof/paul-christoper-harris.jpg": {
+    "x": 414,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.315333366394043
+  },
+  "assets/hof/paul-crane.jpg": {
+    "x": 40,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.2860000133514404
+  },
+  "assets/hof/peggy-martin.jpg": {
+    "x": 21,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.3413333892822266
+  },
+  "assets/hof/pete-myers.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.1073333024978638
+  },
+  "assets/hof/ray-buddy-lauten.jpg": {
+    "x": 414,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.315999984741211
+  },
+  "assets/hof/reggie-copeland.jpg": {
+    "x": 415,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.2966666221618652
+  },
+  "assets/hof/rich-caster.jpg": {
+    "x": 27,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0853333473205566
+  },
+  "assets/hof/richard-todd.jpg": {
+    "x": 21,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.378666639328003
+  },
+  "assets/hof/riley-smith.jpg": {
+    "x": 414,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.385333299636841
+  },
+  "assets/hof/robert-brazile.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.068666696548462
+  },
+  "assets/hof/sam-pettaway.jpg": {
+    "x": 431,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.3299999237060547
+  },
+  "assets/hof/scott-hunter.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0420000553131104
+  },
+  "assets/hof/stan-galle.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.1353332996368408
+  },
+  "assets/hof/steve-kittrell.jpg": {
+    "x": 28,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.2846667766571045
+  },
+  "assets/hof/terry-adams.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0473333597183228
+  },
+  "assets/hof/terry-curtis.jpg": {
+    "x": 415,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.2853333950042725
+  },
+  "assets/hof/terry-hopper.jpg": {
+    "x": 40,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.302000045776367
+  },
+  "assets/hof/tommie-agee.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0326666831970215
+  },
+  "assets/hof/vince-dooley.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.0820000171661377
+  },
+  "assets/hof/william-bill-jessie.jpg": {
+    "x": 21,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.3239998817443848
+  },
+  "assets/hof/william-billy-coleman.jpg": {
+    "x": 420,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.2873332500457764
+  },
+  "assets/hof/willie-anderson.jpg": {
+    "x": 419,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 1.059999942779541
+  },
+  "assets/hof/willie-mccovey.jpg": {
+    "x": 415,
+    "y": 34,
+    "w": 156,
+    "h": 154,
+    "scale": 1.0,
+    "score": 2.9753334522247314
+  }
+}

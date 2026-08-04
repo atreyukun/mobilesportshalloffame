@@ -18,6 +18,8 @@ OUTPUTS = [
     (ROOT / "assets" / "logo.png", 560),
     (ROOT / "assets" / "crest.png", 300),
 ]
+FAVICON = ROOT / "assets" / "favicon.ico"
+FAVICON_SIZES = [16, 32, 48, 64, 128, 256]
 
 # A pixel joins the background only if it is this close to pure white.
 WHITE_MIN = 244
@@ -84,6 +86,14 @@ def main() -> None:
         resized = cropped.resize((width, round(ch * width / cw)), Image.LANCZOS)
         resized.save(out, "PNG", optimize=True)
         print(out.name, resized.size, f"{out.stat().st_size // 1024} KB")
+
+    # Favicons must be square, so pad the mark rather than stretch it.
+    cw, ch = cropped.size
+    side = max(cw, ch)
+    square = Image.new("RGBA", (side, side), (0, 0, 0, 0))
+    square.paste(cropped, ((side - cw) // 2, (side - ch) // 2))
+    square.save(FAVICON, sizes=[(s, s) for s in FAVICON_SIZES])
+    print(FAVICON.name, FAVICON_SIZES, f"{FAVICON.stat().st_size // 1024} KB")
 
 
 if __name__ == "__main__":
