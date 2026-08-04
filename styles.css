@@ -1078,6 +1078,7 @@ body.hof-modal-open {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #111;
+  position: relative;
 }
 
 .hof-card-thumb img {
@@ -1088,10 +1089,22 @@ body.hof-modal-open {
   display: block;
 }
 
+.hof-card-crest {
+  position: absolute !important;
+  top: 10px;
+  right: 10px;
+  width: 52px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  z-index: 2;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+  pointer-events: none;
+}
+
 .hof-modal-media-fallback {
   background:
     linear-gradient(160deg, rgba(26, 21, 40, 0.55), rgba(0, 0, 0, 0.35)),
-    url("assets/crest.png?v=2") center 40% / 45% no-repeat,
+    url("assets/crest.png?v=3") center 40% / 45% no-repeat,
     #1a1528;
 }
 

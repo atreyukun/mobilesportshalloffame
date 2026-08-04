@@ -256,7 +256,11 @@ async function initHof(root) {
                   p.imagePosition
                     ? ` style="object-position:${escapeHtml(p.imagePosition)}"`
                     : ""
-                } /></div>`
+                } />${
+                  p.video || p.showCrest
+                    ? `<img src="assets/crest.png?v=3" alt="" class="hof-card-crest" />`
+                    : ""
+                }</div>`
               : ""
           }
           <div class="hof-card-year">${p.year}</div>
