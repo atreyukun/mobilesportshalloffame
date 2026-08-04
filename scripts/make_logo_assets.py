@@ -1,10 +1,14 @@
-"""Build transparent logo/crest PNGs from the source logo JPEG.
+"""Build transparent logo/crest PNGs from the source logo artwork.
 
 Only the outer white page background is removed (flood fill from the image
 border), so the light silver shield inside the mark stays opaque.
+
+Defaults write the live site assets. Pass --source/--out-dir to try a different
+version of the logo without touching them.
 """
 from __future__ import annotations
 
+import argparse
 from collections import deque
 from pathlib import Path
 
@@ -14,11 +18,7 @@ ROOT = Path(r"d:\httpsmobilesportshalloffame")
 SOURCE = ROOT / "assets" / "New_Mobile_HoF3.jpg"
 # Widths cover ~3x device pixel ratio at the largest place each asset is used
 # (logo in the home hero, crest overlay in the inductee modal).
-OUTPUTS = [
-    (ROOT / "assets" / "logo.png", 560),
-    (ROOT / "assets" / "crest.png", 300),
-]
-FAVICON = ROOT / "assets" / "favicon.ico"
+WIDTHS = [("logo.png", 560), ("crest.png", 300)]
 FAVICON_SIZES = [16, 32, 48, 64, 128, 256]
 
 # A pixel joins the background only if it is this close to pure white.
@@ -31,7 +31,15 @@ def is_white(px: tuple[int, int, int, int]) -> bool:
 
 
 def main() -> None:
-    im = Image.open(SOURCE).convert("RGBA")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path, default=SOURCE)
+    parser.add_argument("--out-dir", type=Path, default=ROOT / "assets")
+    args = parser.parse_args()
+    args.out_dir.mkdir(parents=True, exist_ok=True)
+    outputs = [(args.out_dir / name, width) for name, width in WIDTHS]
+    favicon = args.out_dir / "favicon.ico"
+
+    im = Image.open(args.source).convert("RGBA")
     w, h = im.size
     px = im.load()
 
@@ -81,7 +89,7 @@ def main() -> None:
                 px[x, y] = (r, g, b, 140)
 
     cropped = im.crop(im.getbbox())
-    for out, width in OUTPUTS:
+    for out, width in outputs:
         cw, ch = cropped.size
         resized = cropped.resize((width, round(ch * width / cw)), Image.LANCZOS)
         resized.save(out, "PNG", optimize=True)
@@ -92,8 +100,8 @@ def main() -> None:
     side = max(cw, ch)
     square = Image.new("RGBA", (side, side), (0, 0, 0, 0))
     square.paste(cropped, ((side - cw) // 2, (side - ch) // 2))
-    square.save(FAVICON, sizes=[(s, s) for s in FAVICON_SIZES])
-    print(FAVICON.name, FAVICON_SIZES, f"{FAVICON.stat().st_size // 1024} KB")
+    square.save(favicon, sizes=[(s, s) for s in FAVICON_SIZES])
+    print(favicon.name, FAVICON_SIZES, f"{favicon.stat().st_size // 1024} KB")
 
 
 if __name__ == "__main__":
