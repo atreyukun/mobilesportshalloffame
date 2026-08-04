@@ -11,7 +11,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(r"d:\httpsmobilesportshalloffame")
-SOURCE = ROOT / "assets" / "New_Mobile_HoF2.jpg"
+SOURCE = ROOT / "assets" / "New_Mobile_HoF3.jpg"
 # Widths cover ~3x device pixel ratio at the largest place each asset is used
 # (logo in the home hero, crest overlay in the inductee modal).
 OUTPUTS = [
