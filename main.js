@@ -76,7 +76,39 @@
   if (hofRoot) {
     initHof(hofRoot);
   }
+
+  // Inquiry form. The site is static, so the form hands the message off to the
+  // visitor's own mail client rather than posting anywhere.
+  const inquiryForm = document.querySelector("[data-inquiry-form]");
+  if (inquiryForm) {
+    initInquiryForm(inquiryForm);
+  }
 })();
+
+function initInquiryForm(form) {
+  const status = form.querySelector("[data-inquiry-status]");
+  const to = form.dataset.inquiryTo;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const field = (name) => (form.elements[name]?.value || "").trim();
+    const topic = field("topic") || "General inquiry";
+    const subject = `${topic} — Mobile Sports Hall of Fame`;
+    const lines = [`Name: ${field("name")}`, `Email: ${field("email")}`];
+    if (field("phone")) lines.push(`Phone: ${field("phone")}`);
+    lines.push(`Topic: ${topic}`, "", field("message"));
+
+    window.location.href = `mailto:${to}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(lines.join("\n"))}`;
+
+    if (status) {
+      status.textContent = `Your email app should open with this inquiry ready to send. If nothing happens, email ${to} directly.`;
+    }
+  });
+}
 
 // Bumped whenever the inductee photos are re-exported, so browsers holding an
 // older copy of a same-named file fetch the new one.
