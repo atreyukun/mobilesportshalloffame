@@ -1104,7 +1104,7 @@ body.hof-modal-open {
 .hof-modal-media-fallback {
   background:
     linear-gradient(160deg, rgba(26, 21, 40, 0.55), rgba(0, 0, 0, 0.35)),
-    url("assets/crest.png?v=5") center 40% / 45% no-repeat,
+    url("assets/crest.png?v=6") center 40% / 45% no-repeat,
     #1a1528;
 }
 

@@ -3,3 +3,5 @@
 Thumbs.db
 __pycache__/
 scripts/_verify/
+scripts/_photo_backup/
+scripts/_preview/

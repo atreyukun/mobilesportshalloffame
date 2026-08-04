@@ -112,7 +112,7 @@ function initInquiryForm(form) {
 
 // Bumped whenever the inductee photos are re-exported, so browsers holding an
 // older copy of a same-named file fetch the new one.
-const PHOTO_VERSION = 6;
+const PHOTO_VERSION = 7;
 
 function photoUrl(path) {
   return `${path}?v=${PHOTO_VERSION}`;
@@ -312,7 +312,7 @@ async function initHof(root) {
                     : ""
                 } />${
                   p.crest
-                    ? `<img src="assets/crest.png?v=5" alt="" class="hof-card-crest" />`
+                    ? `<img src="assets/crest.png?v=6" alt="" class="hof-card-crest" />`
                     : ""
                 }</div>`
               : ""

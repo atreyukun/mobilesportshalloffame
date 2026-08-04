@@ -169,6 +169,11 @@ def comparison(before: Image.Image, after: Image.Image, loc: dict, label: str):
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--preview", action="store_true", help="sample only, no writes")
+    ap.add_argument(
+        "--force",
+        action="store_true",
+        help="restamp even when the recorded spot no longer holds the original crest",
+    )
     args = ap.parse_args()
 
     locations = json.loads(LOCATIONS.read_text(encoding="utf-8"))
@@ -191,14 +196,15 @@ def main() -> None:
 
     scales, problems, skipped = [], [], 0
     for rel, loc in items:
-        present = still_has_old_crest(Image.open(ROOT / rel).convert("RGB"), loc)
-        if present > STALE_LIMIT:
-            skipped += 1
-            print(
-                f"  {Path(rel).stem:26} old crest not at recorded spot "
-                f"(score {present:.1f}) - already replaced, skipping"
-            )
-            continue
+        if not args.force:
+            present = still_has_old_crest(Image.open(ROOT / rel).convert("RGB"), loc)
+            if present > STALE_LIMIT:
+                skipped += 1
+                print(
+                    f"  {Path(rel).stem:26} old crest not at recorded spot "
+                    f"(score {present:.1f}) - already replaced, skipping"
+                )
+                continue
         before, after, scale, leftover = process(rel, loc, logo, write=not args.preview)
         scales.append(scale)
         name = Path(rel).stem
