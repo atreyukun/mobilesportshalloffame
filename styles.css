@@ -91,7 +91,7 @@ img, video { max-width: 100%; display: block; }
 }
 
 .logo { display: inline-flex; flex-shrink: 0; line-height: 0; }
-.logo-img--nav { height: 52px; width: auto; }
+.logo-img--nav { height: 58px; width: auto; }
 
 .site-header .nav-links > li > a,
 .site-header .nav-dropdown-trigger {
@@ -392,6 +392,14 @@ img, video { max-width: 100%; display: block; }
   letter-spacing: 0.02em;
   margin-bottom: 18px;
   opacity: 0.92;
+}
+
+.hero-logo {
+  display: block;
+  height: clamp(110px, 20vw, 168px);
+  width: auto;
+  margin-bottom: 22px;
+  filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.45));
 }
 
 .hero-title {
@@ -1083,7 +1091,7 @@ body.hof-modal-open {
 .hof-modal-media-fallback {
   background:
     linear-gradient(160deg, rgba(26, 21, 40, 0.55), rgba(0, 0, 0, 0.35)),
-    url("assets/crest.png") center 40% / 45% no-repeat,
+    url("assets/crest.png?v=2") center 40% / 45% no-repeat,
     #1a1528;
 }
 
@@ -1091,7 +1099,7 @@ body.hof-modal-open {
   position: absolute;
   top: 14px;
   right: 14px;
-  width: 72px;
+  width: 84px;
   height: auto;
   z-index: 2;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
@@ -1231,7 +1239,7 @@ body.hof-modal-open {
 }
 
 .footer-brand img {
-  height: 48px;
+  height: 72px;
   width: auto;
   margin-bottom: 16px;
 }
