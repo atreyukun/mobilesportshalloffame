@@ -147,6 +147,7 @@ async function initHof(root) {
     const video = modal.querySelector("[data-hof-modal-video]");
     const image = modal.querySelector("[data-hof-modal-image]");
     const fallback = modal.querySelector("[data-hof-modal-fallback]");
+    const crest = modal.querySelector(".hof-modal-crest");
     video.pause();
     video.removeAttribute("src");
     video.load();
@@ -155,18 +156,23 @@ async function initHof(root) {
     video.hidden = true;
     fallback.hidden = true;
 
+    // Most archive photos already have the crest burned in, and the fallback
+    // tile draws its own. Only overlay a crest where the artwork lacks one.
     if (person.video) {
       video.hidden = false;
       video.src = person.video;
       video.muted = true;
       const play = video.play();
       if (play && typeof play.catch === "function") play.catch(() => {});
+      if (crest) crest.hidden = false;
     } else if (person.image) {
       image.hidden = false;
       image.src = person.image;
       image.alt = title;
+      if (crest) crest.hidden = !person.crest;
     } else {
       fallback.hidden = false;
+      if (crest) crest.hidden = true;
     }
 
     modal.hidden = false;
@@ -257,8 +263,8 @@ async function initHof(root) {
                     ? ` style="object-position:${escapeHtml(p.imagePosition)}"`
                     : ""
                 } />${
-                  p.video || p.showCrest
-                    ? `<img src="assets/crest.png?v=3" alt="" class="hof-card-crest" />`
+                  p.crest
+                    ? `<img src="assets/crest.png?v=4" alt="" class="hof-card-crest" />`
                     : ""
                 }</div>`
               : ""

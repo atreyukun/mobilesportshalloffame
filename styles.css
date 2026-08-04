@@ -1104,8 +1104,12 @@ body.hof-modal-open {
 .hof-modal-media-fallback {
   background:
     linear-gradient(160deg, rgba(26, 21, 40, 0.55), rgba(0, 0, 0, 0.35)),
-    url("assets/crest.png?v=3") center 40% / 45% no-repeat,
+    url("assets/crest.png?v=4") center 40% / 45% no-repeat,
     #1a1528;
+}
+
+.hof-modal-crest[hidden] {
+  display: none !important;
 }
 
 .hof-modal-crest {
@@ -1145,11 +1149,6 @@ body.hof-modal-open {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid rgba(80, 120, 180, 0.88);
-}
-
-/* Photos already include the crest — hide our overlay crest when an image is shown */
-.hof-modal-media:has([data-hof-modal-image]:not([hidden])) .hof-modal-crest {
-  display: none;
 }
 
 .hof-modal-body {
