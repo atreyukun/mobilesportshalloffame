@@ -1207,6 +1207,47 @@ body.hof-modal-open {
 
 .contact-block a:hover { color: var(--purple); }
 
+/* Board roster */
+.board-officers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin: 36px 0 40px;
+  max-width: 720px;
+}
+
+.board-officer h3 {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.board-officer p {
+  color: var(--text-muted);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.board-roster {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.board-roster li {
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--text);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
 /* Inquiry form */
 .inquiry-form {
   max-width: 780px;
@@ -1397,8 +1438,13 @@ body.hof-modal-open {
   .news-grid,
   .contact-grid,
   .form-grid,
+  .board-officers,
   .footer-inner {
     grid-template-columns: 1fr;
+  }
+
+  .board-roster {
+    grid-template-columns: 1fr 1fr;
   }
 
   .nav-links,
@@ -1457,4 +1503,5 @@ body.hof-modal-open {
 @media (max-width: 640px) {
   .hof-letters { width: 100%; }
   .section-title { max-width: none; }
+  .board-roster { grid-template-columns: 1fr; }
 }
