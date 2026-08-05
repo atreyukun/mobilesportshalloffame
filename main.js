@@ -105,7 +105,8 @@ function initInquiryForm(form) {
     )}&body=${encodeURIComponent(lines.join("\n"))}`;
 
     if (status) {
-      status.textContent = `Your email app should open with this inquiry ready to send. If nothing happens, email ${to} directly.`;
+      status.textContent =
+        "Your email app should open with this inquiry ready to send.";
     }
   });
 }
