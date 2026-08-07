@@ -1,0 +1,16 @@
+[
+  {
+    "id": "city-of-mobile",
+    "name": "City of Mobile",
+    "url": "https://www.cityofmobile.gov/",
+    "logo": "assets/partners/city-of-mobile.png",
+    "domain": "cityofmobile.gov"
+  },
+  {
+    "id": "rsa",
+    "name": "Retirement Systems of Alabama",
+    "url": "https://www.rsa-al.gov/",
+    "logo": "assets/partners/rsa.png",
+    "domain": "rsa-al.gov"
+  }
+]

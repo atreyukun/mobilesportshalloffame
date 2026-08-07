@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Admin — Mobile Sports Hall of Fame</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="icon" href="../assets/favicon.ico" />
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+    <section class="admin-gate" id="login-gate">
+      <h1>Content admin</h1>
+      <p>Edit news, the featured event, partners, sponsors, and the board roster. Changes save to GitHub and appear on the public site after Pages rebuilds (~1 minute).</p>
+      <form id="login-form">
+        <div class="admin-field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+        </div>
+        <div class="admin-actions">
+          <button class="admin-btn" type="submit">Sign in</button>
+        </div>
+        <p class="admin-status" id="login-status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="admin-panel" id="app" hidden>
+      <header class="admin-header">
+        <div>
+          <h1>Content admin</h1>
+          <p>Mobile Sports Hall of Fame — JSON via GitHub Pages</p>
+        </div>
+        <div class="admin-actions">
+          <button type="button" class="admin-btn admin-btn--ghost" id="btn-preview">Preview JSON</button>
+          <button type="button" class="admin-btn" id="btn-save">Save to GitHub</button>
+          <button type="button" class="admin-btn admin-btn--ghost" id="btn-logout">Sign out</button>
+        </div>
+      </header>
+
+      <nav class="admin-tabs" id="tabs" aria-label="Content sections">
+        <button type="button" class="admin-tab is-active" data-tab="news">News</button>
+        <button type="button" class="admin-tab" data-tab="event">Featured event</button>
+        <button type="button" class="admin-tab" data-tab="partners">Partners</button>
+        <button type="button" class="admin-tab" data-tab="sponsors">Sponsors</button>
+        <button type="button" class="admin-tab" data-tab="board">Board</button>
+      </nav>
+
+      <p class="admin-status" id="app-status" role="status"></p>
+
+      <div id="tab-panels">
+        <!-- filled by admin.js -->
+      </div>
+
+      <div class="admin-preview" id="json-preview" hidden>
+        <pre id="json-preview-body"></pre>
+      </div>
+
+      <aside class="admin-help">
+        <p><strong>Password:</strong> set in <code>admin/config.js</code> as <code>PASSWORD_SHA256</code> (SHA-256 hex of your shared password). Default for setup is <code>msHofAdmin2026</code> — change before sharing.</p>
+        <p><strong>GitHub token:</strong> create a fine-grained PAT with Contents: Read and write on <code>atreyukun/mobilesportshalloffame</code> only. Paste it when saving; it stays in sessionStorage and is never committed.</p>
+        <p><strong>v2:</strong> Hall of Famers editor can reuse this shell; logos stay as files under <code>assets/partners/</code> and <code>assets/sponsors/</code> for now (edit path/URL/name here).</p>
+      </aside>
+    </section>
+  </div>
+
+  <div class="admin-modal-backdrop" id="token-modal" hidden>
+    <div class="admin-modal" role="dialog" aria-labelledby="token-title">
+      <h2 id="token-title">GitHub token</h2>
+      <p>Paste a fine-grained personal access token with Contents write access for this repo. Stored in this browser tab only.</p>
+      <form id="token-form">
+        <div class="admin-field">
+          <label for="token-input">Personal access token</label>
+          <input id="token-input" type="password" autocomplete="off" required />
+        </div>
+        <div class="admin-actions">
+          <button type="submit" class="admin-btn">Save with this token</button>
+          <button type="button" class="admin-btn admin-btn--ghost" id="token-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

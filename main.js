@@ -77,6 +77,24 @@
     initHof(hofRoot);
   }
 
+  const newsHome = document.querySelector("[data-news-home]");
+  if (newsHome) initNews(newsHome, { home: true });
+
+  const newsArchive = document.querySelector("[data-news-archive]");
+  if (newsArchive) initNews(newsArchive, { home: false });
+
+  const featuredEvent = document.querySelector("[data-featured-event]");
+  if (featuredEvent) initFeaturedEvent(featuredEvent);
+
+  const partnersGrid = document.querySelector("[data-partners-grid]");
+  if (partnersGrid) initBrandGrid(partnersGrid, "data/partners.json");
+
+  const sponsorsGrid = document.querySelector("[data-sponsors-grid]");
+  if (sponsorsGrid) initBrandGrid(sponsorsGrid, "data/sponsors.json");
+
+  const boardRoster = document.querySelector("[data-board-roster]");
+  if (boardRoster) initBoard(boardRoster);
+
   // Inquiry form. The site is static, so the form hands the message off to the
   // visitor's own mail client rather than posting anywhere.
   const inquiryForm = document.querySelector("[data-inquiry-form]");
@@ -353,4 +371,108 @@ function escapeHtml(str) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+async function fetchJson(path) {
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`Failed to load ${path}`);
+  return res.json();
+}
+
+async function initNews(root, { home }) {
+  try {
+    const items = await fetchJson("data/news.json");
+    const list = home
+      ? items.filter((n) => n.featured).slice(0, 2)
+      : items;
+    const shown = list.length ? list : items.slice(0, 2);
+    root.innerHTML = shown
+      .map((n) => {
+        const text = home ? n.summary : n.body || n.summary;
+        const href = home ? "news-events.html" : n.link || "news-events.html";
+        const label = home ? "Read more →" : n.linkLabel || "Read more →";
+        const external = !home && /^https?:/i.test(href);
+        return `<article class="news-item reveal is-visible">
+          <h3>${escapeHtml(n.title)}</h3>
+          <p>${escapeHtml(text)}</p>
+          <a class="more" href="${escapeHtml(href)}"${
+            external ? ' target="_blank" rel="noopener noreferrer"' : ""
+          }>${escapeHtml(label)}</a>
+        </article>`;
+      })
+      .join("");
+  } catch (err) {
+    root.innerHTML = "<p class='hof-empty'>Unable to load news.</p>";
+  }
+}
+
+async function initFeaturedEvent(root) {
+  try {
+    const ev = await fetchJson("data/event.json");
+    const img = ev.image || "assets/hero-banquet-pano.jpg?v=2";
+    root.innerHTML = `
+      <div class="event-band-media event-band-media--scroll" aria-hidden="true">
+        <div class="pillar-scroll-track">
+          <img src="${escapeHtml(img)}" alt="" class="pillar-scroll-img" />
+          <img src="${escapeHtml(img)}" alt="" class="pillar-scroll-img" />
+        </div>
+      </div>
+      <div>
+        <p class="section-eyebrow" style="color:rgba(255,255,255,0.55)">${escapeHtml(ev.eyebrow || "Upcoming")}</p>
+        <h2 class="section-title">${escapeHtml(ev.title || "")}</h2>
+        <p class="section-lede" style="color:rgba(255,255,255,0.72)">${escapeHtml(ev.lede || "")}</p>
+        <div class="event-meta">
+          <span class="event-chip">${escapeHtml(ev.dateLabel || "")}</span>
+        </div>
+        <p class="inductee-list"><strong style="color:#fff;font-weight:600">${escapeHtml(
+          ev.inducteesLabel || "Inductees —"
+        )}</strong> ${escapeHtml(ev.inductees || "")}</p>
+        <a href="${escapeHtml(ev.ticketUrl || "#")}" class="btn btn-white" target="_blank" rel="noopener noreferrer">${escapeHtml(
+          ev.ticketLabel || "Buy Tickets"
+        )}</a>
+      </div>`;
+  } catch (err) {
+    root.innerHTML = "<p class='hof-empty' style='color:#fff'>Unable to load event.</p>";
+  }
+}
+
+async function initBrandGrid(root, path) {
+  try {
+    const items = await fetchJson(path);
+    root.innerHTML = items
+      .map(
+        (b) => `<a class="brand-link" href="${escapeHtml(b.url || "#")}" target="_blank" rel="noopener noreferrer">
+          <img src="${escapeHtml(b.logo || "")}" alt="${escapeHtml(b.name || "")}" />
+          <span>${escapeHtml(b.name || "")}</span>
+          <small>${escapeHtml(b.domain || "")}</small>
+        </a>`
+      )
+      .join("");
+  } catch (err) {
+    root.innerHTML = "<p class='hof-empty'>Unable to load listings.</p>";
+  }
+}
+
+async function initBoard(root) {
+  try {
+    const data = await fetchJson("data/board.json");
+    const officers = (data.officers || [])
+      .map(
+        (o) => `<article class="board-officer">
+          <h3>${escapeHtml(o.name)}</h3>
+          <p>${escapeHtml(o.title || "")}</p>
+        </article>`
+      )
+      .join("");
+    const members = (data.members || [])
+      .map((m) => `<li>${escapeHtml(m)}</li>`)
+      .join("");
+    root.innerHTML = `
+      <h2 class="section-title reveal is-visible">${escapeHtml(data.title || "Board of Directors")}</h2>
+      <p class="section-lede reveal is-visible">${escapeHtml(data.lede || "")}</p>
+      <div class="board-officers reveal is-visible">${officers}</div>
+      <ul class="board-roster reveal is-visible">${members}</ul>`;
+  } catch (err) {
+    root.innerHTML = "<p class='hof-empty'>Unable to load board roster.</p>";
+  }
 }
