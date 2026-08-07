@@ -231,6 +231,16 @@
     else if (activeTab === "board") renderBoard();
   }
 
+  function scrollToEditor() {
+    const editor = panels.querySelector(".admin-editor");
+    if (!editor) return;
+    requestAnimationFrame(() => {
+      editor.scrollIntoView({ behavior: "smooth", block: "start" });
+      const focusEl = editor.querySelector("input, textarea, select");
+      if (focusEl) focusEl.focus({ preventScroll: true });
+    });
+  }
+
   function renderNews() {
     const list = state.news
       .map(
@@ -350,6 +360,8 @@
         render();
       });
     });
+
+    if (editing != null) scrollToEditor();
   }
 
   function blankNews() {
@@ -551,6 +563,8 @@
         render();
       });
     });
+
+    if (editing != null) scrollToEditor();
   }
 
   function blankBrand() {
