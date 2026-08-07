@@ -336,27 +336,24 @@ body.admin-body {
   accent-color: var(--admin-accent-strong);
 }
 
-.admin-help {
-  margin-top: 28px;
-  padding: 16px 18px;
-  border-left: 3px solid var(--admin-accent-strong);
-  background: var(--purple-soft);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.55;
+.admin-logo {
+  display: block;
+  width: 120px;
+  height: auto;
+  margin: 0 0 18px;
 }
 
-.admin-help strong {
-  color: var(--text);
+.admin-logo--header {
+  width: 56px;
+  margin: 0;
+  flex-shrink: 0;
 }
 
-.admin-help code {
-  font-size: 0.85em;
-  padding: 0.1em 0.35em;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--admin-accent);
+.admin-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
 }
 
 .admin-preview {
