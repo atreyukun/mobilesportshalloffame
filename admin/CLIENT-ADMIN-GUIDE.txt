@@ -1,0 +1,59 @@
+Mobile Sports Hall of Fame — Content Admin Guide
+================================================
+
+Public site
+  https://atreyukun.github.io/mobilesportshalloffame/
+
+Content admin
+  https://atreyukun.github.io/mobilesportshalloffame/admin/
+
+Admin password
+  msHofAdmin2026
+
+Keep the password private. It can be changed later if needed.
+
+
+WHY THIS EXISTS
+---------------
+You can update news, the featured event, partners, sponsors, and the board
+roster without waiting on a developer for every change.
+
+The site is hosted on GitHub Pages as static files (no separate database).
+When you click Save, the admin writes those updates into the website files
+so the live pages can refresh—usually within about a minute.
+
+
+WHY THERE IS ALSO A "GITHUB TOKEN"
+----------------------------------
+GitHub requires a personal access token to write those files. That token is
+NOT the same as the admin password.
+
+You paste it once per browser session when you Save or upload an image. It
+stays in your browser only and is never stored on the public website.
+
+You will receive the publish token separately. Treat it like a key—do not
+post it publicly or share it outside your team.
+
+
+HOW TO MAKE A CHANGE
+--------------------
+1. Open the content admin URL and sign in with the password above.
+2. Use the tabs: News, Featured event, Partners, Sponsors, Board.
+3. Edit an item, then click Apply (when shown).
+4. Click Save to GitHub. Paste the token if asked.
+5. Wait about one minute, then refresh the public site to confirm.
+
+
+IMAGES AND LOGOS
+----------------
+Use Browse… next to an image or logo field to upload a file. The upload
+goes to GitHub immediately. Then click Apply and Save so the page points
+to the new file.
+
+
+NOTES
+-----
+- The admin is not linked from the public navigation on purpose.
+- Hall of Famers will get an editor later; that section is unchanged for now.
+- If a change does not appear, wait another minute and hard-refresh the
+  public page. If it still looks wrong, note what you edited and contact us.
