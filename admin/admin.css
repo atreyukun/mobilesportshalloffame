@@ -1,16 +1,41 @@
-/* Lightweight admin — reuses site fonts/colors via link to styles.css */
+/* Admin — dark mode only */
 
 :root {
   --admin-max: 960px;
   --admin-gap: 16px;
 }
 
+html.admin-html,
+body.admin-body {
+  color-scheme: dark;
+  --bg: #070708;
+  --bg-soft: #101012;
+  --bg-elevated: #18181c;
+  --bg-card: #141417;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --text: #f3f3f6;
+  --text-muted: rgba(243, 243, 246, 0.72);
+  --text-dim: rgba(243, 243, 246, 0.5);
+  --purple: #c4b5dc;
+  --purple-dark: #e4dcf2;
+  --purple-soft: rgba(196, 181, 220, 0.12);
+  --admin-accent: #c4b5dc;
+  --admin-accent-strong: #a992c9;
+  --admin-on-accent: #0c0b10;
+  --admin-danger: #c45c5c;
+  --admin-danger-hover: #d97878;
+  --admin-ok: #6dca8b;
+  --admin-error: #f07178;
+}
+
 body.admin-body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(74, 53, 104, 0.12), transparent 55%),
-    linear-gradient(180deg, #faf9fc 0%, #ffffff 40%);
+    radial-gradient(900px 480px at 12% -8%, rgba(164, 140, 210, 0.16), transparent 55%),
+    radial-gradient(700px 420px at 100% 0%, rgba(80, 100, 160, 0.1), transparent 50%),
+    linear-gradient(180deg, #0c0c0f 0%, #070708 45%);
   color: var(--text);
   font-family: var(--font-sans);
 }
@@ -37,7 +62,7 @@ body.admin-body {
   font-family: var(--font-serif);
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 400;
-  color: var(--purple-dark);
+  color: var(--text);
 }
 
 .admin-header p {
@@ -58,6 +83,7 @@ body.admin-body {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
 
 .admin-gate h1 {
@@ -65,6 +91,7 @@ body.admin-body {
   font-family: var(--font-serif);
   font-size: 1.85rem;
   font-weight: 400;
+  color: var(--text);
 }
 
 .admin-gate p {
@@ -99,7 +126,13 @@ body.admin-body {
   border-radius: 8px;
   font: inherit;
   color: var(--text);
-  background: #fff;
+  background: var(--bg-elevated);
+  color-scheme: dark;
+}
+
+.admin-field input::placeholder,
+.admin-field textarea::placeholder {
+  color: var(--text-dim);
 }
 
 .admin-field textarea {
@@ -111,8 +144,9 @@ body.admin-body {
 .admin-field input:focus,
 .admin-field textarea:focus,
 .admin-field select:focus {
-  outline: 2px solid rgba(59, 45, 92, 0.35);
+  outline: 2px solid rgba(196, 181, 220, 0.45);
   outline-offset: 1px;
+  border-color: rgba(196, 181, 220, 0.55);
 }
 
 .admin-actions {
@@ -131,30 +165,32 @@ body.admin-body {
   font: inherit;
   font-weight: 600;
   cursor: pointer;
-  background: var(--purple);
-  color: #fff;
+  background: var(--admin-accent);
+  color: var(--admin-on-accent);
 }
 
 .admin-btn:hover {
-  background: var(--purple-dark);
+  background: #d4c8e8;
 }
 
 .admin-btn--ghost {
   background: transparent;
-  color: var(--purple);
+  color: var(--text);
   border: 1px solid var(--border-strong);
 }
 
 .admin-btn--ghost:hover {
   background: var(--purple-soft);
+  border-color: rgba(196, 181, 220, 0.4);
 }
 
 .admin-btn--danger {
-  background: #8b2e2e;
+  background: var(--admin-danger);
+  color: #fff;
 }
 
 .admin-btn--danger:hover {
-  background: #6e2222;
+  background: var(--admin-danger-hover);
 }
 
 .admin-btn:disabled {
@@ -170,11 +206,11 @@ body.admin-body {
 }
 
 .admin-status.is-error {
-  color: #8b2e2e;
+  color: var(--admin-error);
 }
 
 .admin-status.is-ok {
-  color: #1f6b3a;
+  color: var(--admin-ok);
 }
 
 .admin-tabs {
@@ -187,7 +223,7 @@ body.admin-body {
 .admin-tab {
   appearance: none;
   border: 1px solid var(--border);
-  background: #fff;
+  background: var(--bg-elevated);
   color: var(--text-muted);
   border-radius: 999px;
   padding: 8px 14px;
@@ -197,10 +233,15 @@ body.admin-body {
   cursor: pointer;
 }
 
+.admin-tab:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
 .admin-tab.is-active {
-  background: var(--purple);
-  border-color: var(--purple);
-  color: #fff;
+  background: var(--admin-accent);
+  border-color: var(--admin-accent);
+  color: var(--admin-on-accent);
 }
 
 .admin-toolbar {
@@ -215,7 +256,7 @@ body.admin-body {
 .admin-toolbar h2 {
   margin: 0;
   font-size: 1.15rem;
-  color: var(--purple-dark);
+  color: var(--text);
 }
 
 .admin-list {
@@ -228,7 +269,7 @@ body.admin-body {
 .admin-card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: #fff;
+  background: var(--bg-card);
   padding: 14px 16px;
   display: grid;
   gap: 8px;
@@ -246,6 +287,7 @@ body.admin-body {
   margin: 0;
   font-size: 1.05rem;
   font-weight: 600;
+  color: var(--text);
 }
 
 .admin-card p {
@@ -269,7 +311,7 @@ body.admin-body {
 .admin-editor {
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: #fff;
+  background: var(--bg-card);
   padding: 18px;
   margin-bottom: 20px;
 }
@@ -277,6 +319,7 @@ body.admin-body {
 .admin-editor h3 {
   margin: 0 0 14px;
   font-size: 1.05rem;
+  color: var(--text);
 }
 
 .admin-check {
@@ -285,16 +328,18 @@ body.admin-body {
   gap: 8px;
   margin: 4px 0 14px;
   font-size: 0.95rem;
+  color: var(--text);
 }
 
 .admin-check input {
   width: auto;
+  accent-color: var(--admin-accent-strong);
 }
 
 .admin-help {
   margin-top: 28px;
   padding: 16px 18px;
-  border-left: 3px solid var(--purple);
+  border-left: 3px solid var(--admin-accent-strong);
   background: var(--purple-soft);
   border-radius: 0 var(--radius) var(--radius) 0;
   font-size: 0.9rem;
@@ -306,6 +351,14 @@ body.admin-body {
   color: var(--text);
 }
 
+.admin-help code {
+  font-size: 0.85em;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--admin-accent);
+}
+
 .admin-preview {
   margin-top: 12px;
 }
@@ -315,8 +368,9 @@ body.admin-body {
   max-height: 280px;
   overflow: auto;
   padding: 12px;
-  background: #1a1528;
-  color: #f5f3f8;
+  background: #050506;
+  color: #e8e4f0;
+  border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 0.8rem;
   line-height: 1.4;
@@ -325,7 +379,7 @@ body.admin-body {
 .admin-modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(26, 21, 40, 0.55);
+  background: rgba(0, 0, 0, 0.72);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -339,10 +393,12 @@ body.admin-body {
 
 .admin-modal {
   width: min(480px, 100%);
-  background: #fff;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
   padding: 22px;
-  box-shadow: 0 20px 50px rgba(26, 21, 40, 0.25);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  color: var(--text);
 }
 
 .admin-modal h2 {
@@ -350,6 +406,7 @@ body.admin-body {
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: 1.5rem;
+  color: var(--text);
 }
 
 .admin-modal p {
@@ -383,6 +440,12 @@ body.admin-body {
   font-size: 0.8rem;
   color: var(--text-dim);
   line-height: 1.4;
+}
+
+.admin-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--admin-gap);
 }
 
 @media (max-width: 640px) {
