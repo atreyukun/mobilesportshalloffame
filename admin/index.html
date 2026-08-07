@@ -63,7 +63,8 @@
       <aside class="admin-help">
         <p><strong>Password:</strong> set in <code>admin/config.js</code> as <code>PASSWORD_SHA256</code> (SHA-256 hex of your shared password). Default for setup is <code>msHofAdmin2026</code> — change before sharing.</p>
         <p><strong>GitHub token:</strong> create a fine-grained PAT with Contents: Read and write on <code>atreyukun/mobilesportshalloffame</code> only. Paste it when saving; it stays in sessionStorage and is never committed.</p>
-        <p><strong>v2:</strong> Hall of Famers editor can reuse this shell; logos stay as files under <code>assets/partners/</code> and <code>assets/sponsors/</code> for now (edit path/URL/name here).</p>
+        <p><strong>Images:</strong> use <strong>Browse…</strong> next to an image/logo path to upload into the repo (same GitHub token). Then Apply and Save so the JSON points at the new file.</p>
+        <p><strong>v2:</strong> Hall of Famers editor can reuse this shell.</p>
       </aside>
     </section>
   </div>
@@ -78,7 +79,7 @@
           <input id="token-input" type="password" autocomplete="off" required />
         </div>
         <div class="admin-actions">
-          <button type="submit" class="admin-btn">Save with this token</button>
+          <button type="submit" class="admin-btn">Continue</button>
           <button type="button" class="admin-btn admin-btn--ghost" id="token-cancel">Cancel</button>
         </div>
       </form>

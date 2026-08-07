@@ -33,6 +33,10 @@
   let activeTab = "news";
   let editingNewsId = null;
   let editingBrand = { kind: null, id: null };
+  /** @type {null | ((token: string) => void | Promise<void>)} */
+  let pendingTokenAction = null;
+
+  const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
 
   async function sha256Hex(text) {
     const buf = await crypto.subtle.digest(
@@ -139,6 +143,7 @@
   });
 
   document.getElementById("token-cancel").addEventListener("click", () => {
+    pendingTokenAction = null;
     tokenModal.hidden = true;
   });
 
@@ -149,17 +154,31 @@
     sessionStorage.setItem(TOKEN_KEY, token);
     tokenModal.hidden = true;
     tokenInput.value = "";
-    saveCurrentTab(token);
+    const action = pendingTokenAction || ((t) => saveCurrentTab(t));
+    pendingTokenAction = null;
+    Promise.resolve(action(token)).catch((err) => {
+      setStatus(appStatus, err.message || "Request failed.", "is-error");
+    });
   });
 
-  function beginSave() {
+  function withGithubToken(action) {
     const existing = sessionStorage.getItem(TOKEN_KEY);
     if (existing) {
-      saveCurrentTab(existing);
+      Promise.resolve(action(existing)).catch((err) => {
+        if (/401|403|Bad credentials|Resource not accessible/i.test(String(err.message))) {
+          sessionStorage.removeItem(TOKEN_KEY);
+        }
+        setStatus(appStatus, err.message || "Request failed.", "is-error");
+      });
       return;
     }
+    pendingTokenAction = action;
     tokenModal.hidden = false;
     tokenInput.focus();
+  }
+
+  function beginSave() {
+    withGithubToken((token) => saveCurrentTab(token));
   }
 
   async function saveCurrentTab(token) {
@@ -183,7 +202,7 @@
     }
   }
 
-  async function putGithubFile(path, content, message, token) {
+  async function putGithubFile(path, content, message, token, { isBase64 = false } = {}) {
     const { GITHUB_OWNER: owner, GITHUB_REPO: repo, GITHUB_BRANCH: branch } = cfg;
     const apiBase = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
     const headers = {
@@ -206,7 +225,9 @@
 
     const body = {
       message,
-      content: btoa(unescape(encodeURIComponent(content))),
+      content: isBase64
+        ? content
+        : btoa(unescape(encodeURIComponent(content))),
       branch,
     };
     if (sha) body.sha = sha;
@@ -221,6 +242,98 @@
       throw new Error(err.message || `GitHub save failed (${putRes.status})`);
     }
     return putRes.json();
+  }
+
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = String(reader.result || "");
+        const base64 = result.includes(",") ? result.split(",")[1] : result;
+        resolve(base64);
+      };
+      reader.onerror = () => reject(new Error("Could not read that file."));
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function safeAssetName(filename) {
+    const parts = String(filename).split(".");
+    const ext =
+      parts.length > 1
+        ? parts.pop().toLowerCase().replace(/[^a-z0-9]/g, "") || "png"
+        : "png";
+    const base = slugify(parts.join(".")) || `image-${Date.now()}`;
+    return `${base}.${ext}`;
+  }
+
+  function pathFieldHtml({ id, name, value, label, folder, placeholder }) {
+    return `<div class="admin-field">
+      <label for="${id}">${escapeHtml(label)}</label>
+      <div class="admin-path-row">
+        <input id="${id}" name="${name}" value="${escapeHtml(value || "")}" placeholder="${escapeHtml(placeholder || "")}" />
+        <button type="button" class="admin-btn admin-btn--ghost" data-browse-upload data-target="${id}" data-folder="${escapeHtml(folder)}">Browse…</button>
+        <input type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml" hidden data-browse-file data-target="${id}" data-folder="${escapeHtml(folder)}" />
+      </div>
+      <p class="admin-field-hint">Browse uploads the image to GitHub now and fills this path. Then Apply / Save for the JSON.</p>
+    </div>`;
+  }
+
+  function wireBrowseUploads() {
+    panels.querySelectorAll("[data-browse-upload]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const target = btn.dataset.target;
+        const fileInput = panels.querySelector(
+          `[data-browse-file][data-target="${CSS.escape(target)}"]`
+        );
+        fileInput?.click();
+      });
+    });
+    panels.querySelectorAll("[data-browse-file]").forEach((fileInput) => {
+      fileInput.addEventListener("change", () => {
+        const file = fileInput.files && fileInput.files[0];
+        const targetId = fileInput.dataset.target;
+        const folder = fileInput.dataset.folder || "assets";
+        fileInput.value = "";
+        if (!file || !targetId) return;
+        uploadImageToRepo(file, folder, targetId);
+      });
+    });
+  }
+
+  function uploadImageToRepo(file, folder, inputId) {
+    if (!/^image\//.test(file.type) && !/\.(png|jpe?g|gif|webp|svg)$/i.test(file.name)) {
+      setStatus(appStatus, "Please choose an image file (PNG, JPG, WebP, GIF, or SVG).", "is-error");
+      return;
+    }
+    if (file.size > MAX_UPLOAD_BYTES) {
+      setStatus(appStatus, "Image must be under 5 MB.", "is-error");
+      return;
+    }
+
+    withGithubToken(async (token) => {
+      const name = safeAssetName(file.name);
+      const path = `${String(folder).replace(/\/$/, "")}/${name}`;
+      setStatus(appStatus, `Uploading ${path}…`);
+      try {
+        const base64 = await fileToBase64(file);
+        await putGithubFile(path, base64, `Upload ${path} via admin`, token, {
+          isBase64: true,
+        });
+        const input = document.getElementById(inputId);
+        if (input) input.value = `${path}?v=${Date.now()}`;
+        setStatus(
+          appStatus,
+          `Uploaded ${path}. Click Apply (if shown), then Save to GitHub for the JSON.`,
+          "is-ok"
+        );
+      } catch (err) {
+        if (/401|403|Bad credentials|Resource not accessible/i.test(String(err.message))) {
+          sessionStorage.removeItem(TOKEN_KEY);
+        }
+        setStatus(appStatus, err.message || "Upload failed.", "is-error");
+      }
+    });
   }
 
   function render() {
@@ -420,10 +533,14 @@
               <input id="e-ticketLabel" name="ticketLabel" value="${escapeHtml(ev.ticketLabel || "")}" />
             </div>
           </div>
-          <div class="admin-field">
-            <label for="e-image">Image path (repo-relative)</label>
-            <input id="e-image" name="image" value="${escapeHtml(ev.image || "")}" />
-          </div>
+          ${pathFieldHtml({
+            id: "e-image",
+            name: "image",
+            value: ev.image || "",
+            label: "Image path (repo-relative)",
+            folder: "assets",
+            placeholder: "assets/hero-banquet-pano.jpg",
+          })}
           <div class="admin-actions">
             <button type="submit" class="admin-btn">Apply changes</button>
           </div>
@@ -446,6 +563,7 @@
       };
       setStatus(appStatus, "Event updated locally. Click Save to GitHub to publish.", "is-ok");
     });
+    wireBrowseUploads();
   }
 
   function renderBrands(kind) {
@@ -500,10 +618,14 @@
             <input id="b-url" name="url" value="${escapeHtml(editing.url || "")}" />
           </div>
           <div class="admin-row-2">
-            <div class="admin-field">
-              <label for="b-logo">Logo path</label>
-              <input id="b-logo" name="logo" value="${escapeHtml(editing.logo || "")}" placeholder="assets/${kind}/example.png" />
-            </div>
+            ${pathFieldHtml({
+              id: "b-logo",
+              name: "logo",
+              value: editing.logo || "",
+              label: "Logo path",
+              folder: `assets/${kind}`,
+              placeholder: `assets/${kind}/example.png`,
+            })}
             <div class="admin-field">
               <label for="b-domain">Domain label</label>
               <input id="b-domain" name="domain" value="${escapeHtml(editing.domain || "")}" />
@@ -564,7 +686,10 @@
       });
     });
 
-    if (editing != null) scrollToEditor();
+    if (editing != null) {
+      wireBrowseUploads();
+      scrollToEditor();
+    }
   }
 
   function blankBrand() {

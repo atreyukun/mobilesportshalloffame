@@ -359,10 +359,30 @@ body.admin-body {
   line-height: 1.45;
 }
 
-.admin-row-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--admin-gap);
+.admin-path-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.admin-path-row input[type="text"],
+.admin-path-row input:not([type]),
+.admin-path-row > input {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+.admin-path-row .admin-btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.admin-field-hint {
+  margin: 6px 0 0;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  line-height: 1.4;
 }
 
 @media (max-width: 640px) {
