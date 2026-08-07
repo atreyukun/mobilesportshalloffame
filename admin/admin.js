@@ -15,8 +15,6 @@
   const appStatus = document.getElementById("app-status");
   const panels = document.getElementById("tab-panels");
   const tabs = document.getElementById("tabs");
-  const previewBox = document.getElementById("json-preview");
-  const previewBody = document.getElementById("json-preview-body");
   const tokenModal = document.getElementById("token-modal");
   const tokenForm = document.getElementById("token-form");
   const tokenInput = document.getElementById("token-input");
@@ -128,14 +126,7 @@
     tabs.querySelectorAll(".admin-tab").forEach((t) => {
       t.classList.toggle("is-active", t.dataset.tab === activeTab);
     });
-    previewBox.hidden = true;
     render();
-  });
-
-  document.getElementById("btn-preview").addEventListener("click", () => {
-    const data = state[activeTab];
-    previewBody.textContent = JSON.stringify(data, null, 2);
-    previewBox.hidden = !previewBox.hidden;
   });
 
   document.getElementById("btn-save").addEventListener("click", () => {
@@ -191,7 +182,7 @@
       await putGithubFile(path, content, `Update ${path} via admin`, token);
       setStatus(
         appStatus,
-        `Saved ${path}. Public site updates after GitHub Pages rebuilds (~1 min).`,
+        `Saved. The live site usually updates within about a minute.`,
         "is-ok"
       );
     } catch (err) {
@@ -239,7 +230,7 @@
     });
     if (!putRes.ok) {
       const err = await putRes.json().catch(() => ({}));
-      throw new Error(err.message || `GitHub save failed (${putRes.status})`);
+      throw new Error(err.message || `Save failed (${putRes.status})`);
     }
     return putRes.json();
   }
@@ -275,7 +266,7 @@
         <button type="button" class="admin-btn admin-btn--ghost" data-browse-upload data-target="${id}" data-folder="${escapeHtml(folder)}">Browse…</button>
         <input type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml" hidden data-browse-file data-target="${id}" data-folder="${escapeHtml(folder)}" />
       </div>
-      <p class="admin-field-hint">Browse uploads the image to GitHub now and fills this path. Then Apply / Save for the JSON.</p>
+      <p class="admin-field-hint">Browse uploads the image now and fills this path. Then Apply and click Save.</p>
     </div>`;
   }
 
@@ -324,7 +315,7 @@
         if (input) input.value = `${path}?v=${Date.now()}`;
         setStatus(
           appStatus,
-          `Uploaded ${path}. Click Apply (if shown), then Save to GitHub for the JSON.`,
+          `Uploaded ${path}. Click Apply (if shown), then Save.`,
           "is-ok"
         );
       } catch (err) {
@@ -455,7 +446,7 @@
         else state.news.unshift(item);
       }
       editingNewsId = null;
-      setStatus(appStatus, "News list updated locally. Click Save to GitHub to publish.", "is-ok");
+      setStatus(appStatus, "News list updated locally. Click Save to publish.", "is-ok");
       render();
     });
     panels.querySelectorAll("[data-edit-news]").forEach((btn) => {
@@ -469,7 +460,7 @@
         const id = btn.getAttribute("data-del-news");
         if (!confirm("Delete this news post?")) return;
         state.news = state.news.filter((n) => n.id !== id);
-        setStatus(appStatus, "Removed locally. Save to GitHub to publish.", "is-ok");
+        setStatus(appStatus, "Removed locally. Save to publish.", "is-ok");
         render();
       });
     });
@@ -561,7 +552,7 @@
         ticketLabel: String(fd.get("ticketLabel") || "").trim(),
         image: String(fd.get("image") || "").trim(),
       };
-      setStatus(appStatus, "Event updated locally. Click Save to GitHub to publish.", "is-ok");
+      setStatus(appStatus, "Event updated locally. Click Save to publish.", "is-ok");
     });
     wireBrowseUploads();
   }
@@ -667,7 +658,7 @@
         else arr.push(item);
       }
       editingBrand = { kind: null, id: null };
-      setStatus(appStatus, `${label} updated locally. Save to GitHub to publish.`, "is-ok");
+      setStatus(appStatus, `${label} updated locally. Save to publish.`, "is-ok");
       render();
     });
     panels.querySelectorAll("[data-edit-brand]").forEach((btn) => {
@@ -681,7 +672,7 @@
         const id = btn.getAttribute("data-del-brand");
         if (!confirm("Delete this entry?")) return;
         state[kind] = state[kind].filter((b) => b.id !== id);
-        setStatus(appStatus, "Removed locally. Save to GitHub to publish.", "is-ok");
+        setStatus(appStatus, "Removed locally. Save to publish.", "is-ok");
         render();
       });
     });
@@ -750,7 +741,7 @@
         officers,
         members,
       };
-      setStatus(appStatus, "Board updated locally. Click Save to GitHub to publish.", "is-ok");
+      setStatus(appStatus, "Board updated locally. Click Save to publish.", "is-ok");
     });
   }
 

@@ -12,27 +12,30 @@ Admin password
 
 Keep the password private. It can be changed later if needed.
 
+Publish key
+  Sent separately (do not store in this file or post publicly).
+
 
 WHY THIS EXISTS
 ---------------
 You can update news, the featured event, partners, sponsors, and the board
 roster without waiting on a developer for every change.
 
-The site is hosted on GitHub Pages as static files (no separate database).
-When you click Save, the admin writes those updates into the website files
-so the live pages can refresh—usually within about a minute.
+The website is made of simple files. When you click Save, your updates are
+published to those files so the live pages can refresh—usually within about
+a minute.
 
 
-WHY THERE IS ALSO A "GITHUB TOKEN"
-----------------------------------
-GitHub requires a personal access token to write those files. That token is
-NOT the same as the admin password.
+WHY THERE IS ALSO A PUBLISH KEY
+-------------------------------
+Saving needs a publish key in addition to the admin password. That key is
+NOT the same as the password.
 
 You paste it once per browser session when you Save or upload an image. It
 stays in your browser only and is never stored on the public website.
 
-You will receive the publish token separately. Treat it like a key—do not
-post it publicly or share it outside your team.
+Treat the publish key like a house key—do not post it publicly or share it
+outside your team.
 
 
 HOW TO MAKE A CHANGE
@@ -40,15 +43,15 @@ HOW TO MAKE A CHANGE
 1. Open the content admin URL and sign in with the password above.
 2. Use the tabs: News, Featured event, Partners, Sponsors, Board.
 3. Edit an item, then click Apply (when shown).
-4. Click Save to GitHub. Paste the token if asked.
+4. Click Save. Paste the publish key if asked.
 5. Wait about one minute, then refresh the public site to confirm.
 
 
 IMAGES AND LOGOS
 ----------------
 Use Browse… next to an image or logo field to upload a file. The upload
-goes to GitHub immediately. Then click Apply and Save so the page points
-to the new file.
+happens right away. Then click Apply and Save so the page points to the
+new file.
 
 
 NOTES

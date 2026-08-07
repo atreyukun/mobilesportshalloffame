@@ -18,7 +18,7 @@
     <section class="admin-gate" id="login-gate">
       <img class="admin-logo" src="../assets/logo.png?v=6" alt="Mobile Sports Hall of Fame" width="120" height="126" />
       <h1>Content admin</h1>
-      <p>Edit news, the featured event, partners, sponsors, and the board roster. Changes save to GitHub and appear on the public site after Pages rebuilds (~1 minute).</p>
+      <p>Edit news, the featured event, partners, sponsors, and the board roster. Changes appear on the public site about a minute after you save.</p>
       <form id="login-form">
         <div class="admin-field">
           <label for="password">Password</label>
@@ -41,8 +41,7 @@
           </div>
         </div>
         <div class="admin-actions">
-          <button type="button" class="admin-btn admin-btn--ghost" id="btn-preview">Preview JSON</button>
-          <button type="button" class="admin-btn" id="btn-save">Save to GitHub</button>
+          <button type="button" class="admin-btn" id="btn-save">Save</button>
           <button type="button" class="admin-btn admin-btn--ghost" id="btn-logout">Sign out</button>
         </div>
       </header>
@@ -60,20 +59,16 @@
       <div id="tab-panels">
         <!-- filled by admin.js -->
       </div>
-
-      <div class="admin-preview" id="json-preview" hidden>
-        <pre id="json-preview-body"></pre>
-      </div>
     </section>
   </div>
 
   <div class="admin-modal-backdrop" id="token-modal" hidden>
     <div class="admin-modal" role="dialog" aria-labelledby="token-title">
-      <h2 id="token-title">GitHub token</h2>
-      <p>Paste a fine-grained personal access token with Contents write access for this repo. Stored in this browser tab only.</p>
+      <h2 id="token-title">Publish key</h2>
+      <p>Paste the publish key you were given. It’s only kept in this browser tab.</p>
       <form id="token-form">
         <div class="admin-field">
-          <label for="token-input">Personal access token</label>
+          <label for="token-input">Publish key</label>
           <input id="token-input" type="password" autocomplete="off" required />
         </div>
         <div class="admin-actions">
