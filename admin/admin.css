@@ -193,6 +193,11 @@ body.admin-body {
   background: var(--admin-danger-hover);
 }
 
+.admin-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 .admin-btn--danger:disabled {
   opacity: 0.4;
   cursor: not-allowed;
