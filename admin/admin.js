@@ -18,6 +18,15 @@
   const tokenModal = document.getElementById("token-modal");
   const tokenForm = document.getElementById("token-form");
   const tokenInput = document.getElementById("token-input");
+  const deleteModal = document.getElementById("delete-modal");
+  const deleteForm = document.getElementById("delete-form");
+  const deleteItemName = document.getElementById("delete-item-name");
+  const deleteConfirmInput = document.getElementById("delete-confirm-input");
+  const deleteConfirmBtn = document.getElementById("delete-confirm-btn");
+  const deleteCancel = document.getElementById("delete-cancel");
+
+  /** @type {null | ((ok: boolean) => void)} */
+  let deleteResolver = null;
 
   /** @type {{ news: any[], event: object, partners: any[], sponsors: any[], board: object }} */
   let state = {
@@ -136,6 +145,49 @@
   document.getElementById("token-cancel").addEventListener("click", () => {
     pendingTokenAction = null;
     tokenModal.hidden = true;
+  });
+
+  function closeDeleteModal(ok) {
+    deleteModal.hidden = true;
+    deleteConfirmInput.value = "";
+    deleteConfirmBtn.disabled = true;
+    const resolve = deleteResolver;
+    deleteResolver = null;
+    if (resolve) resolve(ok);
+  }
+
+  function confirmDelete(itemLabel) {
+    return new Promise((resolve) => {
+      deleteResolver = resolve;
+      deleteItemName.textContent = itemLabel || "this item";
+      deleteConfirmInput.value = "";
+      deleteConfirmBtn.disabled = true;
+      deleteModal.hidden = false;
+      deleteConfirmInput.focus();
+    });
+  }
+
+  deleteConfirmInput.addEventListener("input", () => {
+    deleteConfirmBtn.disabled = deleteConfirmInput.value.trim().toUpperCase() !== "DELETE";
+  });
+
+  deleteCancel.addEventListener("click", () => closeDeleteModal(false));
+
+  deleteForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (deleteConfirmInput.value.trim().toUpperCase() !== "DELETE") return;
+    closeDeleteModal(true);
+  });
+
+  deleteModal.addEventListener("click", (e) => {
+    if (e.target === deleteModal) closeDeleteModal(false);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !deleteModal.hidden) {
+      e.preventDefault();
+      closeDeleteModal(false);
+    }
   });
 
   tokenForm.addEventListener("submit", (e) => {
@@ -456,11 +508,13 @@
       });
     });
     panels.querySelectorAll("[data-del-news]").forEach((btn) => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", async () => {
         const id = btn.getAttribute("data-del-news");
-        if (!confirm("Delete this news post?")) return;
+        const item = state.news.find((n) => n.id === id);
+        const ok = await confirmDelete(item?.title || "this news post");
+        if (!ok) return;
         state.news = state.news.filter((n) => n.id !== id);
-        setStatus(appStatus, "Removed locally. Save to publish.", "is-ok");
+        setStatus(appStatus, "Removed. Click Save to publish the change.", "is-ok");
         render();
       });
     });
@@ -668,11 +722,13 @@
       });
     });
     panels.querySelectorAll("[data-del-brand]").forEach((btn) => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", async () => {
         const id = btn.getAttribute("data-del-brand");
-        if (!confirm("Delete this entry?")) return;
+        const item = state[kind].find((b) => b.id === id);
+        const ok = await confirmDelete(item?.name || `this ${kind.slice(0, -1)}`);
+        if (!ok) return;
         state[kind] = state[kind].filter((b) => b.id !== id);
-        setStatus(appStatus, "Removed locally. Save to publish.", "is-ok");
+        setStatus(appStatus, "Removed. Click Save to publish the change.", "is-ok");
         render();
       });
     });

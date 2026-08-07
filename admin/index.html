@@ -79,6 +79,23 @@
     </div>
   </div>
 
+  <div class="admin-modal-backdrop" id="delete-modal" hidden>
+    <div class="admin-modal" role="dialog" aria-labelledby="delete-title" aria-describedby="delete-desc">
+      <h2 id="delete-title">Delete this item?</h2>
+      <p id="delete-desc">You’re about to remove <strong id="delete-item-name"></strong>. This can’t be undone after you Save.</p>
+      <form id="delete-form">
+        <div class="admin-field">
+          <label for="delete-confirm-input">Type DELETE to confirm</label>
+          <input id="delete-confirm-input" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" required />
+        </div>
+        <div class="admin-actions">
+          <button type="button" class="admin-btn admin-btn--ghost" id="delete-cancel">Cancel</button>
+          <button type="submit" class="admin-btn admin-btn--danger" id="delete-confirm-btn" disabled>Delete permanently</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script src="config.js"></script>
   <script src="admin.js"></script>
 </body>
