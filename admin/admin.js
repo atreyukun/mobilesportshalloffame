@@ -28,10 +28,10 @@
   /** @type {null | ((ok: boolean) => void)} */
   let deleteResolver = null;
 
-  /** @type {{ news: any[], event: object, partners: any[], sponsors: any[], board: object }} */
+  /** @type {{ news: any[], event: any[], partners: any[], sponsors: any[], board: object }} */
   let state = {
     news: [],
-    event: {},
+    event: [],
     partners: [],
     sponsors: [],
     board: { title: "", lede: "", officers: [], members: [] },
@@ -39,6 +39,7 @@
 
   let activeTab = "news";
   let editingNewsId = null;
+  let editingEventId = null;
   let editingBrand = { kind: null, id: null };
   /** @type {null | ((token: string) => void | Promise<void>)} */
   let pendingTokenAction = null;
@@ -88,7 +89,17 @@
       })
     );
     results.forEach(([key, data]) => {
-      state[key] = data;
+      if (key === "event" && data && !Array.isArray(data)) {
+        state.event = [
+          {
+            ...data,
+            id: data.id || "legacy-event",
+            featured: data.featured !== false,
+          },
+        ];
+      } else {
+        state[key] = data;
+      }
     });
   }
 
@@ -131,6 +142,7 @@
     if (!btn) return;
     activeTab = btn.dataset.tab;
     editingNewsId = null;
+    editingEventId = null;
     editingBrand = { kind: null, id: null };
     tabs.querySelectorAll(".admin-tab").forEach((t) => {
       t.classList.toggle("is-active", t.dataset.tab === activeTab);
@@ -534,68 +546,137 @@
     };
   }
 
+  function blankEvent() {
+    return {
+      id: "",
+      featured: false,
+      eyebrow: "Upcoming",
+      title: "",
+      lede: "",
+      dateLabel: "",
+      inducteesLabel: "Inductees —",
+      inductees: "",
+      ticketUrl: "",
+      ticketLabel: "Buy Tickets",
+      image: "",
+    };
+  }
+
   function renderEvent() {
-    const ev = state.event || {};
+    if (!Array.isArray(state.event)) {
+      state.event = state.event ? [{ id: "legacy-event", featured: true, ...state.event }] : [];
+    }
+
+    const list = state.event
+      .map(
+        (ev) => `<article class="admin-card">
+          <div class="admin-card-top">
+            <div>
+              <h3>${escapeHtml(ev.title || "Untitled event")}</h3>
+              <p class="admin-card-meta">${ev.featured ? "Featured on News & Events · " : ""}${escapeHtml(ev.dateLabel || "")}${ev.dateLabel ? " · " : ""}${escapeHtml(ev.id || "")}</p>
+              <p>${escapeHtml(ev.lede || "")}</p>
+            </div>
+            <div class="admin-card-actions">
+              <button type="button" class="admin-btn admin-btn--ghost" data-edit-event="${escapeHtml(ev.id)}">Edit</button>
+              <button type="button" class="admin-btn admin-btn--danger" data-del-event="${escapeHtml(ev.id)}">Delete</button>
+            </div>
+          </div>
+        </article>`
+      )
+      .join("");
+
+    const editing =
+      editingEventId != null
+        ? state.event.find((ev) => ev.id === editingEventId) || blankEvent()
+        : null;
+
     panels.innerHTML = `
-      <div class="admin-toolbar"><h2>Featured event</h2></div>
-      <div class="admin-editor">
+      <div class="admin-toolbar">
+        <h2>Events</h2>
+        <button type="button" class="admin-btn" id="event-add">Add event</button>
+      </div>
+      <div class="admin-list">${list || "<p class='admin-status'>No events yet.</p>"}</div>
+      ${
+        editing
+          ? `<div class="admin-editor">
+        <h3>${editingEventId && state.event.some((ev) => ev.id === editingEventId) ? "Edit event" : "New event"}</h3>
         <form id="event-form">
           <div class="admin-row-2">
             <div class="admin-field">
-              <label for="e-eyebrow">Eyebrow</label>
-              <input id="e-eyebrow" name="eyebrow" value="${escapeHtml(ev.eyebrow || "")}" />
+              <label for="e-id">ID (slug)</label>
+              <input id="e-id" name="id" value="${escapeHtml(editing.id)}" required />
             </div>
             <div class="admin-field">
               <label for="e-dateLabel">Date label</label>
-              <input id="e-dateLabel" name="dateLabel" value="${escapeHtml(ev.dateLabel || "")}" />
+              <input id="e-dateLabel" name="dateLabel" value="${escapeHtml(editing.dateLabel || "")}" />
+            </div>
+          </div>
+          <div class="admin-row-2">
+            <div class="admin-field">
+              <label for="e-eyebrow">Eyebrow</label>
+              <input id="e-eyebrow" name="eyebrow" value="${escapeHtml(editing.eyebrow || "")}" />
+            </div>
+            <div class="admin-field">
+              <label for="e-title">Title</label>
+              <input id="e-title" name="title" value="${escapeHtml(editing.title || "")}" required />
             </div>
           </div>
           <div class="admin-field">
-            <label for="e-title">Title</label>
-            <input id="e-title" name="title" value="${escapeHtml(ev.title || "")}" required />
-          </div>
-          <div class="admin-field">
             <label for="e-lede">Supporting text</label>
-            <textarea id="e-lede" name="lede">${escapeHtml(ev.lede || "")}</textarea>
+            <textarea id="e-lede" name="lede">${escapeHtml(editing.lede || "")}</textarea>
           </div>
           <div class="admin-row-2">
             <div class="admin-field">
               <label for="e-inducteesLabel">Inductees label</label>
-              <input id="e-inducteesLabel" name="inducteesLabel" value="${escapeHtml(ev.inducteesLabel || "")}" />
+              <input id="e-inducteesLabel" name="inducteesLabel" value="${escapeHtml(editing.inducteesLabel || "")}" />
             </div>
             <div class="admin-field">
               <label for="e-inductees">Inductees</label>
-              <input id="e-inductees" name="inductees" value="${escapeHtml(ev.inductees || "")}" />
+              <input id="e-inductees" name="inductees" value="${escapeHtml(editing.inductees || "")}" />
             </div>
           </div>
           <div class="admin-row-2">
             <div class="admin-field">
               <label for="e-ticketUrl">Ticket URL</label>
-              <input id="e-ticketUrl" name="ticketUrl" value="${escapeHtml(ev.ticketUrl || "")}" />
+              <input id="e-ticketUrl" name="ticketUrl" value="${escapeHtml(editing.ticketUrl || "")}" />
             </div>
             <div class="admin-field">
               <label for="e-ticketLabel">Ticket button label</label>
-              <input id="e-ticketLabel" name="ticketLabel" value="${escapeHtml(ev.ticketLabel || "")}" />
+              <input id="e-ticketLabel" name="ticketLabel" value="${escapeHtml(editing.ticketLabel || "")}" />
             </div>
           </div>
           ${pathFieldHtml({
             id: "e-image",
             name: "image",
-            value: ev.image || "",
+            value: editing.image || "",
             label: "Image path (repo-relative)",
             folder: "assets",
             placeholder: "assets/hero-banquet-pano.jpg",
           })}
+          <label class="admin-check"><input type="checkbox" name="featured" ${editing.featured ? "checked" : ""} /> Featured on News &amp; Events page</label>
           <div class="admin-actions">
-            <button type="submit" class="admin-btn">Apply changes</button>
+            <button type="submit" class="admin-btn">Apply to list</button>
+            <button type="button" class="admin-btn admin-btn--ghost" id="event-cancel">Cancel</button>
           </div>
         </form>
-      </div>`;
+      </div>`
+          : ""
+      }`;
 
-    document.getElementById("event-form").addEventListener("submit", (e) => {
+    document.getElementById("event-add")?.addEventListener("click", () => {
+      editingEventId = "";
+      render();
+    });
+    document.getElementById("event-cancel")?.addEventListener("click", () => {
+      editingEventId = null;
+      render();
+    });
+    document.getElementById("event-form")?.addEventListener("submit", (e) => {
       e.preventDefault();
       const fd = new FormData(e.target);
-      state.event = {
+      const item = {
+        id: String(fd.get("id") || slugify(fd.get("title"))).trim(),
+        featured: fd.get("featured") === "on",
         eyebrow: String(fd.get("eyebrow") || "").trim(),
         title: String(fd.get("title") || "").trim(),
         lede: String(fd.get("lede") || "").trim(),
@@ -606,9 +687,50 @@
         ticketLabel: String(fd.get("ticketLabel") || "").trim(),
         image: String(fd.get("image") || "").trim(),
       };
-      setStatus(appStatus, "Event updated locally. Click Save to publish.", "is-ok");
+      if (item.featured) {
+        state.event.forEach((ev) => {
+          ev.featured = false;
+        });
+      }
+      const idx = state.event.findIndex((ev) => ev.id === editingEventId);
+      if (idx >= 0) state.event[idx] = item;
+      else {
+        const clash = state.event.findIndex((ev) => ev.id === item.id);
+        if (clash >= 0) state.event[clash] = item;
+        else state.event.unshift(item);
+      }
+      if (!state.event.some((ev) => ev.featured) && state.event.length) {
+        state.event[0].featured = true;
+      }
+      editingEventId = null;
+      setStatus(appStatus, "Events updated. Click Save to publish.", "is-ok");
+      render();
     });
-    wireBrowseUploads();
+    panels.querySelectorAll("[data-edit-event]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        editingEventId = btn.getAttribute("data-edit-event");
+        render();
+      });
+    });
+    panels.querySelectorAll("[data-del-event]").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const id = btn.getAttribute("data-del-event");
+        const item = state.event.find((ev) => ev.id === id);
+        const ok = await confirmDelete(item?.title || "this event");
+        if (!ok) return;
+        state.event = state.event.filter((ev) => ev.id !== id);
+        if (!state.event.some((ev) => ev.featured) && state.event.length) {
+          state.event[0].featured = true;
+        }
+        setStatus(appStatus, "Removed. Click Save to publish the change.", "is-ok");
+        render();
+      });
+    });
+
+    if (editing != null) {
+      wireBrowseUploads();
+      scrollToEditor();
+    }
   }
 
   function renderBrands(kind) {

@@ -1,11 +1,15 @@
-{
-  "eyebrow": "Upcoming",
-  "title": "2026 Dinner & Induction Ceremony",
-  "lede": "Annual First Light Community and Mobile Sports Hall of Fame Dinner and Induction Ceremony.",
-  "dateLabel": "Friday, August 7, 2027",
-  "inducteesLabel": "2026 Inductees —",
-  "inductees": "Derrick Burroughs, Derrick Coleman, Joe Niland, & Eric Yelding",
-  "ticketUrl": "https://www.eventbrite.com/e/33rd-annual-first-light-community-of-mobile-football-preview-tickets-1985390204547",
-  "ticketLabel": "Buy Tickets",
-  "image": "assets/hero-banquet-pano.jpg?v=2"
-}
+[
+  {
+    "id": "2026-dinner",
+    "featured": true,
+    "eyebrow": "Upcoming",
+    "title": "2026 Dinner & Induction Ceremony",
+    "lede": "Annual First Light Community and Mobile Sports Hall of Fame Dinner and Induction Ceremony.",
+    "dateLabel": "Friday, August 7, 2027",
+    "inducteesLabel": "2026 Inductees —",
+    "inductees": "Derrick Burroughs, Derrick Coleman, Joe Niland, & Eric Yelding",
+    "ticketUrl": "https://www.eventbrite.com/e/33rd-annual-first-light-community-of-mobile-football-preview-tickets-1985390204547",
+    "ticketLabel": "Buy Tickets",
+    "image": "assets/hero-banquet-pano.jpg?v=2"
+  }
+]

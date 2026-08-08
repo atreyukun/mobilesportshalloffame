@@ -408,7 +408,13 @@ async function initNews(root, { home }) {
 
 async function initFeaturedEvent(root) {
   try {
-    const ev = await fetchJson("data/event.json");
+    const data = await fetchJson("data/event.json");
+    const list = Array.isArray(data) ? data : data ? [data] : [];
+    const ev = list.find((e) => e.featured) || list[0];
+    if (!ev) {
+      root.innerHTML = "";
+      return;
+    }
     const img = ev.image || "assets/hero-banquet-pano.jpg?v=2";
     root.innerHTML = `
       <div class="event-band-media event-band-media--scroll" aria-hidden="true">
