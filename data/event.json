@@ -1,20 +1,7 @@
 [
   {
-    "id": "test",
-    "featured": true,
-    "eyebrow": "Upcoming",
-    "title": "test",
-    "lede": "test",
-    "dateLabel": "",
-    "inducteesLabel": "Inductees —",
-    "inductees": "test",
-    "ticketUrl": "",
-    "ticketLabel": "Buy Tickets",
-    "image": "assets/bhiuw.jpg?v=1786280460818"
-  },
-  {
     "id": "2026-dinner",
-    "featured": false,
+    "featured": true,
     "eyebrow": "Upcoming",
     "title": "2026 Dinner & Induction Ceremony",
     "lede": "Annual First Light Community and Mobile Sports Hall of Fame Dinner and Induction Ceremony.",
