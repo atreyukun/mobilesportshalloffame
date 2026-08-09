@@ -95,6 +95,7 @@
             ...data,
             id: data.id || "legacy-event",
             featured: data.featured !== false,
+            archived: !!data.archived,
           },
         ];
       } else {
@@ -565,6 +566,7 @@
     return {
       id: "",
       featured: false,
+      archived: false,
       eyebrow: "",
       title: "",
       lede: "",
@@ -577,28 +579,63 @@
     };
   }
 
+  function activeEvents() {
+    return state.event.filter((ev) => !ev.archived);
+  }
+
+  function archivedEvents() {
+    return state.event.filter((ev) => ev.archived);
+  }
+
+  function ensureFeaturedActive() {
+    const active = activeEvents();
+    if (!active.length) return;
+    if (!active.some((ev) => ev.featured)) {
+      active[0].featured = true;
+    }
+  }
+
+  function eventCardHtml(ev, { archived }) {
+    return `<article class="admin-card">
+      <div class="admin-card-top">
+        <div>
+          <h3>${escapeHtml(ev.title || "Untitled event")}</h3>
+          <p class="admin-card-meta">${
+            archived
+              ? "In past-events archive"
+              : ev.featured
+                ? "Shown on home page · "
+                : ""
+          }${escapeHtml(ev.dateLabel || "No date set")}</p>
+          <p>${escapeHtml(ev.lede || "")}</p>
+        </div>
+        <div class="admin-card-actions">
+          <button type="button" class="admin-btn admin-btn--ghost" data-edit-event="${escapeHtml(ev.id)}">Edit</button>
+          ${
+            archived
+              ? `<button type="button" class="admin-btn admin-btn--ghost" data-restore-event="${escapeHtml(ev.id)}">Restore</button>`
+              : `<button type="button" class="admin-btn admin-btn--ghost" data-archive-event="${escapeHtml(ev.id)}">Move to archive</button>`
+          }
+          <button type="button" class="admin-btn admin-btn--danger" data-del-event="${escapeHtml(ev.id)}">Delete</button>
+        </div>
+      </div>
+    </article>`;
+  }
+
   function renderEvent() {
     if (!Array.isArray(state.event)) {
-      state.event = state.event ? [{ id: "legacy-event", featured: true, ...state.event }] : [];
+      state.event = state.event
+        ? [{ id: "legacy-event", featured: true, archived: false, ...state.event }]
+        : [];
     }
+    state.event.forEach((ev) => {
+      if (typeof ev.archived !== "boolean") ev.archived = false;
+    });
 
-    const list = state.event
-      .map(
-        (ev) => `<article class="admin-card">
-          <div class="admin-card-top">
-            <div>
-              <h3>${escapeHtml(ev.title || "Untitled event")}</h3>
-              <p class="admin-card-meta">${ev.featured ? "Shown on home page · " : ""}${escapeHtml(ev.dateLabel || "No date set")}</p>
-              <p>${escapeHtml(ev.lede || "")}</p>
-            </div>
-            <div class="admin-card-actions">
-              <button type="button" class="admin-btn admin-btn--ghost" data-edit-event="${escapeHtml(ev.id)}">Edit</button>
-              <button type="button" class="admin-btn admin-btn--danger" data-del-event="${escapeHtml(ev.id)}">Delete</button>
-            </div>
-          </div>
-        </article>`
-      )
-      .join("");
+    const current = activeEvents();
+    const past = archivedEvents();
+    const currentList = current.map((ev) => eventCardHtml(ev, { archived: false })).join("");
+    const pastList = past.map((ev) => eventCardHtml(ev, { archived: true })).join("");
 
     const editing =
       editingEventId != null
@@ -606,75 +643,95 @@
         : null;
     const isExisting =
       editing && editingEventId && state.event.some((ev) => ev.id === editingEventId);
+    const editor = editing ? eventEditorHtml(editing, isExisting) : "";
 
     panels.innerHTML = `
       <div class="admin-toolbar">
-        <h2>Events</h2>
+        <h2>Current events</h2>
         <button type="button" class="admin-btn" id="event-add">Add event</button>
       </div>
-      <div class="admin-list">${list || "<p class='admin-status'>No events yet. Click Add event to create one.</p>"}</div>
-      ${
-        editing
-          ? `<div class="admin-editor">
-        <h3>${isExisting ? "Edit event" : "New event"}</h3>
-        <p class="admin-field-hint" style="margin:-6px 0 16px">Fill in what you know. Leave optional fields blank if you don’t need them.</p>
-        <form id="event-form">
-          <input type="hidden" name="id" value="${escapeHtml(editing.id)}" />
-          <div class="admin-field">
-            <label for="e-title">Event name</label>
-            <input id="e-title" name="title" value="${escapeHtml(editing.title || "")}" required placeholder="e.g. Annual Dinner &amp; Ceremony" />
-          </div>
-          <div class="admin-row-2">
-            <div class="admin-field">
-              <label for="e-dateLabel">When</label>
-              <input id="e-dateLabel" name="dateLabel" value="${escapeHtml(editing.dateLabel || "")}" placeholder="e.g. Tuesday, June 16, 2026" />
-            </div>
-            <div class="admin-field">
-              <label for="e-eyebrow">Small label <span class="admin-optional">(optional)</span></label>
-              <input id="e-eyebrow" name="eyebrow" value="${escapeHtml(editing.eyebrow || "")}" placeholder="e.g. Upcoming, Free, Members only" />
-            </div>
-          </div>
-          <div class="admin-field">
-            <label for="e-lede">Short description</label>
-            <textarea id="e-lede" name="lede" placeholder="A sentence or two about the event">${escapeHtml(editing.lede || "")}</textarea>
-          </div>
-          <div class="admin-field">
-            <label>Extra line <span class="admin-optional">(optional)</span></label>
-            <p class="admin-field-hint" style="margin:0 0 8px">Use for inductees, speakers, location, or anything else worth calling out. Leave blank if not needed.</p>
-            <div class="admin-row-2">
-              <input name="inducteesLabel" value="${escapeHtml(editing.inducteesLabel || "")}" placeholder="Label — e.g. Speakers, Location" />
-              <input name="inductees" value="${escapeHtml(editing.inductees || "")}" placeholder="The details" />
-            </div>
-          </div>
-          <div class="admin-row-2">
-            <div class="admin-field">
-              <label for="e-ticketUrl">Ticket or RSVP link <span class="admin-optional">(optional)</span></label>
-              <input id="e-ticketUrl" name="ticketUrl" value="${escapeHtml(editing.ticketUrl || "")}" placeholder="https://" />
-            </div>
-            <div class="admin-field">
-              <label for="e-ticketLabel">Button text</label>
-              <input id="e-ticketLabel" name="ticketLabel" value="${escapeHtml(editing.ticketLabel || "Buy Tickets")}" placeholder="Buy Tickets" />
-            </div>
-          </div>
-          ${pathFieldHtml({
-            id: "e-image",
-            name: "image",
-            value: editing.image || "",
-            label: "Photo (optional)",
-            folder: "assets",
-            placeholder: "Choose a photo with Browse…",
-            hint: "Used on the News & Events page. Click Browse to upload from your computer, then Apply and Save.",
-          })}
-          <label class="admin-check"><input type="checkbox" name="featured" ${editing.featured ? "checked" : ""} /> Feature this on the home page (and the big banner on News &amp; Events)</label>
-          <div class="admin-actions">
-            <button type="submit" class="admin-btn">Apply to list</button>
-            <button type="button" class="admin-btn admin-btn--ghost" id="event-cancel">Cancel</button>
-          </div>
-        </form>
-      </div>`
-          : ""
-      }`;
+      <p class="admin-field-hint" style="margin:-4px 0 14px">These show on the site. Use <strong>Move to archive</strong> when an event is over — it stays for history unless you Delete it.</p>
+      <div class="admin-list">${currentList || "<p class='admin-status'>No current events. Click Add event to create one.</p>"}</div>
+      ${editing && !editing.archived ? editor : ""}
+      <div class="admin-toolbar" style="margin-top:28px">
+        <h2>Past events archive</h2>
+      </div>
+      <p class="admin-field-hint" style="margin:-4px 0 14px">Historic events for the public Past events section. <strong>Restore</strong> brings one back to Current. <strong>Delete</strong> removes it for good.</p>
+      <div class="admin-list">${pastList || "<p class='admin-status'>Archive is empty.</p>"}</div>
+      ${editing && editing.archived ? editor : ""}`;
 
+    wireEventHandlers();
+    if (editing != null) {
+      wireBrowseUploads();
+      scrollToEditor();
+    }
+  }
+
+  function eventEditorHtml(editing, isExisting) {
+    return `<div class="admin-editor">
+      <h3>${isExisting ? "Edit event" : "New event"}</h3>
+      <p class="admin-field-hint" style="margin:-6px 0 16px">Fill in what you know. Leave optional fields blank if you don’t need them.</p>
+      <form id="event-form">
+        <input type="hidden" name="id" value="${escapeHtml(editing.id)}" />
+        <div class="admin-field">
+          <label for="e-title">Event name</label>
+          <input id="e-title" name="title" value="${escapeHtml(editing.title || "")}" required placeholder="e.g. Annual Dinner &amp; Ceremony" />
+        </div>
+        <div class="admin-row-2">
+          <div class="admin-field">
+            <label for="e-dateLabel">When</label>
+            <input id="e-dateLabel" name="dateLabel" value="${escapeHtml(editing.dateLabel || "")}" placeholder="e.g. Tuesday, June 16, 2026" />
+          </div>
+          <div class="admin-field">
+            <label for="e-eyebrow">Small label <span class="admin-optional">(optional)</span></label>
+            <input id="e-eyebrow" name="eyebrow" value="${escapeHtml(editing.eyebrow || "")}" placeholder="e.g. Upcoming, Free, Members only" />
+          </div>
+        </div>
+        <div class="admin-field">
+          <label for="e-lede">Short description</label>
+          <textarea id="e-lede" name="lede" placeholder="A sentence or two about the event">${escapeHtml(editing.lede || "")}</textarea>
+        </div>
+        <div class="admin-field">
+          <label>Extra line <span class="admin-optional">(optional)</span></label>
+          <p class="admin-field-hint" style="margin:0 0 8px">Use for inductees, speakers, location, or anything else worth calling out. Leave blank if not needed.</p>
+          <div class="admin-row-2">
+            <input name="inducteesLabel" value="${escapeHtml(editing.inducteesLabel || "")}" placeholder="Label — e.g. Speakers, Location" />
+            <input name="inductees" value="${escapeHtml(editing.inductees || "")}" placeholder="The details" />
+          </div>
+        </div>
+        <div class="admin-row-2">
+          <div class="admin-field">
+            <label for="e-ticketUrl">Ticket or RSVP link <span class="admin-optional">(optional)</span></label>
+            <input id="e-ticketUrl" name="ticketUrl" value="${escapeHtml(editing.ticketUrl || "")}" placeholder="https://" />
+          </div>
+          <div class="admin-field">
+            <label for="e-ticketLabel">Button text</label>
+            <input id="e-ticketLabel" name="ticketLabel" value="${escapeHtml(editing.ticketLabel || "Buy Tickets")}" placeholder="Buy Tickets" />
+          </div>
+        </div>
+        ${pathFieldHtml({
+          id: "e-image",
+          name: "image",
+          value: editing.image || "",
+          label: "Photo (optional)",
+          folder: "assets",
+          placeholder: "Choose a photo with Browse…",
+          hint: "Used on the News & Events page. Click Browse to upload from your computer, then Apply and Save.",
+        })}
+        ${
+          editing.archived
+            ? `<p class="admin-field-hint">This event is in the past-events archive. Restore it to feature it on the home page again.</p>`
+            : `<label class="admin-check"><input type="checkbox" name="featured" ${editing.featured ? "checked" : ""} /> Feature this on the home page (and the big banner on News &amp; Events)</label>`
+        }
+        <div class="admin-actions">
+          <button type="submit" class="admin-btn">Apply to list</button>
+          <button type="button" class="admin-btn admin-btn--ghost" id="event-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>`;
+  }
+
+  function wireEventHandlers() {
     document.getElementById("event-add")?.addEventListener("click", () => {
       editingEventId = "";
       render();
@@ -688,9 +745,12 @@
       const fd = new FormData(e.target);
       const title = String(fd.get("title") || "").trim();
       const existingId = String(fd.get("id") || "").trim();
+      const was = state.event.find((ev) => ev.id === editingEventId);
+      const archived = was ? !!was.archived : false;
       const item = {
         id: existingId || slugify(title),
-        featured: fd.get("featured") === "on",
+        featured: archived ? false : fd.get("featured") === "on",
+        archived,
         eyebrow: String(fd.get("eyebrow") || "").trim(),
         title,
         lede: String(fd.get("lede") || "").trim(),
@@ -710,12 +770,10 @@
       if (idx >= 0) state.event[idx] = item;
       else {
         const clash = state.event.findIndex((ev) => ev.id === item.id);
-        if (clash >= 0) state.event[clash] = item;
+        if (clash >= 0) state.event[clash] = { ...state.event[clash], ...item };
         else state.event.unshift(item);
       }
-      if (!state.event.some((ev) => ev.featured) && state.event.length) {
-        state.event[0].featured = true;
-      }
+      ensureFeaturedActive();
       editingEventId = null;
       setStatus(appStatus, "Events updated. Click Save to publish.", "is-ok");
       render();
@@ -726,6 +784,33 @@
         render();
       });
     });
+    panels.querySelectorAll("[data-archive-event]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-archive-event");
+        const item = state.event.find((ev) => ev.id === id);
+        if (!item) return;
+        item.archived = true;
+        item.featured = false;
+        if (editingEventId === id) editingEventId = null;
+        ensureFeaturedActive();
+        setStatus(appStatus, "Moved to archive. Saving…", "is-ok");
+        render();
+        beginSave();
+      });
+    });
+    panels.querySelectorAll("[data-restore-event]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-restore-event");
+        const item = state.event.find((ev) => ev.id === id);
+        if (!item) return;
+        item.archived = false;
+        if (editingEventId === id) editingEventId = null;
+        ensureFeaturedActive();
+        setStatus(appStatus, "Restored to current events. Saving…", "is-ok");
+        render();
+        beginSave();
+      });
+    });
     panels.querySelectorAll("[data-del-event]").forEach((btn) => {
       btn.addEventListener("click", async () => {
         const id = btn.getAttribute("data-del-event");
@@ -734,19 +819,12 @@
         if (!ok) return;
         if (editingEventId === id) editingEventId = null;
         state.event = state.event.filter((ev) => ev.id !== id);
-        if (!state.event.some((ev) => ev.featured) && state.event.length) {
-          state.event[0].featured = true;
-        }
+        ensureFeaturedActive();
         setStatus(appStatus, "Removed. Saving…", "is-ok");
         render();
         beginSave();
       });
     });
-
-    if (editing != null) {
-      wireBrowseUploads();
-      scrollToEditor();
-    }
   }
 
   function renderBrands(kind) {

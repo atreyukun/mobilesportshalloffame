@@ -89,6 +89,9 @@
   const eventsList = document.querySelector("[data-events-list]");
   if (eventsList) initEventsList(eventsList);
 
+  const eventsArchive = document.querySelector("[data-events-archive]");
+  if (eventsArchive) initEventsArchive(eventsArchive);
+
   const partnersGrid = document.querySelector("[data-partners-grid]");
   if (partnersGrid) initBrandGrid(partnersGrid, "data/partners.json");
 
@@ -413,11 +416,14 @@ async function initFeaturedEvent(root) {
   try {
     const data = await fetchJson("data/event.json");
     const list = Array.isArray(data) ? data : data ? [data] : [];
-    const ev = list.find((e) => e.featured) || list[0];
+    const active = list.filter((e) => !e.archived);
+    const ev = active.find((e) => e.featured) || active[0];
     if (!ev) {
       root.innerHTML = "";
+      root.closest("section")?.setAttribute("hidden", "");
       return;
     }
+    root.closest("section")?.removeAttribute("hidden");
     const home = root.getAttribute("data-event-layout") === "home";
     const img = ev.image || "assets/hero-banquet-pano.jpg?v=2";
     const media = home
@@ -467,41 +473,60 @@ async function initFeaturedEvent(root) {
   }
 }
 
+function eventCardPublic(ev) {
+  const ticket = ev.ticketUrl
+    ? `<a class="more" href="${escapeHtml(ev.ticketUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(
+        ev.ticketLabel || "Buy Tickets →"
+      )}</a>`
+    : "";
+  return `<article class="news-item reveal is-visible">
+    <h3>${escapeHtml(ev.title || "Event")}</h3>
+    ${ev.dateLabel ? `<p class="event-list-date">${escapeHtml(ev.dateLabel)}</p>` : ""}
+    <p>${escapeHtml(ev.lede || "")}</p>
+    ${
+      ev.inductees || ev.inducteesLabel
+        ? `<p>${
+            ev.inducteesLabel ? `<strong>${escapeHtml(ev.inducteesLabel)}</strong> ` : ""
+          }${escapeHtml(ev.inductees || "")}</p>`
+        : ""
+    }
+    ${ticket}
+  </article>`;
+}
+
 async function initEventsList(root) {
   try {
     const data = await fetchJson("data/event.json");
     const list = Array.isArray(data) ? data : data ? [data] : [];
-    const others = list.filter((e) => !e.featured);
+    const others = list.filter((e) => !e.archived && !e.featured);
+    const section = root.closest("section");
     if (!others.length) {
-      root.innerHTML =
-        "<p class='hof-empty'>No additional events right now. The featured event is shown above.</p>";
+      if (section) section.hidden = true;
+      root.innerHTML = "";
       return;
     }
-    root.innerHTML = others
-      .map((ev) => {
-        const ticket =
-          ev.ticketUrl
-            ? `<a class="more" href="${escapeHtml(ev.ticketUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(
-                ev.ticketLabel || "Buy Tickets →"
-              )}</a>`
-            : "";
-        return `<article class="news-item reveal is-visible">
-          <h3>${escapeHtml(ev.title || "Event")}</h3>
-          ${ev.dateLabel ? `<p class="event-list-date">${escapeHtml(ev.dateLabel)}</p>` : ""}
-          <p>${escapeHtml(ev.lede || "")}</p>
-          ${
-            ev.inductees || ev.inducteesLabel
-              ? `<p>${
-                  ev.inducteesLabel ? `<strong>${escapeHtml(ev.inducteesLabel)}</strong> ` : ""
-                }${escapeHtml(ev.inductees || "")}</p>`
-              : ""
-          }
-          ${ticket}
-        </article>`;
-      })
-      .join("");
+    if (section) section.hidden = false;
+    root.innerHTML = others.map(eventCardPublic).join("");
   } catch (err) {
     root.innerHTML = "<p class='hof-empty'>Unable to load events.</p>";
+  }
+}
+
+async function initEventsArchive(root) {
+  try {
+    const data = await fetchJson("data/event.json");
+    const list = Array.isArray(data) ? data : data ? [data] : [];
+    const past = list.filter((e) => e.archived);
+    const section = root.closest("section");
+    if (!past.length) {
+      if (section) section.hidden = true;
+      root.innerHTML = "";
+      return;
+    }
+    if (section) section.hidden = false;
+    root.innerHTML = past.map(eventCardPublic).join("");
+  } catch (err) {
+    root.innerHTML = "<p class='hof-empty'>Unable to load past events.</p>";
   }
 }
 
