@@ -2,7 +2,7 @@
   {
     "id": "a-test",
     "featured": false,
-    "archived": false,
+    "archived": true,
     "eyebrow": "Member's Only",
     "title": "A Test",
     "lede": "A time to catch up and team build.",
