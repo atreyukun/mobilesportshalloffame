@@ -1,5 +1,18 @@
 [
   {
+    "id": "a-test",
+    "featured": false,
+    "eyebrow": "Member's Only",
+    "title": "A Test",
+    "lede": "A time to catch up and team build.",
+    "dateLabel": "Sunday, August 9 2026",
+    "inducteesLabel": "",
+    "inductees": "",
+    "ticketUrl": "",
+    "ticketLabel": "Buy Tickets",
+    "image": "assets/bhiuw.jpg?v=1786282892381"
+  },
+  {
     "id": "2026-dinner",
     "featured": true,
     "eyebrow": "Upcoming",
