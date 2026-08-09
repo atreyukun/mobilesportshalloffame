@@ -1,7 +1,7 @@
 [
   {
     "id": "test",
-    "featured": false,
+    "featured": true,
     "eyebrow": "Upcoming",
     "title": "test",
     "lede": "test",
@@ -14,7 +14,7 @@
   },
   {
     "id": "2026-dinner",
-    "featured": true,
+    "featured": false,
     "eyebrow": "Upcoming",
     "title": "2026 Dinner & Induction Ceremony",
     "lede": "Annual First Light Community and Mobile Sports Hall of Fame Dinner and Induction Ceremony.",
