@@ -380,7 +380,9 @@ function escapeHtml(str) {
 }
 
 async function fetchJson(path) {
-  const res = await fetch(path);
+  const res = await fetch(`${path}${path.includes("?") ? "&" : "?"}t=${Date.now()}`, {
+    cache: "no-store",
+  });
   if (!res.ok) throw new Error(`Failed to load ${path}`);
   return res.json();
 }

@@ -44,6 +44,7 @@
   /** @type {null | ((token: string) => void | Promise<void>)} */
   let pendingTokenAction = null;
   let saveInFlight = false;
+  let saveTimer = null;
 
   const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
 
@@ -235,7 +236,10 @@
   }
 
   function beginSave() {
-    withGithubToken((token) => saveCurrentTab(token));
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      withGithubToken((token) => saveCurrentTab(token));
+    }, 700);
   }
 
   async function saveCurrentTab(token) {
@@ -253,7 +257,7 @@
       await putGithubFile(path, content, `Update ${path} via admin`, token);
       setStatus(
         appStatus,
-        `Saved. The live site usually updates within about a minute.`,
+        `Saved. Hard-refresh the live page in about a minute to see it (News & Events → Past events for archived items).`,
         "is-ok"
       );
     } catch (err) {
