@@ -716,7 +716,7 @@
           label: "Photo (optional)",
           folder: "assets",
           placeholder: "Choose a photo with Browse…",
-          hint: "Used on the News & Events page. Click Browse to upload from your computer, then Apply and Save.",
+          hint: "Shows next to this event on the News & Events page. If you Feature it, the photo is also used in the big banner. Click Browse, then Apply and Save.",
         })}
         ${
           editing.archived

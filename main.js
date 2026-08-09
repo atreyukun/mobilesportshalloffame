@@ -479,18 +479,24 @@ function eventCardPublic(ev) {
         ev.ticketLabel || "Buy Tickets →"
       )}</a>`
     : "";
-  return `<article class="news-item reveal is-visible">
-    <h3>${escapeHtml(ev.title || "Event")}</h3>
-    ${ev.dateLabel ? `<p class="event-list-date">${escapeHtml(ev.dateLabel)}</p>` : ""}
-    <p>${escapeHtml(ev.lede || "")}</p>
-    ${
-      ev.inductees || ev.inducteesLabel
-        ? `<p>${
-            ev.inducteesLabel ? `<strong>${escapeHtml(ev.inducteesLabel)}</strong> ` : ""
-          }${escapeHtml(ev.inductees || "")}</p>`
-        : ""
-    }
-    ${ticket}
+  const photo = ev.image
+    ? `<div class="event-list-photo"><img src="${escapeHtml(ev.image)}" alt="" loading="lazy" /></div>`
+    : "";
+  return `<article class="news-item news-item--event reveal is-visible">
+    ${photo}
+    <div class="news-item-body">
+      <h3>${escapeHtml(ev.title || "Event")}</h3>
+      ${ev.dateLabel ? `<p class="event-list-date">${escapeHtml(ev.dateLabel)}</p>` : ""}
+      <p>${escapeHtml(ev.lede || "")}</p>
+      ${
+        ev.inductees || ev.inducteesLabel
+          ? `<p>${
+              ev.inducteesLabel ? `<strong>${escapeHtml(ev.inducteesLabel)}</strong> ` : ""
+            }${escapeHtml(ev.inductees || "")}</p>`
+          : ""
+      }
+      ${ticket}
+    </div>
   </article>`;
 }
 
