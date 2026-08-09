@@ -322,7 +322,7 @@
     return `${base}.${ext}`;
   }
 
-  function pathFieldHtml({ id, name, value, label, folder, placeholder }) {
+  function pathFieldHtml({ id, name, value, label, folder, placeholder, hint }) {
     return `<div class="admin-field">
       <label for="${id}">${escapeHtml(label)}</label>
       <div class="admin-path-row">
@@ -330,7 +330,9 @@
         <button type="button" class="admin-btn admin-btn--ghost" data-browse-upload data-target="${id}" data-folder="${escapeHtml(folder)}">Browse…</button>
         <input type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml" hidden data-browse-file data-target="${id}" data-folder="${escapeHtml(folder)}" />
       </div>
-      <p class="admin-field-hint">Browse uploads the image now and fills this path. Then Apply and click Save.</p>
+      <p class="admin-field-hint">${escapeHtml(
+        hint || "Click Browse to pick a photo from your computer."
+      )}</p>
     </div>`;
   }
 
@@ -552,11 +554,11 @@
     return {
       id: "",
       featured: false,
-      eyebrow: "Upcoming",
+      eyebrow: "",
       title: "",
       lede: "",
       dateLabel: "",
-      inducteesLabel: "Inductees —",
+      inducteesLabel: "",
       inductees: "",
       ticketUrl: "",
       ticketLabel: "Buy Tickets",
@@ -575,7 +577,7 @@
           <div class="admin-card-top">
             <div>
               <h3>${escapeHtml(ev.title || "Untitled event")}</h3>
-              <p class="admin-card-meta">${ev.featured ? "Featured on News & Events · " : ""}${escapeHtml(ev.dateLabel || "")}${ev.dateLabel ? " · " : ""}${escapeHtml(ev.id || "")}</p>
+              <p class="admin-card-meta">${ev.featured ? "Shown on home page · " : ""}${escapeHtml(ev.dateLabel || "No date set")}</p>
               <p>${escapeHtml(ev.lede || "")}</p>
             </div>
             <div class="admin-card-actions">
@@ -591,71 +593,68 @@
       editingEventId != null
         ? state.event.find((ev) => ev.id === editingEventId) || blankEvent()
         : null;
+    const isExisting =
+      editing && editingEventId && state.event.some((ev) => ev.id === editingEventId);
 
     panels.innerHTML = `
       <div class="admin-toolbar">
         <h2>Events</h2>
         <button type="button" class="admin-btn" id="event-add">Add event</button>
       </div>
-      <div class="admin-list">${list || "<p class='admin-status'>No events yet.</p>"}</div>
+      <div class="admin-list">${list || "<p class='admin-status'>No events yet. Click Add event to create one.</p>"}</div>
       ${
         editing
           ? `<div class="admin-editor">
-        <h3>${editingEventId && state.event.some((ev) => ev.id === editingEventId) ? "Edit event" : "New event"}</h3>
+        <h3>${isExisting ? "Edit event" : "New event"}</h3>
+        <p class="admin-field-hint" style="margin:-6px 0 16px">Fill in what you know. Leave optional fields blank if you don’t need them.</p>
         <form id="event-form">
-          <div class="admin-row-2">
-            <div class="admin-field">
-              <label for="e-id">ID (slug)</label>
-              <input id="e-id" name="id" value="${escapeHtml(editing.id)}" required />
-            </div>
-            <div class="admin-field">
-              <label for="e-dateLabel">Date label</label>
-              <input id="e-dateLabel" name="dateLabel" value="${escapeHtml(editing.dateLabel || "")}" />
-            </div>
+          <input type="hidden" name="id" value="${escapeHtml(editing.id)}" />
+          <div class="admin-field">
+            <label for="e-title">Event name</label>
+            <input id="e-title" name="title" value="${escapeHtml(editing.title || "")}" required placeholder="e.g. Annual Dinner &amp; Ceremony" />
           </div>
           <div class="admin-row-2">
             <div class="admin-field">
-              <label for="e-eyebrow">Eyebrow</label>
-              <input id="e-eyebrow" name="eyebrow" value="${escapeHtml(editing.eyebrow || "")}" />
+              <label for="e-dateLabel">When</label>
+              <input id="e-dateLabel" name="dateLabel" value="${escapeHtml(editing.dateLabel || "")}" placeholder="e.g. Tuesday, June 16, 2026" />
             </div>
             <div class="admin-field">
-              <label for="e-title">Title</label>
-              <input id="e-title" name="title" value="${escapeHtml(editing.title || "")}" required />
+              <label for="e-eyebrow">Small label <span class="admin-optional">(optional)</span></label>
+              <input id="e-eyebrow" name="eyebrow" value="${escapeHtml(editing.eyebrow || "")}" placeholder="e.g. Upcoming, Free, Members only" />
             </div>
           </div>
           <div class="admin-field">
-            <label for="e-lede">Supporting text</label>
-            <textarea id="e-lede" name="lede">${escapeHtml(editing.lede || "")}</textarea>
+            <label for="e-lede">Short description</label>
+            <textarea id="e-lede" name="lede" placeholder="A sentence or two about the event">${escapeHtml(editing.lede || "")}</textarea>
+          </div>
+          <div class="admin-field">
+            <label>Extra line <span class="admin-optional">(optional)</span></label>
+            <p class="admin-field-hint" style="margin:0 0 8px">Use for inductees, speakers, location, or anything else worth calling out. Leave blank if not needed.</p>
+            <div class="admin-row-2">
+              <input name="inducteesLabel" value="${escapeHtml(editing.inducteesLabel || "")}" placeholder="Label — e.g. Speakers, Location" />
+              <input name="inductees" value="${escapeHtml(editing.inductees || "")}" placeholder="The details" />
+            </div>
           </div>
           <div class="admin-row-2">
             <div class="admin-field">
-              <label for="e-inducteesLabel">Inductees label</label>
-              <input id="e-inducteesLabel" name="inducteesLabel" value="${escapeHtml(editing.inducteesLabel || "")}" />
+              <label for="e-ticketUrl">Ticket or RSVP link <span class="admin-optional">(optional)</span></label>
+              <input id="e-ticketUrl" name="ticketUrl" value="${escapeHtml(editing.ticketUrl || "")}" placeholder="https://" />
             </div>
             <div class="admin-field">
-              <label for="e-inductees">Inductees</label>
-              <input id="e-inductees" name="inductees" value="${escapeHtml(editing.inductees || "")}" />
-            </div>
-          </div>
-          <div class="admin-row-2">
-            <div class="admin-field">
-              <label for="e-ticketUrl">Ticket URL</label>
-              <input id="e-ticketUrl" name="ticketUrl" value="${escapeHtml(editing.ticketUrl || "")}" />
-            </div>
-            <div class="admin-field">
-              <label for="e-ticketLabel">Ticket button label</label>
-              <input id="e-ticketLabel" name="ticketLabel" value="${escapeHtml(editing.ticketLabel || "")}" />
+              <label for="e-ticketLabel">Button text</label>
+              <input id="e-ticketLabel" name="ticketLabel" value="${escapeHtml(editing.ticketLabel || "Buy Tickets")}" placeholder="Buy Tickets" />
             </div>
           </div>
           ${pathFieldHtml({
             id: "e-image",
             name: "image",
             value: editing.image || "",
-            label: "Image path (repo-relative)",
+            label: "Photo (optional)",
             folder: "assets",
-            placeholder: "assets/hero-banquet-pano.jpg",
+            placeholder: "Choose a photo with Browse…",
+            hint: "Used on the News & Events page. Click Browse to upload from your computer, then Apply and Save.",
           })}
-          <label class="admin-check"><input type="checkbox" name="featured" ${editing.featured ? "checked" : ""} /> Featured on News &amp; Events page</label>
+          <label class="admin-check"><input type="checkbox" name="featured" ${editing.featured ? "checked" : ""} /> Feature this on the home page (and the big banner on News &amp; Events)</label>
           <div class="admin-actions">
             <button type="submit" class="admin-btn">Apply to list</button>
             <button type="button" class="admin-btn admin-btn--ghost" id="event-cancel">Cancel</button>
@@ -676,17 +675,19 @@
     document.getElementById("event-form")?.addEventListener("submit", (e) => {
       e.preventDefault();
       const fd = new FormData(e.target);
+      const title = String(fd.get("title") || "").trim();
+      const existingId = String(fd.get("id") || "").trim();
       const item = {
-        id: String(fd.get("id") || slugify(fd.get("title"))).trim(),
+        id: existingId || slugify(title),
         featured: fd.get("featured") === "on",
         eyebrow: String(fd.get("eyebrow") || "").trim(),
-        title: String(fd.get("title") || "").trim(),
+        title,
         lede: String(fd.get("lede") || "").trim(),
         dateLabel: String(fd.get("dateLabel") || "").trim(),
         inducteesLabel: String(fd.get("inducteesLabel") || "").trim(),
         inductees: String(fd.get("inductees") || "").trim(),
         ticketUrl: String(fd.get("ticketUrl") || "").trim(),
-        ticketLabel: String(fd.get("ticketLabel") || "").trim(),
+        ticketLabel: String(fd.get("ticketLabel") || "Buy Tickets").trim() || "Buy Tickets",
         image: String(fd.get("image") || "").trim(),
       };
       if (item.featured) {

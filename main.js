@@ -430,26 +430,30 @@ async function initFeaturedEvent(root) {
             <img src="${escapeHtml(img)}" alt="" class="pillar-scroll-img" />
           </div>
         </div>`;
-    const chips = home
-      ? `<div class="event-meta">
-          ${ev.dateLabel ? `<span class="event-chip">${escapeHtml(ev.dateLabel)}</span>` : ""}
-          <span class="event-chip">Dinner &amp; Induction</span>
-        </div>`
-      : `<div class="event-meta">
-          ${ev.dateLabel ? `<span class="event-chip">${escapeHtml(ev.dateLabel)}</span>` : ""}
-        </div>`;
+    const chips = [
+      ev.dateLabel ? `<span class="event-chip">${escapeHtml(ev.dateLabel)}</span>` : "",
+      !home && ev.eyebrow ? `<span class="event-chip">${escapeHtml(ev.eyebrow)}</span>` : "",
+    ]
+      .filter(Boolean)
+      .join("");
+    const detail =
+      ev.inductees || ev.inducteesLabel
+        ? `<p class="inductee-list">${
+            ev.inducteesLabel
+              ? `<strong style="color:#fff;font-weight:600">${escapeHtml(ev.inducteesLabel)}</strong> `
+              : ""
+          }${escapeHtml(ev.inductees || "")}</p>`
+        : "";
     root.innerHTML = `
       ${media}
       <div>
         <p class="section-eyebrow" style="color:rgba(255,255,255,0.55)">${escapeHtml(
-          home && ev.dateLabel ? ev.dateLabel : ev.eyebrow || "Upcoming"
+          home && ev.dateLabel ? ev.dateLabel : ev.eyebrow || ev.dateLabel || "Upcoming"
         )}</p>
         <h2 class="section-title">${escapeHtml(ev.title || "")}</h2>
         <p class="section-lede" style="color:rgba(255,255,255,0.72)">${escapeHtml(ev.lede || "")}</p>
-        ${chips}
-        <p class="inductee-list"><strong style="color:#fff;font-weight:600">${escapeHtml(
-          ev.inducteesLabel || "Inductees —"
-        )}</strong> ${escapeHtml(ev.inductees || "")}</p>
+        ${chips ? `<div class="event-meta">${chips}</div>` : ""}
+        ${detail}
         ${
           ev.ticketUrl
             ? `<a href="${escapeHtml(ev.ticketUrl)}" class="btn btn-white" target="_blank" rel="noopener noreferrer">${escapeHtml(
@@ -486,10 +490,10 @@ async function initEventsList(root) {
           ${ev.dateLabel ? `<p class="event-list-date">${escapeHtml(ev.dateLabel)}</p>` : ""}
           <p>${escapeHtml(ev.lede || "")}</p>
           ${
-            ev.inductees
-              ? `<p><strong>${escapeHtml(ev.inducteesLabel || "Inductees —")}</strong> ${escapeHtml(
-                  ev.inductees
-                )}</p>`
+            ev.inductees || ev.inducteesLabel
+              ? `<p>${
+                  ev.inducteesLabel ? `<strong>${escapeHtml(ev.inducteesLabel)}</strong> ` : ""
+                }${escapeHtml(ev.inductees || "")}</p>`
               : ""
           }
           ${ticket}

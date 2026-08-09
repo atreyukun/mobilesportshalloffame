@@ -448,6 +448,14 @@ body.admin-body {
   line-height: 1.4;
 }
 
+.admin-optional {
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+}
+
 .admin-row-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
