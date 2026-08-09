@@ -1,5 +1,18 @@
 [
   {
+    "id": "test",
+    "featured": false,
+    "eyebrow": "Upcoming",
+    "title": "test",
+    "lede": "test",
+    "dateLabel": "",
+    "inducteesLabel": "Inductees —",
+    "inductees": "test",
+    "ticketUrl": "",
+    "ticketLabel": "Buy Tickets",
+    "image": "assets/bhiuw.jpg?v=1786280460818"
+  },
+  {
     "id": "2026-dinner",
     "featured": true,
     "eyebrow": "Upcoming",
