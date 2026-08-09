@@ -2,6 +2,7 @@
   {
     "id": "a-test",
     "featured": false,
+    "archived": false,
     "eyebrow": "Member's Only",
     "title": "A Test",
     "lede": "A time to catch up and team build.",
@@ -10,7 +11,7 @@
     "inductees": "",
     "ticketUrl": "",
     "ticketLabel": "Buy Tickets",
-    "image": "assets/bhiuw.jpg?v=1786282892381"
+    "image": "assets/bhiuw.jpg?v=1786283778544"
   },
   {
     "id": "2026-dinner",
@@ -23,6 +24,7 @@
     "inductees": "Derrick Burroughs, Derrick Coleman, Joe Niland, & Eric Yelding",
     "ticketUrl": "https://www.eventbrite.com/e/33rd-annual-first-light-community-of-mobile-football-preview-tickets-1985390204547",
     "ticketLabel": "Buy Tickets",
-    "image": "assets/hero-banquet-pano.jpg?v=2"
+    "image": "assets/hero-banquet-pano.jpg?v=2",
+    "archived": false
   }
 ]
