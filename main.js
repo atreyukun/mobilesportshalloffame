@@ -86,6 +86,9 @@
   const featuredEvent = document.querySelector("[data-featured-event]");
   if (featuredEvent) initFeaturedEvent(featuredEvent);
 
+  const eventsList = document.querySelector("[data-events-list]");
+  if (eventsList) initEventsList(eventsList);
+
   const partnersGrid = document.querySelector("[data-partners-grid]");
   if (partnersGrid) initBrandGrid(partnersGrid, "data/partners.json");
 
@@ -415,30 +418,86 @@ async function initFeaturedEvent(root) {
       root.innerHTML = "";
       return;
     }
+    const home = root.getAttribute("data-event-layout") === "home";
     const img = ev.image || "assets/hero-banquet-pano.jpg?v=2";
+    const media = home
+      ? `<div class="event-band-media">
+          <video src="assets/event-rsa-tower.mp4" muted playsinline loop autoplay preload="metadata" aria-label="RSA Tower in Mobile"></video>
+        </div>`
+      : `<div class="event-band-media event-band-media--scroll" aria-hidden="true">
+          <div class="pillar-scroll-track">
+            <img src="${escapeHtml(img)}" alt="" class="pillar-scroll-img" />
+            <img src="${escapeHtml(img)}" alt="" class="pillar-scroll-img" />
+          </div>
+        </div>`;
+    const chips = home
+      ? `<div class="event-meta">
+          ${ev.dateLabel ? `<span class="event-chip">${escapeHtml(ev.dateLabel)}</span>` : ""}
+          <span class="event-chip">Dinner &amp; Induction</span>
+        </div>`
+      : `<div class="event-meta">
+          ${ev.dateLabel ? `<span class="event-chip">${escapeHtml(ev.dateLabel)}</span>` : ""}
+        </div>`;
     root.innerHTML = `
-      <div class="event-band-media event-band-media--scroll" aria-hidden="true">
-        <div class="pillar-scroll-track">
-          <img src="${escapeHtml(img)}" alt="" class="pillar-scroll-img" />
-          <img src="${escapeHtml(img)}" alt="" class="pillar-scroll-img" />
-        </div>
-      </div>
+      ${media}
       <div>
-        <p class="section-eyebrow" style="color:rgba(255,255,255,0.55)">${escapeHtml(ev.eyebrow || "Upcoming")}</p>
+        <p class="section-eyebrow" style="color:rgba(255,255,255,0.55)">${escapeHtml(
+          home && ev.dateLabel ? ev.dateLabel : ev.eyebrow || "Upcoming"
+        )}</p>
         <h2 class="section-title">${escapeHtml(ev.title || "")}</h2>
         <p class="section-lede" style="color:rgba(255,255,255,0.72)">${escapeHtml(ev.lede || "")}</p>
-        <div class="event-meta">
-          <span class="event-chip">${escapeHtml(ev.dateLabel || "")}</span>
-        </div>
+        ${chips}
         <p class="inductee-list"><strong style="color:#fff;font-weight:600">${escapeHtml(
           ev.inducteesLabel || "Inductees —"
         )}</strong> ${escapeHtml(ev.inductees || "")}</p>
-        <a href="${escapeHtml(ev.ticketUrl || "#")}" class="btn btn-white" target="_blank" rel="noopener noreferrer">${escapeHtml(
-          ev.ticketLabel || "Buy Tickets"
-        )}</a>
+        ${
+          ev.ticketUrl
+            ? `<a href="${escapeHtml(ev.ticketUrl)}" class="btn btn-white" target="_blank" rel="noopener noreferrer">${escapeHtml(
+                ev.ticketLabel || "Buy Tickets"
+              )}</a>`
+            : ""
+        }
       </div>`;
   } catch (err) {
     root.innerHTML = "<p class='hof-empty' style='color:#fff'>Unable to load event.</p>";
+  }
+}
+
+async function initEventsList(root) {
+  try {
+    const data = await fetchJson("data/event.json");
+    const list = Array.isArray(data) ? data : data ? [data] : [];
+    const others = list.filter((e) => !e.featured);
+    if (!others.length) {
+      root.innerHTML =
+        "<p class='hof-empty'>No additional events right now. The featured event is shown above.</p>";
+      return;
+    }
+    root.innerHTML = others
+      .map((ev) => {
+        const ticket =
+          ev.ticketUrl
+            ? `<a class="more" href="${escapeHtml(ev.ticketUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(
+                ev.ticketLabel || "Buy Tickets →"
+              )}</a>`
+            : "";
+        return `<article class="news-item reveal is-visible">
+          <h3>${escapeHtml(ev.title || "Event")}</h3>
+          ${ev.dateLabel ? `<p class="event-list-date">${escapeHtml(ev.dateLabel)}</p>` : ""}
+          <p>${escapeHtml(ev.lede || "")}</p>
+          ${
+            ev.inductees
+              ? `<p><strong>${escapeHtml(ev.inducteesLabel || "Inductees —")}</strong> ${escapeHtml(
+                  ev.inductees
+                )}</p>`
+              : ""
+          }
+          ${ticket}
+        </article>`;
+      })
+      .join("");
+  } catch (err) {
+    root.innerHTML = "<p class='hof-empty'>Unable to load events.</p>";
   }
 }
 

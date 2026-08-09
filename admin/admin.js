@@ -525,9 +525,11 @@
         const item = state.news.find((n) => n.id === id);
         const ok = await confirmDelete(item?.title || "this news post");
         if (!ok) return;
+        if (editingNewsId === id) editingNewsId = null;
         state.news = state.news.filter((n) => n.id !== id);
-        setStatus(appStatus, "Removed. Click Save to publish the change.", "is-ok");
+        setStatus(appStatus, "Removed. Saving…", "is-ok");
         render();
+        beginSave();
       });
     });
 
@@ -718,12 +720,14 @@
         const item = state.event.find((ev) => ev.id === id);
         const ok = await confirmDelete(item?.title || "this event");
         if (!ok) return;
+        if (editingEventId === id) editingEventId = null;
         state.event = state.event.filter((ev) => ev.id !== id);
         if (!state.event.some((ev) => ev.featured) && state.event.length) {
           state.event[0].featured = true;
         }
-        setStatus(appStatus, "Removed. Click Save to publish the change.", "is-ok");
+        setStatus(appStatus, "Removed. Saving…", "is-ok");
         render();
+        beginSave();
       });
     });
 
@@ -849,9 +853,13 @@
         const item = state[kind].find((b) => b.id === id);
         const ok = await confirmDelete(item?.name || `this ${kind.slice(0, -1)}`);
         if (!ok) return;
+        if (editingBrand.kind === kind && editingBrand.id === id) {
+          editingBrand = { kind: null, id: null };
+        }
         state[kind] = state[kind].filter((b) => b.id !== id);
-        setStatus(appStatus, "Removed. Click Save to publish the change.", "is-ok");
+        setStatus(appStatus, "Removed. Saving…", "is-ok");
         render();
+        beginSave();
       });
     });
 

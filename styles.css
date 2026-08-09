@@ -782,6 +782,14 @@ img, video { max-width: 100%; display: block; }
   color: var(--purple);
 }
 
+.event-list-date {
+  color: var(--text-dim) !important;
+  font-size: 13px !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: -4px !important;
+}
+
 /* Prose */
 .prose {
   max-width: 720px;
