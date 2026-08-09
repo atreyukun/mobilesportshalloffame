@@ -411,6 +411,15 @@
     });
   }
 
+  function domainFromUrl(url) {
+    try {
+      const host = new URL(url).hostname.replace(/^www\./i, "");
+      return host || "";
+    } catch {
+      return "";
+    }
+  }
+
   function renderNews() {
     const list = state.news
       .map(
@@ -418,7 +427,7 @@
           <div class="admin-card-top">
             <div>
               <h3>${escapeHtml(n.title)}</h3>
-              <p class="admin-card-meta">${n.featured ? "Featured on home · " : ""}${escapeHtml(n.id)}</p>
+              <p class="admin-card-meta">${n.featured ? "Shown on the home page" : "News & Events page only"}</p>
               <p>${escapeHtml(n.summary || "")}</p>
             </div>
             <div class="admin-card-actions">
@@ -434,47 +443,47 @@
       editingNewsId != null
         ? state.news.find((n) => n.id === editingNewsId) || blankNews()
         : null;
+    const isExisting =
+      editing && editingNewsId && state.news.some((n) => n.id === editingNewsId);
 
     panels.innerHTML = `
       <div class="admin-toolbar">
-        <h2>News posts</h2>
+        <h2>News</h2>
         <button type="button" class="admin-btn" id="news-add">Add news</button>
       </div>
-      <div class="admin-list">${list || "<p class='admin-status'>No news yet.</p>"}</div>
+      <div class="admin-list">${list || "<p class='admin-status'>No news yet. Click Add news to create a post.</p>"}</div>
       ${
         editing
           ? `<div class="admin-editor" id="news-editor">
-        <h3>${editingNewsId && state.news.some((n) => n.id === editingNewsId) ? "Edit post" : "New post"}</h3>
+        <h3>${isExisting ? "Edit news post" : "New news post"}</h3>
+        <p class="admin-field-hint" style="margin:-6px 0 16px">Fill in what you know. Leave optional fields blank if you don’t need them.</p>
         <form id="news-form">
-          <div class="admin-row-2">
-            <div class="admin-field">
-              <label for="n-id">ID (slug)</label>
-              <input id="n-id" name="id" value="${escapeHtml(editing.id)}" required />
-            </div>
-            <div class="admin-field">
-              <label for="n-title">Title</label>
-              <input id="n-title" name="title" value="${escapeHtml(editing.title)}" required />
-            </div>
+          <input type="hidden" name="id" value="${escapeHtml(editing.id)}" />
+          <div class="admin-field">
+            <label for="n-title">Headline</label>
+            <input id="n-title" name="title" value="${escapeHtml(editing.title)}" required placeholder="e.g. 2025 Inductees Announced" />
           </div>
           <div class="admin-field">
-            <label for="n-summary">Summary (home card)</label>
-            <textarea id="n-summary" name="summary" required>${escapeHtml(editing.summary || "")}</textarea>
+            <label for="n-summary">Short summary</label>
+            <p class="admin-field-hint" style="margin:0 0 8px">Shown on the home page when this post is featured.</p>
+            <textarea id="n-summary" name="summary" required placeholder="One or two sentences">${escapeHtml(editing.summary || "")}</textarea>
           </div>
           <div class="admin-field">
-            <label for="n-body">Body (news archive)</label>
-            <textarea id="n-body" name="body">${escapeHtml(editing.body || "")}</textarea>
+            <label for="n-body">Full story <span class="admin-optional">(optional)</span></label>
+            <p class="admin-field-hint" style="margin:0 0 8px">Shown on the News &amp; Events page. If blank, the short summary is used.</p>
+            <textarea id="n-body" name="body" placeholder="Longer write-up">${escapeHtml(editing.body || "")}</textarea>
           </div>
           <div class="admin-row-2">
             <div class="admin-field">
-              <label for="n-link">Link URL</label>
-              <input id="n-link" name="link" value="${escapeHtml(editing.link || "")}" />
+              <label for="n-link">Read more link <span class="admin-optional">(optional)</span></label>
+              <input id="n-link" name="link" value="${escapeHtml(editing.link || "")}" placeholder="https://" />
             </div>
             <div class="admin-field">
-              <label for="n-linkLabel">Link label</label>
-              <input id="n-linkLabel" name="linkLabel" value="${escapeHtml(editing.linkLabel || "")}" />
+              <label for="n-linkLabel">Link button text</label>
+              <input id="n-linkLabel" name="linkLabel" value="${escapeHtml(editing.linkLabel || "Read more →")}" placeholder="Read more →" />
             </div>
           </div>
-          <label class="admin-check"><input type="checkbox" name="featured" ${editing.featured ? "checked" : ""} /> Featured on home page</label>
+          <label class="admin-check"><input type="checkbox" name="featured" ${editing.featured ? "checked" : ""} /> Also show this on the home page</label>
           <div class="admin-actions">
             <button type="submit" class="admin-btn">Apply to list</button>
             <button type="button" class="admin-btn admin-btn--ghost" id="news-cancel">Cancel</button>
@@ -495,13 +504,15 @@
     document.getElementById("news-form")?.addEventListener("submit", (e) => {
       e.preventDefault();
       const fd = new FormData(e.target);
+      const title = String(fd.get("title") || "").trim();
+      const existingId = String(fd.get("id") || "").trim();
       const item = {
-        id: String(fd.get("id") || slugify(fd.get("title"))).trim(),
-        title: String(fd.get("title") || "").trim(),
+        id: existingId || slugify(title),
+        title,
         summary: String(fd.get("summary") || "").trim(),
         body: String(fd.get("body") || "").trim(),
         link: String(fd.get("link") || "").trim(),
-        linkLabel: String(fd.get("linkLabel") || "View on original site →").trim(),
+        linkLabel: String(fd.get("linkLabel") || "Read more →").trim() || "Read more →",
         featured: fd.get("featured") === "on",
       };
       const idx = state.news.findIndex((n) => n.id === editingNewsId);
@@ -512,7 +523,7 @@
         else state.news.unshift(item);
       }
       editingNewsId = null;
-      setStatus(appStatus, "News list updated locally. Click Save to publish.", "is-ok");
+      setStatus(appStatus, "News updated. Click Save to publish.", "is-ok");
       render();
     });
     panels.querySelectorAll("[data-edit-news]").forEach((btn) => {
@@ -545,7 +556,7 @@
       summary: "",
       body: "",
       link: "",
-      linkLabel: "View on original site →",
+      linkLabel: "Read more →",
       featured: false,
     };
   }
@@ -741,14 +752,14 @@
   function renderBrands(kind) {
     const items = state[kind] || [];
     const label = kind === "partners" ? "Partners" : "Sponsors";
+    const singular = kind === "partners" ? "partner" : "sponsor";
     const list = items
       .map(
         (b) => `<article class="admin-card">
           <div class="admin-card-top">
             <div>
               <h3>${escapeHtml(b.name)}</h3>
-              <p class="admin-card-meta">${escapeHtml(b.domain || "")} · ${escapeHtml(b.logo || "")}</p>
-              <p>${escapeHtml(b.url || "")}</p>
+              <p class="admin-card-meta">${escapeHtml(b.domain || b.url || "")}</p>
             </div>
             <div class="admin-card-actions">
               <button type="button" class="admin-btn admin-btn--ghost" data-edit-brand="${escapeHtml(b.id)}">Edit</button>
@@ -763,46 +774,39 @@
       editingBrand.kind === kind
         ? items.find((b) => b.id === editingBrand.id) || blankBrand()
         : null;
+    const isExisting =
+      editing && editingBrand.id && items.some((b) => b.id === editingBrand.id);
 
     panels.innerHTML = `
       <div class="admin-toolbar">
         <h2>${label}</h2>
-        <button type="button" class="admin-btn" id="brand-add">Add ${kind.slice(0, -1)}</button>
+        <button type="button" class="admin-btn" id="brand-add">Add ${singular}</button>
       </div>
-      <div class="admin-list">${list || "<p class='admin-status'>None yet.</p>"}</div>
+      <div class="admin-list">${list || `<p class='admin-status'>None yet. Click Add ${singular} to create one.</p>`}</div>
       ${
         editing
           ? `<div class="admin-editor">
-        <h3>${editingBrand.id && items.some((b) => b.id === editingBrand.id) ? "Edit" : "New"} ${kind.slice(0, -1)}</h3>
+        <h3>${isExisting ? `Edit ${singular}` : `New ${singular}`}</h3>
+        <p class="admin-field-hint" style="margin:-6px 0 16px">Add their name, website, and logo. That’s all that’s required.</p>
         <form id="brand-form">
-          <div class="admin-row-2">
-            <div class="admin-field">
-              <label for="b-id">ID</label>
-              <input id="b-id" name="id" value="${escapeHtml(editing.id)}" required />
-            </div>
-            <div class="admin-field">
-              <label for="b-name">Name</label>
-              <input id="b-name" name="name" value="${escapeHtml(editing.name)}" required />
-            </div>
+          <input type="hidden" name="id" value="${escapeHtml(editing.id)}" />
+          <div class="admin-field">
+            <label for="b-name">Name</label>
+            <input id="b-name" name="name" value="${escapeHtml(editing.name)}" required placeholder="e.g. City of Mobile" />
           </div>
           <div class="admin-field">
-            <label for="b-url">URL</label>
-            <input id="b-url" name="url" value="${escapeHtml(editing.url || "")}" />
+            <label for="b-url">Website link</label>
+            <input id="b-url" name="url" value="${escapeHtml(editing.url || "")}" placeholder="https://" />
           </div>
-          <div class="admin-row-2">
-            ${pathFieldHtml({
-              id: "b-logo",
-              name: "logo",
-              value: editing.logo || "",
-              label: "Logo path",
-              folder: `assets/${kind}`,
-              placeholder: `assets/${kind}/example.png`,
-            })}
-            <div class="admin-field">
-              <label for="b-domain">Domain label</label>
-              <input id="b-domain" name="domain" value="${escapeHtml(editing.domain || "")}" />
-            </div>
-          </div>
+          ${pathFieldHtml({
+            id: "b-logo",
+            name: "logo",
+            value: editing.logo || "",
+            label: "Logo",
+            folder: `assets/${kind}`,
+            placeholder: "Choose a logo with Browse…",
+            hint: "Click Browse to upload their logo from your computer, then Apply and Save.",
+          })}
           <div class="admin-actions">
             <button type="submit" class="admin-btn">Apply to list</button>
             <button type="button" class="admin-btn admin-btn--ghost" id="brand-cancel">Cancel</button>
@@ -823,12 +827,19 @@
     document.getElementById("brand-form")?.addEventListener("submit", (e) => {
       e.preventDefault();
       const fd = new FormData(e.target);
+      const name = String(fd.get("name") || "").trim();
+      const url = String(fd.get("url") || "").trim();
+      const existingId = String(fd.get("id") || "").trim();
+      const existing = items.find((b) => b.id === editingBrand.id);
       const item = {
-        id: String(fd.get("id") || slugify(fd.get("name"))).trim(),
-        name: String(fd.get("name") || "").trim(),
-        url: String(fd.get("url") || "").trim(),
+        id: existingId || slugify(name),
+        name,
+        url,
         logo: String(fd.get("logo") || "").trim(),
-        domain: String(fd.get("domain") || "").trim(),
+        domain:
+          domainFromUrl(url) ||
+          (existing && existing.domain) ||
+          "",
       };
       const arr = state[kind];
       const idx = arr.findIndex((b) => b.id === editingBrand.id);
@@ -839,7 +850,7 @@
         else arr.push(item);
       }
       editingBrand = { kind: null, id: null };
-      setStatus(appStatus, `${label} updated locally. Save to publish.`, "is-ok");
+      setStatus(appStatus, `${label} updated. Click Save to publish.`, "is-ok");
       render();
     });
     panels.querySelectorAll("[data-edit-brand]").forEach((btn) => {
@@ -852,7 +863,7 @@
       btn.addEventListener("click", async () => {
         const id = btn.getAttribute("data-del-brand");
         const item = state[kind].find((b) => b.id === id);
-        const ok = await confirmDelete(item?.name || `this ${kind.slice(0, -1)}`);
+        const ok = await confirmDelete(item?.name || `this ${singular}`);
         if (!ok) return;
         if (editingBrand.kind === kind && editingBrand.id === id) {
           editingBrand = { kind: null, id: null };
@@ -877,28 +888,31 @@
   function renderBoard() {
     const b = state.board || {};
     const officersText = (b.officers || [])
-      .map((o) => `${o.name}|${o.title || ""}`)
+      .map((o) => `${o.name} — ${o.title || ""}`.replace(/\s—\s$/, ""))
       .join("\n");
     const membersText = (b.members || []).join("\n");
 
     panels.innerHTML = `
       <div class="admin-toolbar"><h2>Board members</h2></div>
       <div class="admin-editor">
+        <p class="admin-field-hint" style="margin:0 0 16px">Update the board page title, intro, officers, and member list.</p>
         <form id="board-form">
           <div class="admin-field">
-            <label for="bd-title">Section title</label>
-            <input id="bd-title" name="title" value="${escapeHtml(b.title || "")}" />
+            <label for="bd-title">Page heading</label>
+            <input id="bd-title" name="title" value="${escapeHtml(b.title || "")}" placeholder="e.g. Board of Directors 2025" />
           </div>
           <div class="admin-field">
-            <label for="bd-lede">Lede</label>
-            <textarea id="bd-lede" name="lede">${escapeHtml(b.lede || "")}</textarea>
+            <label for="bd-lede">Short intro</label>
+            <textarea id="bd-lede" name="lede" placeholder="A sentence under the heading">${escapeHtml(b.lede || "")}</textarea>
           </div>
           <div class="admin-field">
-            <label for="bd-officers">Officers (one per line: Name|Title)</label>
+            <label for="bd-officers">Officers</label>
+            <p class="admin-field-hint" style="margin:0 0 8px">One per line. Use a dash between name and title, like: Jane Doe — President</p>
             <textarea id="bd-officers" name="officers" rows="4">${escapeHtml(officersText)}</textarea>
           </div>
           <div class="admin-field">
-            <label for="bd-members">Members (one name per line)</label>
+            <label for="bd-members">Board members</label>
+            <p class="admin-field-hint" style="margin:0 0 8px">One name per line</p>
             <textarea id="bd-members" name="members" rows="12">${escapeHtml(membersText)}</textarea>
           </div>
           <div class="admin-actions">
@@ -915,8 +929,10 @@
         .map((line) => line.trim())
         .filter(Boolean)
         .map((line) => {
-          const [name, ...rest] = line.split("|");
-          return { name: name.trim(), title: rest.join("|").trim() };
+          const parts = line.split(/\s+[—\-|]\s+/);
+          const name = (parts[0] || "").trim();
+          const title = parts.slice(1).join(" — ").trim();
+          return { name, title };
         });
       const members = String(fd.get("members") || "")
         .split("\n")
@@ -928,7 +944,7 @@
         officers,
         members,
       };
-      setStatus(appStatus, "Board updated locally. Click Save to publish.", "is-ok");
+      setStatus(appStatus, "Board updated. Click Save to publish.", "is-ok");
     });
   }
 
