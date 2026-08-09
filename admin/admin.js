@@ -43,6 +43,7 @@
   let editingBrand = { kind: null, id: null };
   /** @type {null | ((token: string) => void | Promise<void>)} */
   let pendingTokenAction = null;
+  let saveInFlight = false;
 
   const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
 
@@ -241,7 +242,12 @@
     const key = activeTab;
     const path = cfg.DATA_FILES[key];
     if (!path) return;
-    setStatus(appStatus, `Saving ${path}…`);
+    if (saveInFlight) {
+      setStatus(appStatus, "Already saving… please wait a moment.", "is-ok");
+      return;
+    }
+    saveInFlight = true;
+    setStatus(appStatus, `Saving…`);
     try {
       const content = JSON.stringify(state[key], null, 2) + "\n";
       await putGithubFile(path, content, `Update ${path} via admin`, token);
@@ -254,11 +260,22 @@
       if (/401|403|Bad credentials|Resource not accessible/i.test(String(err.message))) {
         sessionStorage.removeItem(TOKEN_KEY);
       }
-      setStatus(appStatus, err.message || "Save failed.", "is-error");
+      const msg = String(err.message || "Save failed.");
+      if (/does not match|Conflict|409|sha/i.test(msg)) {
+        setStatus(
+          appStatus,
+          "Couldn’t save because the file changed on the server. Wait a second and click Save again.",
+          "is-error"
+        );
+      } else {
+        setStatus(appStatus, msg, "is-error");
+      }
+    } finally {
+      saveInFlight = false;
     }
   }
 
-  async function putGithubFile(path, content, message, token, { isBase64 = false } = {}) {
+  async function putGithubFile(path, content, message, token, { isBase64 = false, retries = 2 } = {}) {
     const { GITHUB_OWNER: owner, GITHUB_REPO: repo, GITHUB_BRANCH: branch } = cfg;
     const apiBase = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
     const headers = {
@@ -267,37 +284,46 @@
       "X-GitHub-Api-Version": "2022-11-28",
     };
 
-    let sha;
-    const getRes = await fetch(`${apiBase}?ref=${encodeURIComponent(branch)}`, {
-      headers,
-    });
-    if (getRes.ok) {
-      const meta = await getRes.json();
-      sha = meta.sha;
-    } else if (getRes.status !== 404) {
-      const err = await getRes.json().catch(() => ({}));
-      throw new Error(err.message || `Could not read ${path} (${getRes.status})`);
-    }
+    let lastError;
+    for (let attempt = 0; attempt <= retries; attempt++) {
+      let sha;
+      const getRes = await fetch(`${apiBase}?ref=${encodeURIComponent(branch)}`, {
+        headers,
+      });
+      if (getRes.ok) {
+        const meta = await getRes.json();
+        sha = meta.sha;
+      } else if (getRes.status !== 404) {
+        const err = await getRes.json().catch(() => ({}));
+        throw new Error(err.message || `Could not read ${path} (${getRes.status})`);
+      }
 
-    const body = {
-      message,
-      content: isBase64
-        ? content
-        : btoa(unescape(encodeURIComponent(content))),
-      branch,
-    };
-    if (sha) body.sha = sha;
+      const body = {
+        message,
+        content: isBase64
+          ? content
+          : btoa(unescape(encodeURIComponent(content))),
+        branch,
+      };
+      if (sha) body.sha = sha;
 
-    const putRes = await fetch(apiBase, {
-      method: "PUT",
-      headers: { ...headers, "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    if (!putRes.ok) {
+      const putRes = await fetch(apiBase, {
+        method: "PUT",
+        headers: { ...headers, "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (putRes.ok) return putRes.json();
+
       const err = await putRes.json().catch(() => ({}));
-      throw new Error(err.message || `Save failed (${putRes.status})`);
+      lastError = new Error(err.message || `Save failed (${putRes.status})`);
+      const conflict =
+        putRes.status === 409 ||
+        putRes.status === 422 ||
+        /does not match|sha/i.test(String(err.message || ""));
+      if (!conflict || attempt === retries) break;
+      await new Promise((r) => setTimeout(r, 400 * (attempt + 1)));
     }
-    return putRes.json();
+    throw lastError;
   }
 
   function fileToBase64(file) {
@@ -602,11 +628,9 @@
           <h3>${escapeHtml(ev.title || "Untitled event")}</h3>
           <p class="admin-card-meta">${
             archived
-              ? "In past-events archive"
-              : ev.featured
-                ? "Shown on home page · "
-                : ""
-          }${escapeHtml(ev.dateLabel || "No date set")}</p>
+              ? `In past-events archive · ${escapeHtml(ev.dateLabel || "No date set")}`
+              : `${ev.featured ? "Shown on home page · " : ""}${escapeHtml(ev.dateLabel || "No date set")}`
+          }</p>
           <p>${escapeHtml(ev.lede || "")}</p>
         </div>
         <div class="admin-card-actions">
