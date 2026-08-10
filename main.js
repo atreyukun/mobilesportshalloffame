@@ -163,9 +163,15 @@ async function initHof(root) {
     return;
   }
 
-  // Index by last-name initial (standard directory style)
+  // Index by last-name initial and sort within letters by last name, then first
   inductees.forEach((p) => {
     p.letter = lastNameLetter(p.name);
+    p._sort = nameSortKey(p.name);
+  });
+  inductees.sort((a, b) => {
+    if (a.letter !== b.letter) return a.letter < b.letter ? -1 : 1;
+    if (a._sort !== b._sort) return a._sort < b._sort ? -1 : 1;
+    return 0;
   });
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -355,8 +361,8 @@ async function initHof(root) {
   render();
 }
 
-/** First letter of last name (skips Jr/Sr/II/III/IV). */
-function lastNameLetter(name) {
+/** Name tokens uppercased; drops Jr/Sr/II/III/IV/V. */
+function nameTokens(name) {
   const parts = String(name)
     .toUpperCase()
     .replace(/[“”"‘’']/g, "")
@@ -366,9 +372,24 @@ function lastNameLetter(name) {
   while (parts.length > 1 && suffixes.has(parts[parts.length - 1])) {
     parts.pop();
   }
+  return parts;
+}
+
+/** First letter of last name (skips Jr/Sr/II/III/IV). */
+function lastNameLetter(name) {
+  const parts = nameTokens(name);
   const last = parts[parts.length - 1] || "";
   const m = last.match(/[A-Z]/);
   return m ? m[0] : "#";
+}
+
+/** Sort key: LAST|FIRST|REST — directory-style within each letter. */
+function nameSortKey(name) {
+  const parts = nameTokens(name);
+  if (!parts.length) return "";
+  const last = parts[parts.length - 1];
+  const given = parts.slice(0, -1).join(" ");
+  return `${last}|${given}|${String(name).toUpperCase()}`;
 }
 
 function escapeHtml(str) {
