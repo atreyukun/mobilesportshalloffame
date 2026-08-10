@@ -18,12 +18,12 @@ Publish key
 
 WHY THIS EXISTS
 ---------------
-You can update news, the featured event, partners, sponsors, and the board
-roster without waiting on a developer for every change.
+You can update news, events, partners, sponsors, and the board roster
+without waiting on a developer for every change.
 
-The website is made of simple files. When you click Save, your updates are
-published to those files so the live pages can refresh—usually within about
-a minute.
+When you click Save (or when some actions save automatically), your updates
+are published so the live site can refresh—usually within about a minute.
+Then hard-refresh the public page (Ctrl+F5 / Cmd+Shift+R) to confirm.
 
 
 WHY THERE IS ALSO A PUBLISH KEY
@@ -41,22 +41,78 @@ outside your team.
 HOW TO MAKE A CHANGE
 --------------------
 1. Open the content admin URL and sign in with the password above.
-2. Use the tabs: News, Featured event, Partners, Sponsors, Board.
-3. Edit an item, then click Apply (when shown).
-4. Click Save. Paste the publish key if asked.
-5. Wait about one minute, then refresh the public site to confirm.
+2. Use the tabs: News, Events, Partners, Sponsors, Board.
+3. Edit or add an item, then click Apply to list / Apply changes (when shown).
+4. Click Save at the top. Paste the publish key if asked.
+5. Wait about one minute, then hard-refresh the public site to confirm.
+
+Some actions (Delete, Move to archive, Restore) save automatically after you
+confirm. Wait for the green “Saved” message before doing another save.
+
+
+NEWS
+----
+- Headline, short summary, optional full story, optional “read more” link.
+- Check “Also show this on the home page” to feature it there.
+- IDs are created for you behind the scenes—you don’t need to enter them.
+
+
+EVENTS
+------
+Current events
+  These appear on the public site.
+  - Feature one on the home page (and the big banner on News & Events) with
+    the feature checkbox.
+  - Other current (non-featured) events show under “More events” on
+    News & Events, including their photo if you added one.
+  - Photos: use Browse… to upload. Featured events use the photo in the
+    big banner; list events show the photo on the card.
+
+Past events archive
+  When an event is over, click Move to archive. It leaves the current list
+  and appears under “Past events” on the News & Events page.
+  - Restore brings it back to Current events.
+  - Delete removes it permanently (you must type DELETE to confirm).
+  Move to archive / Restore / Delete save automatically.
+
+
+PARTNERS AND SPONSORS
+---------------------
+Enter the name, website link, and logo (Browse… to upload).
+The short website label under the logo is filled in for you from the link.
+
+
+BOARD
+-----
+Update the page heading, short intro, officers, and member list.
+Officers: one per line, like: Jane Doe — President
+Members: one name per line.
 
 
 IMAGES AND LOGOS
 ----------------
-Use Browse… next to an image or logo field to upload a file. The upload
-happens right away. Then click Apply and Save so the page points to the
-new file.
+Use Browse… next to a photo or logo field to upload from your computer.
+The upload happens right away. Then Apply (if shown) and Save so the page
+points at the new file. Keep images under about 5 MB.
+
+
+IF SOMETHING DOESN’T SHOW UP
+----------------------------
+1. Confirm you saw a green “Saved” message (not a red error).
+2. Wait about a minute for the live site to rebuild.
+3. Hard-refresh the public page (Ctrl+F5 or Cmd+Shift+R).
+4. Check the right place:
+   - Featured event → home page and News & Events banner
+   - Other current events → News & Events → More events
+   - Archived events → News & Events → Past events
+   - Featured news → home page; all news → News & Events archive
+5. If it still looks wrong, note what you edited and contact us.
 
 
 NOTES
 -----
 - The admin is not linked from the public navigation on purpose.
 - Hall of Famers will get an editor later; that section is unchanged for now.
-- If a change does not appear, wait another minute and hard-refresh the
-  public page. If it still looks wrong, note what you edited and contact us.
+- GitHub Pages is the current preview host. The admin screens are meant to
+  stay when the site moves to the client’s WordPress hosting later; how Save
+  publishes may change at that time.
