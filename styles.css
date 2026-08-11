@@ -292,6 +292,57 @@ img, video { max-width: 100%; display: block; }
   object-position: center top;
 }
 
+/* Home hero — top Hall of Famers collage */
+.hero-bg--legends {
+  overflow: hidden;
+  background: #0a1628;
+}
+
+.hero-legends {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2px;
+  transform: scale(1.06);
+  animation: legendsDrift 28s ease-in-out infinite alternate;
+}
+
+.hero-legends img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(0.92) contrast(1.05);
+}
+
+.hero-bg--legends .hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.55) 40%, rgba(0, 0, 0, 0.88) 100%),
+    linear-gradient(90deg, rgba(10, 22, 40, 0.55) 0%, transparent 35%, transparent 65%, rgba(10, 22, 40, 0.45) 100%);
+}
+
+@keyframes legendsDrift {
+  from { transform: scale(1.04) translate3d(0, 0, 0); }
+  to { transform: scale(1.1) translate3d(-1.2%, -0.6%, 0); }
+}
+
+@media (max-width: 720px) {
+  .hero-legends {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-legends {
+    animation: none;
+    transform: none;
+  }
+}
+
 /* Home hero — gentle horizontal scroll (transform loop; % background-position is unreliable) */
 .hero-bg--animated {
   overflow: hidden;
@@ -1146,6 +1197,35 @@ body.hof-modal-open {
   display: block;
 }
 
+.hof-card-thumb--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px;
+  background:
+    linear-gradient(160deg, rgba(26, 21, 40, 0.92), rgba(12, 28, 52, 0.95)),
+    #142038;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+}
+
+.hof-card-placeholder-name {
+  position: relative;
+  z-index: 1;
+  max-width: 90%;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.4vw, 24px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #f4f0e6;
+  text-wrap: balance;
+}
+
+.hof-card-thumb--placeholder .hof-card-crest {
+  opacity: 0.55;
+}
+
 .hof-card-crest {
   position: absolute !important;
   top: 10px;
@@ -1159,10 +1239,13 @@ body.hof-modal-open {
 }
 
 .hof-modal-media-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background:
-    linear-gradient(160deg, rgba(26, 21, 40, 0.55), rgba(0, 0, 0, 0.35)),
-    url("assets/crest.png?v=6") center 40% / 45% no-repeat,
-    #1a1528;
+    linear-gradient(160deg, rgba(26, 21, 40, 0.75), rgba(12, 28, 52, 0.85)),
+    url("assets/crest.png?v=6") center 38% / 42% no-repeat,
+    #142038;
 }
 
 .hof-modal-crest[hidden] {

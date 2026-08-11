@@ -12,6 +12,7 @@ ROOT = Path(r"d:\httpsmobilesportshalloffame")
 
 NAV = """      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
+        <li><a href="hall-of-famers.html">Hall of Famers</a></li>
         <li class="nav-item--dropdown">
           <button type="button" class="nav-dropdown-trigger" aria-expanded="false">Our Mission</button>
           <ul class="nav-submenu">
@@ -30,15 +31,14 @@ NAV = """      <ul class="nav-links">
             <li><a href="sponsors.html" class="nav-submenu-link">Sponsors</a></li>
           </ul>
         </li>
-        <li><a href="hall-of-famers.html">Hall of Famers</a></li>
         <li><a href="news-events.html">News &amp; Events</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>"""
 
 FOOTER_EXPLORE = """        <h4>Explore</h4>
+        <a href="hall-of-famers.html">Hall of Famers</a>
         <a href="about.html">Our Mission</a>
         <a href="our-vision.html">A Shared Vision</a>
-        <a href="hall-of-famers.html">Hall of Famers</a>
         <a href="news-events.html">News &amp; Events</a>
         <a href="contact.html">Contact</a>"""
 

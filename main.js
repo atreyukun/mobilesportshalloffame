@@ -332,28 +332,33 @@ async function initHof(root) {
     if (empty) empty.hidden = true;
     grid.innerHTML = filtered
       .map(
-        (p, i) => `
+        (p, i) => {
+          const label = escapeHtml(p.displayName || p.name);
+          const thumb = p.image
+            ? `<div class="hof-card-thumb"><img src="${escapeHtml(photoUrl(p.image))}" alt="" loading="lazy"${
+                p.imagePosition
+                  ? ` style="object-position:${escapeHtml(p.imagePosition)}"`
+                  : ""
+              } />${
+                p.crest
+                  ? `<img src="assets/crest.png?v=6" alt="" class="hof-card-crest" />`
+                  : ""
+              }</div>`
+            : `<div class="hof-card-thumb hof-card-thumb--placeholder" aria-hidden="true">
+                <span class="hof-card-placeholder-name">${label}</span>
+                <img src="assets/crest.png?v=6" alt="" class="hof-card-crest" />
+              </div>`;
+          return `
       <article class="hof-card">
-        <button type="button" class="hof-card-hit" data-hof-open="${i}" aria-label="View ${escapeHtml(p.displayName || p.name)}">
-          ${
-            p.image
-              ? `<div class="hof-card-thumb"><img src="${escapeHtml(photoUrl(p.image))}" alt="" loading="lazy"${
-                  p.imagePosition
-                    ? ` style="object-position:${escapeHtml(p.imagePosition)}"`
-                    : ""
-                } />${
-                  p.crest
-                    ? `<img src="assets/crest.png?v=6" alt="" class="hof-card-crest" />`
-                    : ""
-                }</div>`
-              : ""
-          }
+        <button type="button" class="hof-card-hit" data-hof-open="${i}" aria-label="View ${label}">
+          ${thumb}
           <div class="hof-card-year">${p.year}</div>
-          <h3>${escapeHtml(p.name)}</h3>
+          <h3>${label}</h3>
           <p>${escapeHtml(p.summary || "")}</p>
           <span class="hof-card-more">Read more</span>
         </button>
-      </article>`
+      </article>`;
+        }
       )
       .join("");
   }
