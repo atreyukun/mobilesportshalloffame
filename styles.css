@@ -1789,6 +1789,8 @@ body.hof-modal-open {
   }
 
   .hero { min-height: 78vh; align-items: flex-end; }
+  .hero--scrub { min-height: 0; height: 155vh; }
+  .hero--scrub .hero-pin { min-height: calc(100vh - var(--header-h)); height: calc(100vh - var(--header-h)); }
   .hero-title { max-width: none; }
 }
 
