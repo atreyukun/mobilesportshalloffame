@@ -52,6 +52,9 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  // Home hero — scroll-scrubbed collage (PepsiCo-style)
+  initHeroScrub();
+
   // Reveal on scroll
   const reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && reveals.length) {
@@ -141,6 +144,50 @@ const PHOTO_VERSION = 7;
 
 function photoUrl(path) {
   return `${path}?v=${PHOTO_VERSION}`;
+}
+
+function initHeroScrub() {
+  const root = document.querySelector("[data-hero-scrub]");
+  if (!root) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const legends = root.querySelector("[data-hero-legends]");
+  const content = root.querySelector("[data-hero-content]");
+  const overlay = root.querySelector("[data-hero-overlay]");
+  if (!legends) return;
+
+  let ticking = false;
+
+  const update = () => {
+    ticking = false;
+    const rect = root.getBoundingClientRect();
+    const runway = Math.max(root.offsetHeight - window.innerHeight, 1);
+    const scrolled = Math.min(Math.max(-rect.top, 0), runway);
+    const t = scrolled / runway;
+
+    const scale = 1.05 + t * 0.18;
+    const y = t * -12;
+    const x = t * -3;
+    legends.style.transform = `scale(${scale}) translate3d(${x}%, ${y}%, 0)`;
+
+    if (content) {
+      content.style.transform = `translate3d(0, ${t * -48}px, 0)`;
+      content.style.opacity = String(Math.max(0, 1 - t * 1.15));
+    }
+    if (overlay) {
+      overlay.style.opacity = String(0.92 + t * 0.35);
+    }
+  };
+
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+  update();
 }
 
 async function initHof(root) {

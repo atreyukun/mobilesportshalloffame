@@ -279,6 +279,23 @@ img, video { max-width: 100%; display: block; }
   overflow: hidden;
 }
 
+/* PepsiCo-style: sticky viewport, motion scrubbed by page scroll */
+.hero--scrub {
+  height: 185vh;
+  min-height: 0;
+  display: block;
+  overflow: visible;
+}
+
+.hero--scrub .hero-pin {
+  position: sticky;
+  top: var(--header-h);
+  height: calc(100vh - var(--header-h));
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -300,13 +317,13 @@ img, video { max-width: 100%; display: block; }
 
 .hero-legends {
   position: absolute;
-  inset: 0;
+  inset: -8%;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 2px;
-  transform: scale(1.06);
-  animation: legendsDrift 28s ease-in-out infinite alternate;
+  transform: scale(1.05) translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .hero-legends img {
@@ -322,14 +339,19 @@ img, video { max-width: 100%; display: block; }
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.55) 40%, rgba(0, 0, 0, 0.88) 100%),
     linear-gradient(90deg, rgba(10, 22, 40, 0.55) 0%, transparent 35%, transparent 65%, rgba(10, 22, 40, 0.45) 100%);
+  opacity: 1;
+  will-change: opacity;
 }
 
-@keyframes legendsDrift {
-  from { transform: scale(1.04) translate3d(0, 0, 0); }
-  to { transform: scale(1.1) translate3d(-1.2%, -0.6%, 0); }
+.hero--scrub .hero-content {
+  will-change: transform, opacity;
 }
 
 @media (max-width: 720px) {
+  .hero--scrub {
+    height: 155vh;
+  }
+
   .hero-legends {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -337,9 +359,22 @@ img, video { max-width: 100%; display: block; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero--scrub {
+    height: auto;
+    min-height: calc(100vh - var(--header-h));
+  }
+
+  .hero--scrub .hero-pin {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: calc(100vh - var(--header-h));
+  }
+
   .hero-legends {
-    animation: none;
+    inset: 0;
     transform: none;
+    will-change: auto;
   }
 }
 
