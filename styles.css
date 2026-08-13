@@ -982,8 +982,37 @@ img, video { max-width: 100%; display: block; }
 
 .hof-search:focus {
   outline: none;
-  border-color: var(--purple);
-  box-shadow: 0 0 0 3px var(--purple-soft);
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 3px rgba(20, 40, 80, 0.12);
+}
+
+.hof-sports {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.hof-sport {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.hof-sport:hover,
+.hof-sport.is-active {
+  border-color: #1a2a44;
+  background: #1a2a44;
+  color: #fff;
 }
 
 .hof-letters {

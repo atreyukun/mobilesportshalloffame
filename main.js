@@ -147,12 +147,14 @@ async function initHof(root) {
   const grid = root.querySelector("[data-hof-grid]");
   const search = root.querySelector("[data-hof-search]");
   const letters = root.querySelector("[data-hof-letters]");
+  const sportsEl = root.querySelector("[data-hof-sports]");
   const count = root.querySelector("[data-hof-count]");
   const empty = root.querySelector("[data-hof-empty]");
   const modal = document.getElementById("hof-modal");
 
   let inductees = [];
   let activeLetter = null; // nothing selected by default
+  let activeSport = "ALL";
   let query = "";
 
   try {
@@ -167,12 +169,41 @@ async function initHof(root) {
   inductees.forEach((p) => {
     p.letter = lastNameLetter(p.name);
     p._sort = nameSortKey(p.name);
+    p.sports = Array.isArray(p.sports) ? p.sports : inferSports(p);
   });
   inductees.sort((a, b) => {
     if (a.letter !== b.letter) return a.letter < b.letter ? -1 : 1;
     if (a._sort !== b._sort) return a._sort < b._sort ? -1 : 1;
     return 0;
   });
+
+  const sportCounts = new Map();
+  inductees.forEach((p) => {
+    (p.sports || []).forEach((s) => sportCounts.set(s, (sportCounts.get(s) || 0) + 1));
+  });
+  const sportList = [...sportCounts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([name]) => name);
+
+  if (sportsEl) {
+    sportsEl.innerHTML =
+      `<button type="button" class="hof-sport is-active" data-sport="ALL">All sports</button>` +
+      sportList
+        .map(
+          (s) =>
+            `<button type="button" class="hof-sport" data-sport="${escapeHtml(s)}">${escapeHtml(s)}</button>`
+        )
+        .join("");
+
+    sportsEl.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-sport]");
+      if (!btn) return;
+      activeSport = btn.dataset.sport;
+      sportsEl.querySelectorAll(".hof-sport").forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      render();
+    });
+  }
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   if (letters) {
@@ -296,20 +327,23 @@ async function initHof(root) {
     const filtered = inductees.filter((p) => {
       const letterOk =
         activeLetter == null
-          ? Boolean(query) // only show results before a letter pick if user is searching
+          ? Boolean(query) || activeSport !== "ALL" // sport alone can show results
           : activeLetter === "ALL" || p.letter === activeLetter;
+      const sportOk =
+        activeSport === "ALL" || (p.sports || []).includes(activeSport);
       const qOk =
         !query ||
         p.name.toLowerCase().includes(query) ||
         String(p.year).includes(query) ||
-        (p.summary || "").toLowerCase().includes(query);
-      return letterOk && qOk;
+        (p.summary || "").toLowerCase().includes(query) ||
+        (p.sports || []).some((s) => s.toLowerCase().includes(query));
+      return letterOk && sportOk && qOk;
     });
     filteredCache = filtered;
 
     if (count) {
-      if (activeLetter == null && !query) {
-        count.textContent = "Select a letter to browse";
+      if (activeLetter == null && !query && activeSport === "ALL") {
+        count.textContent = "Select a letter or sport to browse";
       } else {
         count.textContent = `${filtered.length} inductee${filtered.length === 1 ? "" : "s"}`;
       }
@@ -322,8 +356,8 @@ async function initHof(root) {
       if (empty) {
         empty.hidden = false;
         empty.textContent =
-          activeLetter == null && !query
-            ? "Choose a letter to browse inductees by last name."
+          activeLetter == null && !query && activeSport === "ALL"
+            ? "Choose a letter or sport to browse inductees."
             : "No inductees match your search.";
       }
       return;
@@ -395,6 +429,28 @@ function nameSortKey(name) {
   const last = parts[parts.length - 1];
   const given = parts.slice(0, -1).join(" ");
   return `${last}|${given}|${String(name).toUpperCase()}`;
+}
+
+/** Fallback sport tags from summary/bio when JSON has none. */
+function inferSports(person) {
+  const text = `${person.name || ""} ${person.summary || ""} ${person.bio || ""}`;
+  const rules = [
+    ["Baseball", /\bbaseball\b|\bMLB\b|Negro League|\bpitcher\b|\bWorld Series\b/i],
+    ["Football", /\bfootball\b|\bNFL\b|\bquarterback\b|\bSuper Bowl\b/i],
+    ["Basketball", /\bbasketball\b|\bNBA\b/i],
+    ["Golf", /\bgolf\b|\bLPGA\b|\bPGA\b/i],
+    ["Track & Field", /\btrack\b|\bcross country\b/i],
+    ["Soccer", /\bsoccer\b/i],
+    ["Volleyball", /\bvolleyball\b/i],
+    ["Boxing", /\bboxing\b|\bwelterweight\b/i],
+    ["Softball", /\bsoftball\b/i],
+    ["Tennis", /\btennis\b/i],
+    ["Swimming", /\bswim|\bdiving\b/i],
+    ["Sailing", /\bsailing\b/i],
+    ["Shooting", /\bskeet\b|\bmarksman\b|\bshooting\b/i],
+    ["Media", /\bsportscaster\b|\bsports writer\b|\broadcaster\b/i],
+  ];
+  return rules.filter(([, re]) => re.test(text)).map(([name]) => name);
 }
 
 function escapeHtml(str) {

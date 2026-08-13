@@ -1,0 +1,90 @@
+Mobile Sports Hall of Fame — Site Handoff
+=========================================
+
+Package date: 2026-08-11
+Preview (current): https://atreyukun.github.io/mobilesportshalloffame/
+
+
+WHAT THIS IS
+------------
+A static website (HTML / CSS / JS / JSON / images) plus a lightweight
+content admin for news, events, partners, sponsors, and the board.
+
+It is meant to replace the current WordPress public site content over time.
+The admin UI should stay; how “Save” publishes will need rewiring when this
+leaves GitHub Pages.
+
+
+CONTENTS
+--------
+  index.html, *.html     Public pages
+  styles.css, main.js    Site styles and behavior
+  assets/                Logos, photos, hall-of-famer images, videos
+  data/                  JSON content the public site reads
+  admin/                 Content admin UI + CLIENT-ADMIN-GUIDE.txt
+  .nojekyll              Needed only if hosting on GitHub Pages
+  scripts/               Optional maintainer helpers (nav rewrite, etc.)
+
+
+HOW TO HOST (STATIC)
+--------------------
+1. Upload everything except scripts/ (optional) and this note to the web root,
+   or keep scripts/ if your maintainer wants them.
+2. Ensure the server serves .json and image files with normal MIME types.
+3. Open /index.html (or configure the host’s default document).
+4. Admin lives at /admin/ (intentionally not linked in public nav).
+
+No build step. No Node. No database.
+
+
+ADMIN / PUBLISHING (IMPORTANT)
+------------------------------
+See admin/CLIENT-ADMIN-GUIDE.txt for day-to-day editing.
+
+Today, Save publishes by writing into a GitHub repo (GitHub Contents API)
+using a publish key (fine-grained PAT) pasted per browser session.
+
+When moving off GitHub Pages (e.g. to the client’s host or WordPress):
+  - Keep the admin screens and JSON shape if possible.
+  - Replace the GitHub save path in admin/admin.js + admin/config.js with
+    whatever the new host supports (SFTP, CMS API, etc.).
+  - Update the public/admin URLs in CLIENT-ADMIN-GUIDE.txt.
+  - Change the admin password (and PASSWORD_SHA256 in admin/config.js)
+    before wider distribution if desired.
+
+
+HALL OF FAMERS
+--------------
+Inductee list and bios: data/inductees.json
+Photos: assets/hof/
+Missing photos show a name + crest placeholder on the directory cards.
+There is no Hall of Famers editor in admin yet.
+
+
+OPEN CLIENT FOLLOW-UPS
+----------------------
+From their latest review — still outstanding:
+
+1. RSA mural / collage image for the home hero (optional swap for the
+   current top-name photo collage).
+2. Spreadsheet for richer filters (high school, college, national HOF
+   memberships). Browse-by-sport is already live from existing bios.
+3. Missing inductee photos they can supply (placeholders are in place).
+
+
+SUGGESTED REPLY TO CLIENT
+-------------------------
+Thank them for the feedback. Confirm:
+  - Hall of Famers is first in the nav after Home.
+  - Home opens on top Hall of Famers portraits.
+  - Missing photos use name placeholders until images arrive.
+Ask them to send: RSA mural file, photo files, and the filter spreadsheet.
+
+
+CONTACT / PREVIEW NOTES
+-----------------------
+GitHub preview owner/repo (current Save target):
+  atreyukun / mobilesportshalloffame
+
+Do not put the publish key (GitHub PAT) in email attachments, this zip,
+or any public document. Send it separately to the person who will Save.
