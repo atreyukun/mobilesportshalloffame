@@ -279,15 +279,17 @@ img, video { max-width: 100%; display: block; }
   overflow: hidden;
 }
 
-/* PepsiCo-style: sticky viewport, motion scrubbed by page scroll */
-.hero--scrub {
-  height: 185vh;
+/* PepsiCo-style: sticky viewport + horizontal marquees scrubbed by scroll */
+.hero--scrub,
+.hero--marquees {
+  height: 170vh;
   min-height: 0;
   display: block;
   overflow: visible;
 }
 
-.hero--scrub .hero-pin {
+.hero--scrub .hero-pin,
+.hero--marquees .hero-pin {
   position: sticky;
   top: var(--header-h);
   height: calc(100vh - var(--header-h));
@@ -309,72 +311,108 @@ img, video { max-width: 100%; display: block; }
   object-position: center top;
 }
 
-/* Home hero — top Hall of Famers collage */
+/* Home hero — Hall of Famers marquee rows */
 .hero-bg--legends {
   overflow: hidden;
   background: #0a1628;
 }
 
-.hero-legends {
+.hero-marquees {
   position: absolute;
-  inset: -8%;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 2px;
-  transform: scale(1.05) translate3d(0, 0, 0);
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+  --marquee-shift: 0%;
+}
+
+.hero-marquee {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.hero-marquee-track {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  height: 100%;
+  width: max-content;
   will-change: transform;
 }
 
-.hero-legends img {
-  width: 100%;
+.hero-marquee--left .hero-marquee-track {
+  transform: translate3d(calc(var(--marquee-shift) * -1), 0, 0);
+}
+
+.hero-marquee--right .hero-marquee-track {
+  transform: translate3d(calc(-35% + var(--marquee-shift)), 0, 0);
+}
+
+.hero-marquee-track img {
   height: 100%;
+  width: auto;
+  aspect-ratio: 5 / 4;
   object-fit: cover;
   object-position: center top;
   display: block;
-  filter: saturate(0.92) contrast(1.05);
+  border-radius: 10px;
+  flex: 0 0 auto;
+  filter: saturate(0.95) contrast(1.04);
 }
 
 .hero-bg--legends .hero-overlay {
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.55) 40%, rgba(0, 0, 0, 0.88) 100%),
-    linear-gradient(90deg, rgba(10, 22, 40, 0.55) 0%, transparent 35%, transparent 65%, rgba(10, 22, 40, 0.45) 100%);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.88) 100%),
+    linear-gradient(90deg, rgba(10, 22, 40, 0.5) 0%, transparent 30%, transparent 70%, rgba(10, 22, 40, 0.4) 100%);
   opacity: 1;
   will-change: opacity;
 }
 
+.hero--marquees .hero-content,
 .hero--scrub .hero-content {
   will-change: transform, opacity;
 }
 
 @media (max-width: 720px) {
-  .hero--scrub {
-    height: 155vh;
+  .hero--scrub,
+  .hero--marquees {
+    height: 145vh;
   }
 
-  .hero-legends {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+  .hero-marquees {
+    gap: 8px;
+    padding: 8px 0;
+  }
+
+  .hero-marquee-track {
+    gap: 8px;
+  }
+
+  .hero-marquee-track img {
+    aspect-ratio: 4 / 5;
+    border-radius: 8px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero--scrub {
+  .hero--scrub,
+  .hero--marquees {
     height: auto;
     min-height: calc(100vh - var(--header-h));
   }
 
-  .hero--scrub .hero-pin {
+  .hero--scrub .hero-pin,
+  .hero--marquees .hero-pin {
     position: relative;
     top: auto;
     height: auto;
     min-height: calc(100vh - var(--header-h));
   }
 
-  .hero-legends {
-    inset: 0;
-    transform: none;
-    will-change: auto;
+  .hero-marquees {
+    --marquee-shift: 0%;
   }
 }
 
@@ -1789,8 +1827,10 @@ body.hof-modal-open {
   }
 
   .hero { min-height: 78vh; align-items: flex-end; }
-  .hero--scrub { min-height: 0; height: 155vh; }
-  .hero--scrub .hero-pin { min-height: calc(100vh - var(--header-h)); height: calc(100vh - var(--header-h)); }
+  .hero--scrub,
+  .hero--marquees { min-height: 0; height: 145vh; }
+  .hero--scrub .hero-pin,
+  .hero--marquees .hero-pin { min-height: calc(100vh - var(--header-h)); height: calc(100vh - var(--header-h)); }
   .hero-title { max-width: none; }
 }
 

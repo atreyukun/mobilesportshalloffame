@@ -151,10 +151,10 @@ function initHeroScrub() {
   if (!root) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const legends = root.querySelector("[data-hero-legends]");
+  const marquees = root.querySelector("[data-hero-marquees]");
   const content = root.querySelector("[data-hero-content]");
   const overlay = root.querySelector("[data-hero-overlay]");
-  if (!legends) return;
+  if (!marquees) return;
 
   let ticking = false;
 
@@ -165,17 +165,15 @@ function initHeroScrub() {
     const scrolled = Math.min(Math.max(-rect.top, 0), runway);
     const t = scrolled / runway;
 
-    const scale = 1.05 + t * 0.18;
-    const y = t * -12;
-    const x = t * -3;
-    legends.style.transform = `scale(${scale}) translate3d(${x}%, ${y}%, 0)`;
+    // Alternating rows read left/right as you scroll the page
+    marquees.style.setProperty("--marquee-shift", `${t * 42}%`);
 
     if (content) {
-      content.style.transform = `translate3d(0, ${t * -48}px, 0)`;
-      content.style.opacity = String(Math.max(0, 1 - t * 1.15));
+      content.style.transform = `translate3d(0, ${t * -36}px, 0)`;
+      content.style.opacity = String(Math.max(0, 1 - t * 1.1));
     }
     if (overlay) {
-      overlay.style.opacity = String(0.92 + t * 0.35);
+      overlay.style.opacity = String(0.95 + t * 0.28);
     }
   };
 
