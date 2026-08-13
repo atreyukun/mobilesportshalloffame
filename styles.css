@@ -282,7 +282,7 @@ img, video { max-width: 100%; display: block; }
 /* PepsiCo-style: sticky viewport + horizontal marquees scrubbed by scroll */
 .hero--scrub,
 .hero--marquees {
-  height: 170vh;
+  height: 220vh;
   min-height: 0;
   display: block;
   overflow: visible;
@@ -378,7 +378,7 @@ img, video { max-width: 100%; display: block; }
 @media (max-width: 720px) {
   .hero--scrub,
   .hero--marquees {
-    height: 145vh;
+    height: 190vh;
   }
 
   .hero-marquees {
@@ -1828,7 +1828,7 @@ body.hof-modal-open {
 
   .hero { min-height: 78vh; align-items: flex-end; }
   .hero--scrub,
-  .hero--marquees { min-height: 0; height: 145vh; }
+  .hero--marquees { min-height: 0; height: 190vh; }
   .hero--scrub .hero-pin,
   .hero--marquees .hero-pin { min-height: calc(100vh - var(--header-h)); height: calc(100vh - var(--header-h)); }
   .hero-title { max-width: none; }

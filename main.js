@@ -163,17 +163,19 @@ function initHeroScrub() {
     const rect = root.getBoundingClientRect();
     const runway = Math.max(root.offsetHeight - window.innerHeight, 1);
     const scrolled = Math.min(Math.max(-rect.top, 0), runway);
-    const t = scrolled / runway;
+    // Ease the scrub so early scroll moves slowly
+    const raw = scrolled / runway;
+    const t = raw * raw * (3 - 2 * raw); // smoothstep
 
-    // Alternating rows read left/right as you scroll the page
-    marquees.style.setProperty("--marquee-shift", `${t * 42}%`);
+    // Gentle left/right drift — keep this low so rows don't whip past
+    marquees.style.setProperty("--marquee-shift", `${t * 12}%`);
 
     if (content) {
-      content.style.transform = `translate3d(0, ${t * -36}px, 0)`;
-      content.style.opacity = String(Math.max(0, 1 - t * 1.1));
+      content.style.transform = `translate3d(0, ${t * -18}px, 0)`;
+      content.style.opacity = String(Math.max(0.15, 1 - t * 0.55));
     }
     if (overlay) {
-      overlay.style.opacity = String(0.95 + t * 0.28);
+      overlay.style.opacity = String(0.95 + t * 0.12);
     }
   };
 
