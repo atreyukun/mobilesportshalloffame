@@ -564,9 +564,12 @@ async function initFeaturedNews(root) {
     const href = story.link || "news-events.html";
     const external = /^https?:/i.test(href);
     const label = story.linkLabel || "Read more →";
+    const photo = story.image
+      ? `<img src="${escapeHtml(story.image)}" alt="${escapeHtml(story.title || "")}" class="featured-news-photo" />`
+      : `<img src="assets/crest.png?v=6" alt="" class="featured-news-crest" />`;
     root.innerHTML = `
-      <div class="event-band-media featured-news-media" aria-hidden="true">
-        <img src="assets/crest.png?v=6" alt="" class="featured-news-crest" />
+      <div class="event-band-media featured-news-media${story.image ? " featured-news-media--photo" : ""}">
+        ${photo}
       </div>
       <div>
         <p class="section-eyebrow" style="color:rgba(255,255,255,0.55)">Featured news</p>

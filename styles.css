@@ -869,6 +869,18 @@ img, video { max-width: 100%; display: block; }
     #0a1628;
 }
 
+.featured-news-media--photo {
+  background: #111;
+  aspect-ratio: 4 / 5;
+}
+
+.featured-news-photo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  background: #111;
+}
+
 .featured-news-crest {
   width: min(42%, 220px) !important;
   height: auto !important;
