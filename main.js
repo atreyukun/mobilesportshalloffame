@@ -519,9 +519,9 @@ async function fetchJson(path) {
 async function initNews(root, { home }) {
   try {
     const items = await fetchJson("data/news.json");
-    const list = home
-      ? items.filter((n) => n.featured).slice(0, 2)
-      : items;
+    const featured = items.filter((n) => n.featured);
+    const rest = items.filter((n) => !n.featured);
+    const list = home ? [...featured, ...rest].slice(0, 2) : [...featured, ...rest];
     const shown = list.length ? list : items.slice(0, 2);
     root.innerHTML = shown
       .map((n) => {
@@ -529,7 +529,11 @@ async function initNews(root, { home }) {
         const href = home ? "news-events.html" : n.link || "news-events.html";
         const label = home ? "Read more →" : n.linkLabel || "Read more →";
         const external = !home && /^https?:/i.test(href);
-        return `<article class="news-item reveal is-visible">
+        const featuredMark = n.featured
+          ? `<p class="news-item-eyebrow">Featured</p>`
+          : "";
+        return `<article class="news-item${n.featured ? " news-item--featured" : ""} reveal is-visible">
+          ${featuredMark}
           <h3>${escapeHtml(n.title)}</h3>
           <p>${escapeHtml(text)}</p>
           <a class="more" href="${escapeHtml(href)}"${

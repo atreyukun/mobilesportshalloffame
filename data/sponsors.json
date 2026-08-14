@@ -10,12 +10,14 @@
     "id": "daniel-foundation",
     "name": "The Daniel Foundation",
     "url": "https://danielfoundationofalabama.com/",
+    "logo": "assets/sponsors/daniel-foundation.png",
     "domain": "danielfoundationofalabama.com"
   },
   {
     "id": "regions-bank",
     "name": "Regions Bank",
     "url": "https://www.regions.com/",
+    "logo": "assets/sponsors/regions-bank.svg",
     "domain": "regions.com"
   }
 ]
