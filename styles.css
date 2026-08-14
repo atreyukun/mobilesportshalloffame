@@ -860,6 +860,26 @@ img, video { max-width: 100%; display: block; }
   color: var(--text-muted);
 }
 
+.featured-news-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(80, 120, 180, 0.35), transparent 62%),
+    #0a1628;
+}
+
+.featured-news-crest {
+  width: min(42%, 220px) !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.45));
+}
+
+.featured-news-media + div .btn-white {
+  margin-top: 28px;
+}
+
 .section--dark .event-chip {
   border-color: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.8);

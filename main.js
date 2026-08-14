@@ -83,6 +83,9 @@
   const newsHome = document.querySelector("[data-news-home]");
   if (newsHome) initNews(newsHome, { home: true });
 
+  const featuredNews = document.querySelector("[data-featured-news]");
+  if (featuredNews) initFeaturedNews(featuredNews);
+
   const newsArchive = document.querySelector("[data-news-archive]");
   if (newsArchive) initNews(newsArchive, { home: false });
 
@@ -521,7 +524,7 @@ async function initNews(root, { home }) {
     const items = await fetchJson("data/news.json");
     const featured = items.filter((n) => n.featured);
     const rest = items.filter((n) => !n.featured);
-    const list = home ? [...featured, ...rest].slice(0, 2) : [...featured, ...rest];
+    const list = home ? [...featured, ...rest].slice(0, 2) : rest;
     const shown = list.length ? list : items.slice(0, 2);
     root.innerHTML = shown
       .map((n) => {
@@ -544,6 +547,39 @@ async function initNews(root, { home }) {
       .join("");
   } catch (err) {
     root.innerHTML = "<p class='hof-empty'>Unable to load news.</p>";
+  }
+}
+
+async function initFeaturedNews(root) {
+  try {
+    const items = await fetchJson("data/news.json");
+    const story = (items || []).find((n) => n.featured);
+    const section = root.closest("[data-featured-news-section]") || root.closest("section");
+    if (!story) {
+      root.innerHTML = "";
+      section?.setAttribute("hidden", "");
+      return;
+    }
+    section?.removeAttribute("hidden");
+    const href = story.link || "news-events.html";
+    const external = /^https?:/i.test(href);
+    const label = story.linkLabel || "Read more →";
+    root.innerHTML = `
+      <div class="event-band-media featured-news-media" aria-hidden="true">
+        <img src="assets/crest.png?v=6" alt="" class="featured-news-crest" />
+      </div>
+      <div>
+        <p class="section-eyebrow" style="color:rgba(255,255,255,0.55)">Featured news</p>
+        <h2 class="section-title">${escapeHtml(story.title || "")}</h2>
+        <p class="section-lede" style="color:rgba(255,255,255,0.72)">${escapeHtml(
+          story.body || story.summary || ""
+        )}</p>
+        <a class="btn btn-white" href="${escapeHtml(href)}"${
+          external ? ' target="_blank" rel="noopener noreferrer"' : ""
+        }>${escapeHtml(label)}</a>
+      </div>`;
+  } catch (err) {
+    root.innerHTML = "<p class='hof-empty' style='color:#fff'>Unable to load news.</p>";
   }
 }
 
