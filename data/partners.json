@@ -19,5 +19,11 @@
     "url": "https://www.rsa-al.gov/",
     "logo": "assets/partners/rsa.png",
     "domain": "rsa-al.gov"
+  },
+  {
+    "id": "mobile-sports-authority",
+    "name": "Mobile Sports Authority",
+    "url": "https://www.mobilesportsauthority.com/",
+    "domain": "mobilesportsauthority.com"
   }
 ]

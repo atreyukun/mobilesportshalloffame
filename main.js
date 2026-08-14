@@ -671,13 +671,16 @@ async function initBrandGrid(root, path) {
   try {
     const items = await fetchJson(path);
     root.innerHTML = items
-      .map(
-        (b) => `<a class="brand-link" href="${escapeHtml(b.url || "#")}" target="_blank" rel="noopener noreferrer">
-          <img src="${escapeHtml(b.logo || "")}" alt="${escapeHtml(b.name || "")}" />
+      .map((b) => {
+        const logo = b.logo
+          ? `<img src="${escapeHtml(b.logo)}" alt="" />`
+          : "";
+        return `<a class="brand-link${b.logo ? "" : " brand-link--text"}" href="${escapeHtml(b.url || "#")}" target="_blank" rel="noopener noreferrer">
+          ${logo}
           <span>${escapeHtml(b.name || "")}</span>
           <small>${escapeHtml(b.domain || "")}</small>
-        </a>`
-      )
+        </a>`;
+      })
       .join("");
   } catch (err) {
     root.innerHTML = "<p class='hof-empty'>Unable to load listings.</p>";

@@ -1539,6 +1539,13 @@ body.hof-modal-open {
   color: var(--text);
 }
 
+.brand-link--text span {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
 .brand-link small {
   font-size: 12px;
   font-weight: 500;

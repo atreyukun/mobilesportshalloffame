@@ -5,5 +5,17 @@
     "url": "https://www.camelliatrophy.com/",
     "logo": "assets/sponsors/camellia-trophy.png",
     "domain": "camelliatrophy.com"
+  },
+  {
+    "id": "daniel-foundation",
+    "name": "The Daniel Foundation",
+    "url": "https://danielfoundationofalabama.com/",
+    "domain": "danielfoundationofalabama.com"
+  },
+  {
+    "id": "regions-bank",
+    "name": "Regions Bank",
+    "url": "https://www.regions.com/",
+    "domain": "regions.com"
   }
 ]
