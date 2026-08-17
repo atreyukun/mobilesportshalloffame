@@ -324,11 +324,12 @@ async function initHof(root) {
       // This box is narrower than the photos, so anchor the crop away from the
       // crest rather than slicing through it.
       image.style.objectPosition =
-        person.crestSide === "left"
+        person.imagePosition ||
+        (person.crestSide === "left"
           ? "left top"
           : person.crestSide === "right"
             ? "right top"
-            : "center top";
+            : "center 22%");
       if (crest) crest.hidden = !person.crest;
     } else {
       fallback.hidden = false;
