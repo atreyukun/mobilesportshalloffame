@@ -202,6 +202,9 @@
     "year": 2024,
     "summary": "Captain Munnerlyn enjoyed a decade-long NFL career, playing one of the game’s most challenging positions: cornerback.",
     "letter": "C",
+    "image": "assets/hof/captain-munnerlyn.png",
+    "imagePosition": "50% 22%",
+    "crest": true,
     "bio": "He earned All-State honors in football, and starred in track at Murphy High School. Named All SEC during a three year career at South Carolina, Munnerlyn recorded 127 tackles, two sacks, five interceptions, two forced fumbles, and three fumble recoveries for the Gamecocks.\n\n “The Captain” played in 154 NFL games over ten NFL seasons, seven with the Carolina Panthers and three with the Minnesota Vikings. He intercepted 12 passes, returning five for touchdowns. He also returned a fumble recovery for a touchdown, and returned 75 punts",
     "sports": [
       "Football",
@@ -462,6 +465,9 @@
     "year": 1990,
     "summary": "All-Star Major League Baseball player (1943-53) and manager. Served as head baseball coach at the University of South Alabama from (1969-79, ’81-83), taking team to five NCAA Tournaments.",
     "letter": "E",
+    "image": "assets/hof/eddie-stanky.png",
+    "imagePosition": "50% 32%",
+    "crest": true,
     "bio": "All-Star Major League Baseball player (1943-53) and manager. Served as head baseball coach at the University of South Alabama from (1969-79, ’81-83), taking team to five NCAA Tournaments",
     "sports": [
       "Baseball"
@@ -797,6 +803,9 @@
     "year": 2007,
     "summary": "First African-American varsity football player at University of Alabama (1971-72). 36-Year coaching career at collegiate and NFL levels including longtime tenure as DL coach with Steelers.",
     "letter": "J",
+    "image": "assets/hof/john-mitchell.png",
+    "imagePosition": "50% 16%",
+    "crest": true,
     "bio": "First African-American varsity football player at University of Alabama (1971-72). 36-Year coaching career at collegiate and NFL levels including longtime tenure as DL coach with Steelers",
     "sports": [
       "Football"
@@ -875,6 +884,9 @@
     "year": 2002,
     "summary": "Outstanding all-round athlete who was a star basketball and baseball player at Spring Hill College. Drafted by Boston Celtics in 1952 NBA Draft. Nationally-ranked amateur tennis player.",
     "letter": "J",
+    "image": "assets/hof/jules-mugnier.png",
+    "imagePosition": "50% 28%",
+    "crest": true,
     "bio": "Outstanding all-round athlete who was a star basketball and baseball player at Spring Hill College. Drafted by Boston Celtics in 1952 NBA Draft. Nationally-ranked amateur tennis player",
     "sports": [
       "Baseball",
