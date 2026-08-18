@@ -156,6 +156,9 @@
     "year": 1994,
     "summary": "Star baseball player and coach at Spring Hill College. Mobile radio and television sportscaster for over 30 years.",
     "letter": "B",
+    "image": "assets/hof/bill-menton.png",
+    "imagePosition": "50% 32%",
+    "crest": true,
     "bio": "Star baseball player and coach at Spring Hill College. Mobile radio and television sportscaster for over 30 years",
     "sports": [
       "Baseball",
