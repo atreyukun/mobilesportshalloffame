@@ -326,6 +326,9 @@
     "year": 1993,
     "summary": "Two-sport star at Grambling University (1962-64). Ten-year NFL career as receiver with five teams (1964-73) and was member of Browns’ 1964 NFL Champs.",
     "letter": "C",
+    "image": "assets/hof/clifton-mcneil.png",
+    "imagePosition": "50% 22%",
+    "crest": true,
     "bio": "Two-sport star at Grambling University (1962-64). Ten-year NFL career as receiver with five teams (1964-73) and was member of Browns’ 1964 NFL Champs",
     "sports": [
       "Football"
@@ -656,6 +659,9 @@
     "year": 2004,
     "summary": "Community business and sports leader. Organized group that financed the construction of Ladd Stadium in 1948 and bringing the Senior Bowl to Mobile in 1950.",
     "letter": "J",
+    "image": "assets/hof/j-finley-mcrae.png",
+    "imagePosition": "50% 28%",
+    "crest": true,
     "bio": "Community business and sports leader. Organized group that financed the construction of Ladd Stadium in 1948 and bringing the Senior Bowl to Mobile in 1950",
     "sports": [
       "Football"
@@ -1286,6 +1292,9 @@
     "year": 2010,
     "summary": "Record-setting pitcher at Satsuma H.S. and Louisiana Tech who played for Kansas City Royals’ 1977 and 1978 American League Division Champs.",
     "letter": "R",
+    "image": "assets/hof/randy-mcgillberry.png",
+    "imagePosition": "50% 18%",
+    "crest": true,
     "bio": "Record-setting pitcher at Satsuma H.S. and Louisiana Tech who played for Kansas City Royals’ 1977 and 1978 American League Division Champs",
     "sports": [
       "Baseball"
