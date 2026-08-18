@@ -892,6 +892,9 @@
     "year": 2018,
     "summary": "In 2003, Pierre helped the Florida Marlins to a World Series victory.",
     "letter": "J",
+    "image": "assets/hof/juan-pierre.png",
+    "imagePosition": "50% 16%",
+    "crest": true,
     "bio": "Juan Pierre was born in Mobile but moved to Louisiana where he graduated from Alexandria High School. After playing junior college ball, Pierre returned to Mobile to play at the University of South Alabama where in his lone season with the Jaguars he hit .373 and stole 54 bases and was named a collegiate All-American.\n\n Drafted by Colorado Rockies in 13th round of 1998 draft, Juan was in the big leagues two years later, embarking on a 14 season major league career. He would play for the Rockies, Marlins, Cubs, Dodgers, White Sox, Phillies, and Marlins again before retiring after the 2013 season.\n\n Pierre led the National League in stolen bases twice and the American League once. He also led the National League in triples in 2004.\n\n A durable player, Juan led the National League five consecutive seasons, 2003-2007, in games played. He led the National League in at bats in 2003, 2004, and 2006",
     "sports": [
       "Baseball"
@@ -1656,6 +1659,9 @@
     "year": 1992,
     "summary": "Skeet and clay target marksman. International Skeet Shooting Champion.",
     "letter": "W",
+    "image": "assets/hof/william-perdue.png",
+    "imagePosition": "50% 42%",
+    "crest": true,
     "bio": "Skeet and clay target marksman. International Skeet Shooting Champion",
     "sports": [
       "Shooting"
