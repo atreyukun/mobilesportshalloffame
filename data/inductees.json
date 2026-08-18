@@ -234,6 +234,9 @@
     "year": 2024,
     "summary": "Carvel “B ama” Rowell played six-years in the major leagues, and posted a .275 lifetime batting average, in a career interrupted by World War Two.",
     "letter": "C",
+    "image": "assets/hof/carvel-bama-rowell.png",
+    "imagePosition": "50% 28%",
+    "crest": true,
     "bio": "A native of Citronelle, Rowell was recruited to LSU on a football scholarship, but signed a professional baseball contract. He debuted in the major leagues in 1939 with the Boston Braves. Rowell hit .305 in 1940, best among major league rookies.\n\n Rowell’s career was interrupted by four years of military service during World War II. He returned to the Braves in 1946 and hit .280. Rowell hit a long drive in 1946 that broke the Bulova Clock on the scoreboard at Brooklyn’s Ebbets Field, inspiring a famous scene in the 1984 movie “The Natural.”",
     "sports": [
       "Baseball",
@@ -437,6 +440,9 @@
     "year": 2017,
     "summary": "Rosandich was the founder of the world renowned United States Sports Academy and was an internationally recognized track and field coach and sports innovator.",
     "letter": "D",
+    "image": "assets/hof/dr-thomas-p-rosandich.png",
+    "imagePosition": "50% 22%",
+    "crest": true,
     "bio": "A track coach at Wisconsin-La Crosse, and later Athletic Director at Wisconsin-Parkside, and Wisconsin-Milwaukee, Rosandich founded the USSA in 1972 and relocated it to the campus of the University of South Alabama in 1976. The Academy moved to Daphne in 1986 as it became the nation’s first and only free standing, accredited institution dedicated solely to professional graduate studies in sport. Rosandich served as President and Chief Executive Officer of the Academy for 43 years until 2015. \n\n Rosandich coached in 50 countries preparing national teams for international games as part of the U.S. State Department’s “U.S. Ambassadors of Sport” program. Rosandich was National Track and Field Coach for Indonesia. In 1997, he was awarded The Olympic Order – the highest International Olympic Committee honor",
     "sports": [
       "Track & Field"
@@ -678,6 +684,9 @@
     "year": 2018,
     "summary": "Jack Robertson enjoyed more than four decades of success in his hometown of Bay Minette, leading the Faulkner State men’s basketball program into national junior college prominence.",
     "letter": "J",
+    "image": "assets/hof/jack-robertson.png",
+    "imagePosition": "50% 18%",
+    "crest": true,
     "bio": "A graduate of Baldwin County High and the Marion Military Institute, Robertson began his coaching career at Robertsdale High School and Escambia High School in Pensacola, before taking over the program at Faulkner State in 1972. Over the next 43 seasons, he won 855 games and lost only 440. His Sun Chief teams won 14 Alabama Southern Division championships and three state titles. \n\n Robertson’s 1991 Faulkner squad finished sixth at the National Junior College Athletic Association Tournament. He ranks 9th all-time in wins in the NJCAA wins. In 2010, Coach Robertson was inducted into the NJCAA Basketball Coaches Hall of Fame. \n\n Among the Sun Chief players Robertson coached are NBA player and coach Pete Myers and CBA star Leonard White",
     "sports": [
       "Basketball"
@@ -1500,6 +1509,9 @@
     "year": 2011,
     "summary": "Played on LPGA Tour for 20 years, with career earnings of over $1 million. Was runner-up at the 1995 Nabisco Dinah Shore Tournament – one of the LPGA’s four major events. Played at Wright School in Mobile.",
     "letter": "S",
+    "image": "assets/hof/susie-redman.png",
+    "imagePosition": "50% 18%",
+    "crest": true,
     "bio": "Played on LPGA Tour for 20 years, with career earnings of over $1 million. Was runner-up at the 1995 Nabisco Dinah Shore Tournament – one of the LPGA’s four major events. Played at Wright School in Mobile",
     "sports": [
       "Golf"
@@ -1510,6 +1522,9 @@
     "year": 1998,
     "summary": "Legendary Negro League Baseball Star for 27 seasons (1928-64). Earned nickname by catching and pitching both games of a double-header in Negro League World Series.",
     "letter": "T",
+    "image": "assets/hof/ted-double-duty-radcliffe.png",
+    "imagePosition": "50% 28%",
+    "crest": true,
     "bio": "Legendary Negro League Baseball Star for 27 seasons (1928-64). Earned nickname by catching and pitching both games of a double-header in Negro League World Series",
     "sports": [
       "Baseball"
@@ -1637,6 +1652,9 @@
     "year": 2000,
     "summary": "Negro League Baseball star (1925-42). Outstanding third baseman known as the “Human Vacuum Cleaner.”",
     "letter": "W",
+    "image": "assets/hof/william-bobby-robinson.png",
+    "imagePosition": "50% 28%",
+    "crest": true,
     "bio": "Negro League Baseball star (1925-42). Outstanding third baseman known as the “Human Vacuum Cleaner.”",
     "sports": [
       "Baseball"
