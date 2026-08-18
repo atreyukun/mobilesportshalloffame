@@ -143,7 +143,7 @@ function initInquiryForm(form) {
 
 // Bumped whenever the inductee photos are re-exported, so browsers holding an
 // older copy of a same-named file fetch the new one.
-const PHOTO_VERSION = 10;
+const PHOTO_VERSION = 11;
 
 function photoUrl(path) {
   return `${path}?v=${PHOTO_VERSION}`;
