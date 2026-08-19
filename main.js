@@ -235,10 +235,8 @@ async function initHof(root) {
     (p.sports || []).forEach((s) => sportCounts.set(s, (sportCounts.get(s) || 0) + 1));
   });
   const sportList = [...sportCounts.entries()]
-    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .map(([name]) => name)
-    .filter((name) => name !== "Coaches");
-  if (sportCounts.has("Coaches")) sportList.unshift("Coaches");
+    .sort((a, b) => a.localeCompare(b));
 
   if (sportsEl) {
     sportsEl.innerHTML =
