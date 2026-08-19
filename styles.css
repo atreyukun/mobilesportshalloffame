@@ -607,6 +607,11 @@ img, video { max-width: 100%; display: block; }
   opacity: 0.82;
 }
 
+.page-hero .hero-bg img.page-hero-photo--statues {
+  object-position: 62% 48%;
+  opacity: 0.88;
+}
+
 .page-hero .hero-content {
   padding-top: 64px;
   padding-bottom: 48px;
