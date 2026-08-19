@@ -602,8 +602,13 @@ async function initFeaturedEvent(root) {
     const home = root.getAttribute("data-event-layout") === "home";
     const img = ev.image || "assets/hero-banquet-pano.jpg?v=2";
     const media = home
-      ? `<div class="event-band-media">
-          <video src="assets/event-rsa-tower.mp4" muted playsinline loop autoplay preload="metadata" aria-label="RSA Tower in Mobile"></video>
+      ? `<div class="event-band-media event-band-media--vimeo">
+          <iframe
+            title="A Shared Vision — Mobile Sports Hall of Fame"
+            src="https://player.vimeo.com/video/123538907?dnt=1"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>`
       : `<div class="event-band-media event-band-media--scroll" aria-hidden="true">
           <div class="pillar-scroll-track">
