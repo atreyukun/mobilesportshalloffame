@@ -4,6 +4,9 @@
     "year": 1988,
     "summary": "Brooklyn Dodgers Class AA farm team won Southern League title. Team members included Cal Abrams, Chuck “Rifleman” Connors and George “Shotgun” Shuba.",
     "letter": "M",
+    "image": "assets/hof/1947-mobile-bears.png",
+    "imagePosition": "50% 48%",
+    "crest": true,
     "bio": "Brooklyn Dodgers Class AA farm team won Southern League title. Team members included Cal Abrams, Chuck “Rifleman” Connors and George “Shotgun” Shuba",
     "sports": [
       "Baseball"
@@ -24,6 +27,9 @@
     "year": 2005,
     "summary": "Tuskegee University Hall of Fame inductee. Successful high school football coach at Willliamson and Blount who led Williamson to the 1962 state title.",
     "letter": "A",
+    "image": "assets/hof/albert-tipping-terry.png",
+    "imagePosition": "50% 28%",
+    "crest": true,
     "bio": "Tuskegee University Hall of Fame inductee. Successful high school football coach at Willliamson and Blount who led Williamson to the 1962 state title",
     "sports": [
       "Football"
@@ -1348,6 +1354,9 @@
     "year": 2005,
     "summary": "Baseball star at Alabama State who played in Reds and Indians organizations. Successful high school coach at Blount, AHSAA official and major league baseball scout for Astros and Braves.",
     "letter": "R",
+    "image": "assets/hof/ralph-taylor-iii.png",
+    "imagePosition": "50% 32%",
+    "crest": true,
     "bio": "Baseball star at Alabama State who played in Reds and Indians organizations. Successful high school coach at Blount, AHSAA official and major league baseball scout for Astros and Braves",
     "sports": [
       "Baseball"
