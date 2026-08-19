@@ -628,6 +628,11 @@ img, video { max-width: 100%; display: block; }
   filter: contrast(1.08) saturate(1.1);
 }
 
+.page-hero .hero-bg img.page-hero-photo--board {
+  object-position: 52% 28%;
+  opacity: 0.86;
+}
+
 .page-hero .hero-content {
   padding-top: 64px;
   padding-bottom: 48px;
