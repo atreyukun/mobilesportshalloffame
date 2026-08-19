@@ -220,6 +220,9 @@ async function initHof(root) {
     p.letter = lastNameLetter(p.name);
     p._sort = nameSortKey(p.name);
     p.sports = Array.isArray(p.sports) ? p.sports : inferSports(p);
+    if (isCoach(p) && !(p.sports || []).includes("Coaches")) {
+      p.sports = [...(p.sports || []), "Coaches"];
+    }
   });
   inductees.sort((a, b) => {
     if (a.letter !== b.letter) return a.letter < b.letter ? -1 : 1;
@@ -233,7 +236,9 @@ async function initHof(root) {
   });
   const sportList = [...sportCounts.entries()]
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-    .map(([name]) => name);
+    .map(([name]) => name)
+    .filter((name) => name !== "Coaches");
+  if (sportCounts.has("Coaches")) sportList.unshift("Coaches");
 
   if (sportsEl) {
     sportsEl.innerHTML =
@@ -480,6 +485,14 @@ function nameSortKey(name) {
   const last = parts[parts.length - 1];
   const given = parts.slice(0, -1).join(" ");
   return `${last}|${given}|${String(name).toUpperCase()}`;
+}
+
+/** True when the bio describes coaching, not just playing for a famous coach. */
+function isCoach(person) {
+  const text = `${person.summary || ""} ${person.bio || ""}`;
+  return /\b(head coach|assistant coach|coaching career|coached|high school coach|college coach|collegiate coach|football coach|basketball coach|golf coach|track coach|volleyball coach|baseball coach|soccer coach|swimming coach|coach of the year|as (?:a |the )?(?:head |assistant )?coach)\b/i.test(
+    text
+  );
 }
 
 /** Fallback sport tags from summary/bio when JSON has none. */
