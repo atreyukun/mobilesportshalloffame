@@ -622,6 +622,12 @@ img, video { max-width: 100%; display: block; }
   opacity: 0.84;
 }
 
+.page-hero .hero-bg img.page-hero-photo--kids {
+  object-position: center 68%;
+  opacity: 0.92;
+  filter: contrast(1.08) saturate(1.1);
+}
+
 .page-hero .hero-content {
   padding-top: 64px;
   padding-bottom: 48px;
