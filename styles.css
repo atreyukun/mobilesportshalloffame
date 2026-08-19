@@ -612,6 +612,11 @@ img, video { max-width: 100%; display: block; }
   opacity: 0.88;
 }
 
+.page-hero .hero-bg img.page-hero-photo--ribbon {
+  object-position: center 42%;
+  opacity: 0.86;
+}
+
 .page-hero .hero-content {
   padding-top: 64px;
   padding-bottom: 48px;
