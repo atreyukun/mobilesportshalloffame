@@ -597,6 +597,11 @@ img, video { max-width: 100%; display: block; }
   object-position: center 28%;
 }
 
+.page-hero .hero-bg img.page-hero-photo--skyline {
+  object-position: center 52%;
+  opacity: 0.88;
+}
+
 .page-hero .hero-content {
   padding-top: 64px;
   padding-bottom: 48px;
