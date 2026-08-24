@@ -653,9 +653,12 @@ async function initFeaturedEvent(root) {
         ${detail}
         ${
           ev.ticketUrl
-            ? `<a href="${escapeHtml(ev.ticketUrl)}" class="btn btn-white" target="_blank" rel="noopener noreferrer">${escapeHtml(
-                ev.ticketLabel || "Buy Tickets"
-              )}</a>`
+            ? (() => {
+                const external = /^https?:/i.test(ev.ticketUrl);
+                return `<a href="${escapeHtml(ev.ticketUrl)}" class="btn btn-white"${
+                  external ? ' target="_blank" rel="noopener noreferrer"' : ""
+                }>${escapeHtml(ev.ticketLabel || "Buy Tickets")}</a>`;
+              })()
             : ""
         }
       </div>`;
@@ -666,9 +669,12 @@ async function initFeaturedEvent(root) {
 
 function eventCardPublic(ev) {
   const ticket = ev.ticketUrl
-    ? `<a class="more" href="${escapeHtml(ev.ticketUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(
-        ev.ticketLabel || "Buy Tickets →"
-      )}</a>`
+    ? (() => {
+        const external = /^https?:/i.test(ev.ticketUrl);
+        return `<a class="more" href="${escapeHtml(ev.ticketUrl)}"${
+          external ? ' target="_blank" rel="noopener noreferrer"' : ""
+        }>${escapeHtml(ev.ticketLabel || "Buy Tickets →")}</a>`;
+      })()
     : "";
   const photo = ev.image
     ? `<div class="event-list-photo"><img src="${escapeHtml(ev.image)}" alt="" loading="lazy" /></div>`
