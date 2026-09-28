@@ -3,6 +3,11 @@ Mobile-Sports-Hall-of-Fame-handoff.zip
 .DS_Store
 Thumbs.db
 __pycache__/
+logs/
 scripts/_verify/
 scripts/_photo_backup/
 scripts/_preview/
+scripts/serve_local.py
+scripts/boot_start_mshof.ps1
+scripts/_check_news_cache.py
+scripts/import_news_bodies.py

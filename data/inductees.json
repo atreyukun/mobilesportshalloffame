@@ -6,6 +6,7 @@
     "letter": "M",
     "image": "assets/hof/1947-mobile-bears.png",
     "imagePosition": "50% 48%",
+    "video": "assets/hof-1947-mobile-bears.mp4",
     "crest": true,
     "bio": "Brooklyn Dodgers Class AA farm team won Southern League title. Team members included Cal Abrams, Chuck “Rifleman” Connors and George “Shotgun” Shuba",
     "sports": [
@@ -109,8 +110,9 @@
     "summary": "One of winningest volleyball coaches in Alabama High School history, winning 11 state titles as head coach at McGill-Toolen. Also won three state basketball titles.",
     "letter": "B",
     "image": "assets/hof/becky-dickinson.jpg",
+    "imagePosition": "50% 42%",
+    "video": "assets/hof-becky-dickinson.mp4",
     "bio": "Becky Dickinson is one of the winningest high school volleyball coaches in the nation with a career wins totaling 1,273. She led McGill-Toolen’s Dirty Dozen to its first state championship in 1971, claiming 13 state titles in all and finishing in the top three every year. She also has a 235-81 basketball record with three state titles and two boys tennis crowns. She is a graduate of Russellville High and Florence State",
-    "crestSide": "left",
     "sports": [
       "Basketball",
       "Volleyball",
@@ -124,6 +126,7 @@
     "summary": "Quarterback at Toulminville High School and Alabama State. Won four state championships at Blount High School during the 1990’s. NFL High School Coach of the year in 1998. Member of the AHSAA Hall of Fame.",
     "letter": "B",
     "image": "assets/hof/ben-harris.jpg",
+    "imagePosition": "72% 32%",
     "bio": "A graduate of Toulminville (now LeFlore) High School, Ben Harris played quarterback at Alabama State from 1975-1978. He still ranks in the Top 10 all-time in passing yards for the Hornets. “Ben Big” followed his collegiate career by playing semi-pro football for the West Virginia Rockets and Pensacola Wings, before beginning his coaching career.\n\n Harris was head coach at Clayton High School and an assistant coach at Baldwin County High School before taking over at Blount High School in 1988. At the time, the Leopards had lost more games the previous 10 seasons than any other Class 5A school in the state.\n\n Over the next 10 years, the Leopards became 5A’s winningest team with state titles in 1990, 1992, 1996, and 1997 and runner-up finishes in 1991 and 1995. Numerous Harris-coached players went on to careers in college football and the NFL. Harris’ overall record at Blount was 78-14.\n\n Harris later returned to Alabama State as an assistant coach before becoming head coach at Daleville High School.\n\n Harris served as head coach in the 1991 Alabama-Mississippi All Star Classic and was an assistant in 1997. In 1998, he was named the NFL High School Coach of the Year. In 2012, Harris was inducted in the Alabama High School Athletic Association Hall of Fame",
     "crestSide": "right",
     "sports": [
@@ -137,6 +140,7 @@
     "summary": "Star golfer at the University of South Alabama (1966-70) and four-time Alabama State Women’s Golf Champion. Longtime high school golf coach.",
     "letter": "B",
     "image": "assets/hof/beth-barry.jpg",
+    "imagePosition": "50% 28%",
     "video": "assets/hof-beth-barry.mp4",
     "bio": "A native of Mobile, Ala., Elizabeth “Beth” Barry played golf at the University of South Alabama and was a four-year letter winner. Mobile’s local media dubbed her “Our Beth” as she won 57 of 64 career matches. As a freshman she was first at the Sixth Annual Lake Forest Ladies Invitational and the Skyline Country Club Invitational. Among Barry’s career accomplishments, she aced a par three 163-yard hole at Auburn’s Saughatchee Country Club in a practice round. She was also runner-up in the Alabama Women’s Golf Association state tournament during her freshman campaign. As a sophomore, she advanced to the semifinal round of the 24th Annual Women’s National Collegiate golf tournament and was the Amateur Champion of the Fourth Annual Invitational Pensacola Ladies golf tournament, where she was the only amateur to finish in the top 20. As a junior, she was the Champion of the Alabama Women’s Golf Association state tournament and fired her third-career hole-in-one.\n\n Beth won the Alabama State Women’s Golf tournament four years straight (1969–1972), and she was inducted in the South Alabama Athletic Hall of Fame in 1989.\n\n Beth Barry has hit 24 career holes-in-one, more than any other amateur woman, according to Golf Digest .\n\n She currently lives in Mobile and serves as Tournament Administrator and Tour Director for the Junior Golf Association of Mobile",
     "crestSide": "right",
@@ -151,6 +155,7 @@
     "summary": "All-SEC offensive lineman at Mississippi State. Served as head football coach at North Carolina, Virginia Tech and Wake Forest (1967-92) and won three ACC titles and 161 games.",
     "letter": "B",
     "image": "assets/hof/bill-dooley.jpg",
+    "video": "assets/hof-bill-dooley.mp4",
     "bio": "Bill Dooley was grew up in Mobile, Alabama, and attended McGill Toolen High School. He played football for Mississippi State University where he was an All-SEC lineman. He coached first as an assistant at Georgia under his brother Vince Dooley, then at the University of North Carolina, Chapel Hill, where he led the Tarheels to three Atlantic Coast Conference titles. He was athletic director and head coach at Virginia Tech 1978-1986 and head coach at Wake Forest University from 1987-1992. With a career coaching record of 162-126-5, he was ACC Coach of the Year in 1971, 1987 and 1992",
     "crestSide": "right",
     "sports": [
@@ -188,7 +193,7 @@
     "summary": "Star tackle at the University of Alabama 1949-51. Played for NFL’s New York Giants and was also a star in Canadian Football League with for 11 seasons (1955-65).",
     "letter": "B",
     "image": "assets/hof/bill-shipp.png",
-    "imagePosition": "50% 32%",
+    "imagePosition": "50% 18%",
     "crest": true,
     "bio": "Star tackle at the University of Alabama 1949-51. Played for NFL’s New York Giants and was also a star in Canadian Football League with for 11 seasons (1955-65)",
     "sports": [
@@ -305,6 +310,7 @@
     "summary": "The first ever Mobile-born and Alabama-born major league baseball player. As a rookie in 1889 with the St. Louis Browns of the then major league American Association, Duffee finished third in the A.A. in home runs. He also played for the Columbus Solons, the Washington Senators, and the Cincinnati Reds before his promising career and life were cut short by tuberculosis. He died in 1894 at the age of 28.",
     "letter": "C",
     "image": "assets/hof/charlie-home-run-duffee.jpg",
+    "video": "assets/hof-duffee.mp4",
     "bio": "Charlie “Home Run” Duffee was the first Alabama-born player to go to the major leagues. Nicknamed “Home Run Duffee” (and usually referred to by that name), his 16 home runs as a rookie were third in the American Association in 1889.\n\n Duffee’s best year was 1891 when both his home runs and his doubles were in the top five in the league. The next year he moved to the National League, where he played one full season in 1892 and four more games in 1893 before bowing out. Charlie Comiskey, who had been his manager in 1889 when Duffee broke in, was also his manager in his last season, 1893.\n\n He died the next year, in 1894, of consumption. It was reported that he left the majors due to ill health.\n\n The year he broke in (1889) was a turbulent one, coming right before the founding of the Players League. Duffee is mentioned in the book Baseball in 1889: Players vs. Owners .\n\n The Baseball Rookies Encyclopedia notes that Duffee’s performance in 1889, hitting over 15 home runs with a batting average below .250, was rare before 1940, but after that date it became common",
     "crestSide": "right",
     "sports": [
@@ -534,6 +540,7 @@
     "summary": "Member of National Collegiate Football Hall of Fame. All-American running back at Auburn University (1958-60) who finished fourth in voting for the 1960 Heisman Trophy.",
     "letter": "E",
     "image": "assets/hof/edmund-dyas.jpg",
+    "video": "assets/hof-edmund-dyas.mp4",
     "bio": "Ed Dyas would be a in the Mobile Sports Hall of Fame with room to spare if he’d never kicked a field goal. He started at fullback and linebacker on some of Shug Jordan best Auburn Tiger teams, and was first team All-American at fullback in his senior year, 1960.\n\n But in terms of the history of his sport, Dyas is remembered as one of the true pioneers of the field-goal. In the early days of football, field goals counted for five points, and touchdowns, just four. By 1912, the field goal was the three points it is today, and the touchdown, six points.\n\n Over the next 50 years, the field goal played a marginal role in the game. That began to change in 1959, when the NCAA widened the goal posts.\n\n Enter Auburn, and Ed Dyas. In 1960, his senior year, Dyas booted 13 of 17 field goal attempts, smashing the NCAA record. At Auburn he set four NCAA field goal records, including the career field goal mark of 17. Needless to say, he kicked straight on, as opposed to, “soccer style.”\n\n Back then, Sports Illustrated had a feature called, “Saturday’s Tough Ones,” in which the magazine issued brief summaries of that Saturday’s college games and picked a favorite. “Auburn over Georgia,” the magazine predicted, before that year’s renewal of Auburn’s second biggest rivalry. “The Tigers are menacing again, and there is always Ed Dyas to kick field goals. Georgia’s Francis Tarkenton will have to throw against one of the nation’s best pass defenses.”\n\n SI was right on. Auburn didn’t score a single touchdown, but defeated Georgia 9-6—all of the Tigers points coming off Dyas’s foot.\n\n That year, famed Atlanta Constitution sportswriter Furman Bisher chronicled what he accurately saw as the dawn of the three-pointer as a game-changer in the sport.\n\n “The field goal, previously a wallflower, has been drafted and put to heavy labor, to the point that around one third of the decisions in the sturdy southern belt have been rendered by the instrument,” wrote Bisher. “None, however, have made it quite so important a feature of attack as Auburn University.”\n\n Auburn went 8-2 that year, with four of those wins coming on Dyas’ field goals.\n\n That year Dyas finished fourth in the Heisman Trophy voting. He won the Cliff Hare Award, which is presented to the outstanding Auburn senior student-athlete, and the Bill Streit Award, which goes to the football player with the highest grade point average over four years.\n\n Perhaps most impressively, the Auburn pre-med was selected captain of the 1960 Scholastic All-America team.\n\n After graduating from Auburn, Dyas was drafted by the Baltimore Colts, and offered a $5,000 signing bonus and $10,000 a year. But he had another love, the good sense to pursue it.\n\n “In high school I got taken with the idea (to become a doctor) when I was introduced to biology we had good teachers at McGill,” Dyas said, of the Mobile high school now called McGill-Toolen. “And I made the decision to go to (med) school rather than play any more football, and I’m glad I did.”\n\n Dyas chose Tulane Medical School over pro football. He finished in the top 10 percent class, returned home to Mobile, and helped build one of the largest orthopedic practices in the state.\n\n He was inducted into the Alabama Sports Hall of Fame in 1999, and 10 years later, into the College Football Hall of Fame.\n\n Dr. Ed Dyas died in 2011, at age 71, from stomach cancer",
     "crestSide": "right",
     "sports": [
@@ -641,9 +648,11 @@
     "year": 2013,
     "summary": "Star defensive back at Theodore High and Southern Miss. 1st round draft pick in 1981. Three-time Pro Bowl defensive back for Cleveland Browns.",
     "letter": "H",
-    "image": "assets/hof/hanford-dixon.jpg",
+    "image": "assets/hof/hanford-dixon.png",
+    "imagePosition": "50% 22%",
+    "video": "assets/hof-hanford-dixon.mp4",
+    "crest": true,
     "bio": "Hanford Dixon was raised in Mobile, Alabama, and played football at Theodore High School and the University of Southern Mississippi. He was a first round draft pick in 1981 and was selected by the Cleveland Browns where he spent his career as a professional football player. He was a two-time All-Pro selection and played in the Pro Bowl in 1986, 1987 and 1988. He was been inducted into USM’s M-Club Alumni Association Sports Hall of Fame in 1988 and was named to the school’s Football Team of the Century. He is also a member of the Legend’s Club at the University of Southern Mississippi.\n\n He has published a memoir with Randy Nyerges titled “Day of the Dawg,” and he is a football analyst for WOIO-TV in Cleveland, Ohio. He also coached the Cleveland/Toledo Crush in the Legends Football League (formerly the Lingerie League), an all-female indoor football team",
-    "crestSide": "right",
     "sports": [
       "Football",
       "Coaches"
@@ -778,9 +787,12 @@
     "year": 2015,
     "summary": "Taylor was named All-County and All-State after rushing for 3,200 yards and 16 touchdowns in just eight games at Citronelle High School. He went on to play for Bear Bryant at Alabama and was a member of the 1973 National Championship team. A member of the MOWA Choctaw tribe, Taylor is the first Native American inducted into the Mobile Sports Hall of Fame.",
     "letter": "J",
-    "image": "assets/hof/james-taylor.jpg",
+    "image": "assets/hof/james-taylor.png",
+    "imagePosition": "50% 22%",
+    "modalImage": "assets/hof/james-taylor-interior.png",
+    "modalImagePosition": "50% 30%",
+    "crest": true,
     "bio": "James Taylor played in the first high school football game he ever saw. Despite a high school career of just eight games as a senior at Citronelle High School, Taylor was named All-County and All-State after rushing for 3,200 yards and 16 touchdowns.\n\n Taylor was selected to play in the Alabama North-South All-Star Game in Tuscaloosa. It was in that game that he caught the eye of Alabama assistant coach Pat Dye. Taylor received a scholarship to Alabama where he started at tailback in Bear Bryant’s wishbone offense. Taylor was part of the three consecutive SEC championship teams and the 1973 National Championship team. He was a game captain 12 times and was also named SEC Player of the Week during his career.\n\n He had offers to sign with the New England Patriots and New York Giants but declined due to injury. A member of the MOWA Choctaw tribe, Taylor is the first Native American inducted into the Mobile Sports Hall of Fame",
-    "crestSide": "right",
     "sports": [
       "Football",
       "Coaches"
@@ -804,6 +816,7 @@
     "letter": "J",
     "image": "assets/hof/jason-caffey.jpg",
     "imagePosition": "62% 8%",
+    "modalImagePosition": "50% 0%",
     "video": "assets/hof-jason-caffey.mp4",
     "bio": "Jason Caffey was named the Gatorade Alabama Player of the Year while at Davidson High School. During a four-year career at the University of Alabama, Caffey was twice named All SEC and led the Tide to three NCAA Tournament appearances. Caffey was selected in the first round, 20 th overall, of the 1995 NBA Draft by the Chicago Bulls. \n\n Caffey won two NBA Championships with Chicago in 1996 and 1997. The 1995-96 Bulls set a then NBA record with 72 victories. Caffey was traded to Golden State during the 1997-98 season. He enjoyed his best NBA season in 1999-2000, when he averaged 12 points and 6.8 rebounds a game as a starter for the Warriors. Caffey later spent three years with the Milwaukee Bucks. In his nine year NBA career, Caffey scored 3,368 points and had 2,022 rebounds in 462 NBA games",
     "crest": true,
@@ -962,6 +975,7 @@
     "letter": "J",
     "image": "assets/hof/josh-donaldson.png",
     "imagePosition": "50% 18%",
+    "video": "assets/hof-josh-donaldson.mp4",
     "crest": true,
     "bio": "In 2015, Josh Donaldson hit .297 with 41 home runs, 123 RBIs, and 122 runs scored for the Toronto Blue Jays. He started in the All Star Game, led the American League in runs and RBIs, won the American League Hank Aaron Award, and the American League third baseman Silver Slugger Award. He was named Plater of the Year by The Sporting News and the American League MVP.\n\n It was the highlight of an exceptional 13 season career in the big leagues. Donaldson played for the Athletics, Blue Jays, Indians, Braves, Twins, Yankees, and Brewers. He was named 2019 National League Comeback Player of the Year.\n\n Donaldson won an AISA state championship and was named Alabama Gatorade Player of the Year at Faith Academy. In three years at Auburn, he batted .307 with 28 HRs",
     "sports": [
@@ -1029,6 +1043,11 @@
     "year": 2024,
     "summary": "Kelli Ogden starred in volleyball at the University of Georgia, and is one of the winningest high school volleyball coaches in Alabama history.",
     "letter": "K",
+    "image": "assets/hof/kelli-ogdan-hillier-card.png",
+    "imagePosition": "50% 22%",
+    "modalImage": "assets/hof/kelli-ogdan-hillier-interior.png",
+    "modalImagePosition": "50% 28%",
+    "crest": true,
     "bio": "Ogden played at Georgia from 1986-1989. As a senior, she was named All SEC, All SEC Tournament, All South, and honorable mention All America. Ogden set a number of Bulldog single-season and career marks.\n\n In high school, Ogden starred at St. Paul’s Episcopal School in volleyball, basketball, and track. She won 10 individual state track championships and led the Saints to two state volleyball titles. Her volleyball uniform #7 was retired by the school.\n\n As volleyball coach at St Paul’s from 2002-14, Hillier won 607 games and seven AHSAA State Championships. 607 career wins ranks 5th all-time among Alabama volleyball coaches",
     "sports": [
       "Basketball",
@@ -1069,9 +1088,12 @@
     "year": 2014,
     "summary": "Starred at Williamson High School before embarking on a remarkable career at Auburn University. Freeman led Auburn to the 1990 Final Four and was the SEC Player of the Year and First Team All America in 1993. She won a gold medal for the U.S. at the 1994 Good- will Games. Freeman played professional basketball overseas and in the ABL. After retiring, she has been an assistant coach at Auburn and a head high school coach in Mobile (St. Paul’s).",
     "letter": "L",
-    "image": "assets/hof/lauretta-freeman-horn.jpg",
+    "image": "assets/hof/lauretta-freeman-horn.png",
+    "imagePosition": "50% 28%",
+    "modalImage": "assets/hof/lauretta-freeman-horn-interior.png",
+    "modalImagePosition": "50% 22%",
+    "crest": true,
     "bio": "Lauretta Freeman-Horn starred at Williamson High School before embarking on a remarkable career at Auburn University. Freeman led Auburn to the 1990 Final Four and was the SEC Player of the Year and First Team All America in 1993. Her single season rebound record of 401 still stands at Auburn. She won a gold medal for the U.S. at the 1994 Goodwill Games in Russia. Freeman played professional basketball in Spain, and came back to the States to play in the ABL—two seasons with the Atlanta Glory and was with the National Noise when the ABL suddenly dissolved in 1998. After retiring, she has been an assistant coach to Joe Ciampi at Auburn for four seasons and a head high school coach in Mobile (St. Paul’s)",
-    "crestSide": "left",
     "sports": [
       "Basketball",
       "Coaches"
@@ -1137,6 +1159,7 @@
     "summary": "Member of National Softball Hall of Fame. Commissioner of Mobile Metro Softball Association for 20 Years.",
     "letter": "L",
     "image": "assets/hof/lewis-brassell.jpg",
+    "imagePosition": "50% 28%",
     "video": "assets/hof-lewis-brassell.mp4",
     "bio": "Lewis Brassell served as deputy commissioner for 11 years and 20 years as Mobile Metro Softball Association commissioner. He was involved in softball for more than 50 years and was regional vice president from 1980-1981. He hosted and served as director of the first American Softball Association national tournament in Mobile in 1976. He directed 15 regional tournaments and two area tournaments during his career as commissioner. He was elected to the Mobile Hall of Fame in 1975, the National Softball Association Hall of Fame in 1984, and the Alabama Softball Hall of Fame in 1992 as a charter member. The softball complex at Cottage Hill Park in Mobile was named in his honor in 1990. Lewis Brassell passed away on March 28, 2006",
     "crestSide": "right",
@@ -1206,6 +1229,7 @@
     "summary": "Two time National Champion with the Crimson Tide and first round NFL pick in 2012.",
     "letter": "M",
     "image": "assets/hof/mark-barron.jpg",
+    "imagePosition": "50% 18%",
     "video": "assets/hof-mark-barron.mp4",
     "bio": "Mark Barron led St.Paul’s to the 2007 5A State Title and was the MVP of the State Championship Game. At Alabama, he won two National Championships and was named an All SEC and All American saftey three times.\n\n The 7th overall pick of the 2012 NFL Draft by Tampa Bay, Barron made the 2012 All Rookie team. He was traded in 2014 to the St. Louis Rams who moved him to linebacker. Barron had nine tackles in the 2018 NFC Championship Game and eight in Super Bowl LIII. He finished his career with Pittsburgh and Denver\n\n In nine NFL seasons, Barron played in 119 games, starting 112 of them. He had 710 combined tackles and nine interceptions",
     "crest": true,
@@ -1433,6 +1457,19 @@
     ]
   },
   {
+    "name": "RANDY PATRICK",
+    "year": 2018,
+    "summary": "WKRG Sports Director for more than 30 years and the Gulf Coast’s most familiar sports voice across four decades of radio and television.",
+    "letter": "R",
+    "image": "assets/hof/randy-patrick.png",
+    "imagePosition": "50% 18%",
+    "crest": true,
+    "bio": "Randy Patrick spent more than four decades as the Gulf Coast's most familiar voice in sports. He got his start at WABF Radio in Fairhope in 1979, moved to WKRG Radio a year later, and made the jump to television at WKRG-TV in 1988. He was named the station's Sports Director in 1991 and held the chair for over 30 years, calling state championship broadcasts in football and basketball during the 1980s and later handling television play-by-play for Alabama football and basketball as well as BayBears baseball.\n\n Over his career Patrick covered four straight BCS National Championship games, numerous bowl games, NCAA Tournament basketball, major golf tournaments, 21 seasons of Southern League baseball, and Mobile's signature events from the Azalea Trail Run to the Senior Bowl, which he covered for nearly four decades. He hosted Iron Bowl specials dating back to 1987 and earned award-winning recognition for his coverage of storms and crises along the coast, including the John Harris Lifetime Achievement Award from the Mobile Press Club in 2005. A Heisman Trophy voter since 2013 and a past president of the Mobile Sports Hall of Fame, Patrick never lost a Mobile Press Register or Lagniappe readers' poll for favorite sportscaster. He retired from WKRG in January 2023 after 43 years with the station.",
+    "sports": [
+      "Media"
+    ]
+  },
+  {
     "name": "RAY “BUDDY” LAUTEN",
     "year": 2001,
     "summary": "Football and basketball Star at UMS. Record-setting basketball performer at Spring Hill College (1948-50) and Spring Hill College Hall of Fame inductee.",
@@ -1531,6 +1568,47 @@
     ]
   },
   {
+    "name": "DERRICK BURROUGHS",
+    "year": 2026,
+    "summary": "Blount High and Memphis State star; Bills first-round pick (14th overall, 1985) who earned PFWA All-Rookie honors, then built a long coaching career including head coach at Lane College.",
+    "letter": "B",
+    "image": "assets/hof/derrick-burroughs.png",
+    "imagePosition": "58% 8%",
+    "video": "assets/hof-derrick-burroughs.mp4",
+    "crest": true,
+    "bio": "Born May 18, 1962 in Mobile, Alabama, Derrick D'wayne Burroughs starred at Mattie T. Blount High School in Prichard before heading to Memphis State (now the University of Memphis), where he became one of the top defensive backs in the country. He was named Metro Conference Defensive Player of the Year in 1984 and played in both the 1984 Blue-Gray All-Star Game and the 1985 Senior Bowl, earning first-team All-South Independent honors along the way. Injuries were a factor even then — he missed most of the 1983 season — but his speed and aggressive style made him a highly coveted prospect.\n\n The Buffalo Bills selected Burroughs in the first round of the 1985 NFL Draft with the 14th overall pick, and he responded by earning a spot on the PFWA All-Rookie Team. He spent five seasons at cornerback in Buffalo (1985–1989), recording six interceptions, three fumble recoveries and a sack across 58 games. His playing career ended abruptly in the third game of the 1989 season, when he suffered a neck injury during a Monday Night Football matchup against the Houston Oilers. He went on to a long coaching career, with stops at Knoxville College, Clark Atlanta, Stillman, Alabama State and Jackson State, plus the World League, XFL, Arena League and UFL, and later served as head football coach and athletic director at Lane College.",
+    "sports": [
+      "Football"
+    ]
+  },
+  {
+    "name": "DERRICK COLEMAN",
+    "year": 2026,
+    "summary": "Prichard native and Syracuse All-American; No. 1 overall pick in the 1990 NBA Draft, Rookie of the Year, All-Star, and two-time All-NBA selection.",
+    "letter": "C",
+    "image": "assets/hof/derrick-coleman.png",
+    "imagePosition": "50% 22%",
+    "video": "assets/hof-derrick-coleman.mp4",
+    "crest": true,
+    "bio": "A Prichard native, Derrick Coleman attended Vigor High School as a freshman before his family moved to Michigan, where he became a McDonald's All-American at Detroit Northern High School. He went on to a decorated career at Syracuse University, starting as a freshman on the Orange team that reached the 1987 national championship game, earning second-team All-American honors as a junior, and being named Big East Player of the Year and a consensus All-American as a senior in 1990. Over four seasons at Syracuse he averaged 15.0 points, 10.7 rebounds and 2.2 blocks per game.\n\n The New Jersey Nets took Coleman with the first overall pick of the 1990 NBA Draft, and he was named NBA Rookie of the Year in 1991 after averaging 18.4 points and 10.3 rebounds per game. He played in the 1994 NBA All-Star Game, was a two-time All-NBA selection, and won a gold medal with the U.S. National Team at the 1994 FIBA World Championship. Across a 15-year NBA career with the Nets, Hornets, 76ers and Pistons, Coleman averaged 16.5 points and 9.3 rebounds per game.",
+    "sports": [
+      "Basketball"
+    ]
+  },
+  {
+    "name": "JOE NILAND",
+    "year": 2026,
+    "summary": "Winningest men’s basketball coach in University of Mobile history; former Spring Hill head coach and current Spring Hill athletic director.",
+    "letter": "N",
+    "image": "assets/hof/joe-niland.png",
+    "imagePosition": "50% 22%",
+    "crest": true,
+    "bio": "Joe Niland has built one of the most successful coaching careers in Gulf Coast collegiate basketball. A 1981 graduate of SUNY Buffalo, he first came to Mobile as head men's basketball coach at Spring Hill College from 1993 to 1999, compiling a 127-60 record and also serving two years as the college's Dean of Students. He ranks as the second-winningest coach in Spring Hill history. Coaching runs deep in his family — his father, the late Joe Sr., coached at Canisius College and later served as director of college scouting for the NBA's Buffalo Braves; his uncle, the late Tom Niland, coached and served as athletic director at LeMoyne College; his brother Dave is a head coach at Penn State-Behrend; and his cousin John Beilein is the all-time winningest coach in Michigan program history.\n\n In 1999 Niland took over the men's basketball program at the University of Mobile, where he spent 20 years and became the winningest coach in school history. He led the Rams to five NAIA National Tournament appearances, including a run to the 2004 NAIA Final Four, and picked up wins over Division I opponents Alabama State and Louisiana-Lafayette along the way. He also served 11 years as Mobile's athletic director, overseeing 17 athletic programs, and in 2016 was selected to assist with the USA Basketball Men's U18 National Team training camp. Niland returned to Spring Hill College in the summer of 2019 as athletic director, the role he holds today.",
+    "sports": [
+      "Basketball"
+    ]
+  },
+  {
     "name": "ROBERT BRAZILE, JR.",
     "year": 1994,
     "summary": "All-American football star at Jackson State who had stellar 10-year NFL career with Houston Oilers. Seven-time Pro Bowl linebacker and five-time All-Pro.",
@@ -1604,6 +1682,7 @@
     "summary": "Former Major League Baseball player with Senators. Served as head baseball coach at Spring Hill College for 27 seasons and school’s field is named in his honor.",
     "letter": "S",
     "image": "assets/hof/stan-galle.jpg",
+    "imagePosition": "50% 28%",
     "bio": "Stan Galle was born in Wisconsin and played major league baseball for the Washington Senators for a season. He then became head baseball coach at Spring Hill College, a position he held for 27 years, and the school’s baseball field is named in his honor.\n\n Stan Galle died on January 28, 2006",
     "crestSide": "right",
     "sports": [
@@ -1754,6 +1833,7 @@
     "summary": "Member of National Collegiate Football Hall of Fame. Head football coach at University of Georgia for 25 seasons (1964-88) winning 201 games, six SEC Titles and the 1980 National Championship.",
     "letter": "V",
     "image": "assets/hof/vince-dooley.jpg",
+    "video": "assets/hof-vince-dooley.mp4",
     "bio": "In 1963, the University of Georgia lured Auburn basketball coach Joel Eaves to Athens, but with a new title: Athletic Director. Bulldog fans thought their new AD was off his rocker when he chose, for the biggest hire of all, a 31-year-old with zero head coaching experience.\n\n No one was more surprised than Vince Dooley. In his book, “Dooley’s Dawgs,” he told how Eaves stunned him with a call and an amazing job offer. He asked Eaves to give him five minutes, to talk to his wife. When he called back, he said, “If you are crazy enough to stick your neck out, I’m crazy enough to come.”\n\n It must stand as the finest decision in the history of University of Georgia athletics.\n\n In 1964, Vince Dooley’s first season as Georgia’s head football coach, the “Dawgs” went 7-3-1 record, enjoyed their first winning season in years, and capped it with a victory in the Sun Bowl.\n\n Dooley never looked back, and Georgia—its football program, its entire athletic program—has never been the same.\n\n Vincent Joseph Dooley was born in Mobile in 1932, the second of three children. Though known to fans as Vince, to his family and friends he has always been Vincent. His wife, for example, never calls him Vince. The Dooley’s were not destitute, but money was always a concern. In his book, Dooley recalled his mother’s fear that the family would be evicted for getting behind on the rent and utility bills. But Vincent Dooley’s childhood was a happy one, and active.\n\n “The streets were where the action was but the action was sports, not crack or the criminal activity so pervasive now,” Dooley wrote. “There was a game of some kind going on all the time, and I loved to play the games. I loved to compete and enjoyed being involved in any kind of sports, even those that were invented.”\n\n The Dooley boys, as Catholics, attended McGill Institute (now McGill-Toolen). In his favorite sport, basketball, Dooley set state tournament scoring records in 1949 and 1950. He played quarterback on the football team and was named Mobile’s prep “Athlete of the Year.”\n\n Dooley arrived at Auburn at about the same time as its new football coach, Ralph “Shug” Jordan. In 1953, with Dooley as team captain and quarterback, the Tigers recorded their best season in 17 years, a 7-2-1 mark that included a berth in the Gator Bowl.\n\n Upon graduation, Dooley enlisted in the Marines. After a two-year hitch, he returned to Auburn to join Jordan’s staff. Back in those days, the head basketball coach was low on the totem pole, and did double duty as an assistant football coach. Eaves, the basketball coach, was assigned to scout opposing teams and recruits.\n\n Dooley often accompanied him—a role that proved fortuitous when Eaves got the Georgia job.\n\n Here’s the Dooley record by the numbers:\n\n \n Coached 25 seasons, most in Georgia history. \n Won 201 games, and became only the ninth coach in NCAA history to win more than 200 games. \n Won six SEC titles, was named SEC coach of the year seven times, national coach of the year once, and led the Dawgs to 20 bowl games. \n \n From a fans’ standpoint, it didn’t hurt that Dooley made a habit of whipping Georgia’s two biggest rivals—Georgia Tech and Florida. His teams won 19 of 25 games against the Yellow Jackets and compiled a 17-7-1 record against the hated Gators.\n\n The most memorable of those wins was the 1980 miracle comeback against Florida. Georgia trailed 21-20 with less than a minute to go, on its seven yard-line, facing a third and eight. Dooley’s hopes for an undefeated season and the national title were about to expire.\n\n Then quarterback Buck Belue, scrambling into and out of the end zone, spotted Lyndsay Scott at the 25. Scott made the grab, headed for the left sideline, and sped untouched for one of the wildest wins in Georgia history.\n\n Dooley, known for his somewhat comic gyrations on the sideline, started racing down the sideline. “I outran him for about five yards, then he bolted into the clear,” Dooley was to recall.\n\n “How About Them Dawgs!” was the cheer heard around the world.\n\n Georgia beat Notre Dame 17-10 in the Sugar Bowl to finish 12-0 and claim the undisputed national title, with Dooley being named National Coach of the Year. Herschel Walker, probably the greatest player in Georgia history, was the Sugar Bowl MP and, two years later, won the Heisman Trophy.\n\n Dooley, who’d been given the dual role of coach and athletic director in 1979, retired from coaching in 1988 but continued on as athletic director. Under Dooley, Georgia athletics—including the likes of tennis and gymnastics—achieved new levels of success, and saw unprecedented growth in the quality and size of its facilities.\n\n Vince’s son Derek has been head coach at Louisiana Tech and Tennessee. He’s now the wide receivers coach for the Dallas Cowboys.\n\n Dooley has been inducted into the National College Football Hall of Fame, and the Georgia and Alabama sports halls of fame. In 2001 he was given the Amos Alonzo Stagg Lifetime Achievement Award by the American College Football Association. In 2000, Georgia Trend magazine named him one of the Top 100 Georgians of the Century",
     "crestSide": "right",
     "sports": [
@@ -1869,6 +1949,19 @@
     "image": "assets/hof/willie-mccovey.jpg",
     "bio": "The year was 1969—at the very height of Willie McCovey’s career—and he was taking batting practice at San Francisco’s Candlestick Park.\n\n Pitchers from the visiting team watched, in equal parts awe and fear. Among them: Jim Bouton, not much of a pitcher, but author of one of the greatest of all sports books, “Ball Four.” Here’s how Bouton described the scene in his book:\n\n “A group of terrorized pitchers stood around the batting cage watching Willie McCovey belt some tremendous line drives over the right-field fence. Every time a ball bounced into the seats we’d make little whimpering animal sounds. ‘Hey, Willie,’ I said. ‘Can you do that whenever you want to?’ He didn’t crack a smile. ‘Just about,’ he said, and he hit another one. More animal sounds.”\n\n No less than Bob Gibson, as fearless a pitcher as there was, called McCovey “the scariest hitter in baseball.”\n\n McCovey was nicknamed Stretch because of his arms, long even for his massive 6-4 frame. He batted left-handed, threw with his left, and only played one position—first base.\n\n “On ground balls hit down to the second baseman, there’s no need to throw, the second baseman just hands the ball to Willie.” wrote the great Los Angeles Times columnist Jim Murray.\n\n Willie Lee McCovey was born on January 10, 1938 in Mobile, the seventh of 10 children by his railroad laborer father Frank and mother Esther.\n\n “Kids in Mobile either hung around street corners and went into gangs, or they hung around street corners and went into sports. I was lucky. The kids who were my friends went into sports,” McCovey once told an interviewer.\n\n He had the ill-fortune early in his career of playing behind Orlando Cepeda, the Giants’ All-Star first baseman.\n\n In 1963, five years after his first major league game, McCovey was inserted into the starting line-up, for good. That year McCovey tied fellow Mobile native Hank Aaron for the league lead in homers, with 44, and drove in 102 runs.\n\n One of McCovey’s hallmark moments came in 1969. In that year’s All-Star Game he walloped two gargantuan home runs and was named the game’s MVP. There’s a wonderful picture of McCovey, his face the picture of joy, being welcomed at the plate by Hank Aaron after one of the round-trippers. That season was also McCovey’s best. He led the league with 45 home runs and 126 RBI, hit .320, and was intentionally walked 45 times, at the time a major league record.\n\n Cincinnati Reds manager Sparky Anderson frequently ordered his pitchers to walk McCovey. “If you pitch to him he’ll ruin baseball. He’d hit 80 home runs. There’s no comparison between McCovey and anybody else in the league.”\n\n McCovey spent much of his career playing alongside his close friend Willie Mays, who was also from Alabama. “I don’t know what it was about him, but anywhere he went he felt he had to take somebody with him. And that somebody was usually me,” McCovey told an interviewer.\n\n Stretch McCovey’s career was slowed, quite literally, by a seemingly endless series of leg and foot injuries. Though a part-timer late in his career, he played all or part of 22 seasons, finishing with 521 home runs. Had McCovey enjoyed better health, he might have joined Aaron’s chase of Babe Ruth’s record.\n\n McCovey is still beloved in his adopted second home of San Francisco. In 2003, a statue of big number 44 was erected outside Candlestick Park and overlooking McCovey Cove—the unofficial name of a section of San Francisco Bay where some of McCovey’s homers were said to land with a splash.\n\n McCovey was inducted into the Hall of Fame in 1986, his first year of eligibility. In 1999, he was ranked as the 56th greatest player of all time by The Sporting News",
     "crestSide": "right",
+    "sports": [
+      "Baseball"
+    ]
+  },
+  {
+    "name": "ERIC YELDING",
+    "year": 2026,
+    "summary": "Fairhope High and Chipola College standout drafted by Toronto; Astros and Cubs outfielder/shortstop who stole 64 bases in 1990, second in the National League.",
+    "letter": "Y",
+    "image": "assets/hof/eric-yelding.png",
+    "imagePosition": "50% 18%",
+    "crest": true,
+    "bio": "Born February 22, 1965 in Montrose, Alabama, Eric Girard Yelding grew up on the Eastern Shore and became a standout athlete at Fairhope High School before moving on to Chipola College, where the Toronto Blue Jays selected him in the first round of the 1984 MLB amateur draft. His speed and throwing arm made an immediate impression in the minors — he swiped 93 bases and recorded 19 outfield assists across his first 200 games with Medicine Hat and Kinston. The Chicago Cubs took him from Toronto in the Rule 5 draft in December 1988, and the Houston Astros claimed him off waivers shortly afterward.\n\n Yelding made his major league debut with Houston on April 9, 1989 and went on to play all or parts of five seasons with the Astros (1989–1992) and the Chicago Cubs (1993), most often at shortstop and in center field. His finest year came in 1990, when he stole 64 bases — second in the National League behind only Vince Coleman — and hit .254 over 142 games while splitting time between center and short. Teammates called him \"Cool Breeze\" for his speed. He finished his big league career with a .244 average, 3 home runs and 67 RBI across 368 games.",
     "sports": [
       "Baseball"
     ]

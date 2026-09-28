@@ -1,0 +1,132 @@
+Mobile Sports Hall of Fame — Site Update
+========================================
+
+Prepared for: Mobile Sports Hall of Fame stakeholders
+Purpose: Progress update on the new website
+
+
+OPENING
+-------
+A modern, mobile-friendly website for the Mobile Sports Hall of Fame is
+ready for your review. It presents the Hall’s story, inductees, news, and
+events in a cleaner layout, and includes a simple content admin so your
+team can update many pages without waiting on a developer for every change.
+
+
+WHERE TO PREVIEW
+----------------
+  https://atreyukun.github.io/mobilesportshalloffame/
+
+Note: mobilesportshalloffame.net remains the current public WordPress site
+until you decide to switch over officially.
+
+
+WHAT’S ON THE SITE
+------------------
+The new site includes:
+
+  • Home — brand-forward landing with Hall of Fame legend highlights
+  • Hall of Famers — searchable inductee directory
+  • Our Mission — plus Remembering the Past, Honoring the Present,
+    Welcoming the Future, and Board Members
+  • A Shared Vision — plus Partners and Sponsors
+  • News & Events — headlines, induction-class stories, and event listings
+  • Tickets — information for the museum / induction timeline
+  • Contact
+  • Privacy Policy and Refund Policy
+
+Branding throughout uses the Hall’s logo and crest, with dedicated hero
+imagery on each major page. A discreet Admin link appears in the footer of
+every public page so staff can find the content tools quickly. From admin,
+a “View site” link returns to the public homepage.
+
+
+HALL OF FAMERS DIRECTORY
+------------------------
+The Hall of Famers section is a full directory of roughly 144 inductees.
+
+Visitors can:
+  • Search by name, sport, year, or keyword
+  • Filter by letter (A–Z)
+  • Filter by sport, including a Coaches filter
+  • Open any card to read the full bio in a popup
+
+Where photos are available, they appear on the cards. Many entries also
+include short video clips that play inside the bio popup (for example,
+Derrick Burroughs, Derrick Coleman, the 1947 Mobile Bears Baseball Team,
+and other earlier inductees).
+
+Some inductees now use two photos: one on the directory card and a second
+“interior” image in the bio popup. Examples include James Taylor,
+Kelli Ogdan Hillier, and Lauretta Freeman-Horn. Card photo framing has
+also been improved so faces and action shots sit more naturally in the
+layout.
+
+
+CLASS OF 2026 AND RELATED CONTENT
+---------------------------------
+Recent content work includes the Class of 2026 and related additions:
+
+  Class of 2026
+  • Derrick Burroughs — Football (photo, bio, and video)
+  • Derrick Coleman — Basketball (photo, bio, and video)
+  • Joe Niland — Basketball / coaching (photo and bio)
+  • Eric Yelding — Baseball (photo and bio)
+
+  Also added
+  • Randy Patrick — inducted 2018, Media (photo and bio)
+
+Photos, bios, and videos have been placed as materials were provided.
+Additional photos or copy can be swapped in as you send them.
+
+
+NEWS & EVENTS
+-------------
+News stories now stay on this site. Visitors see a short teaser and can
+use Read more to expand the full article on the page—without being sent
+to the old WordPress site for those pieces.
+
+Events are organized into current listings and a past-events archive, with
+featured items highlighted on Home and on News & Events.
+
+The Tickets page carries messaging for the Spring 2027 museum opening /
+induction timeline. Former Eventbrite ticket links have been removed so
+the site points to your current ticket information page instead.
+
+
+CONTENT ADMIN (FOR YOUR TEAM)
+-----------------------------
+A password-protected content admin is available at:
+
+  https://atreyukun.github.io/mobilesportshalloffame/admin/
+
+Your team can update:
+  • News
+  • Events
+  • Partners
+  • Sponsors
+  • Board roster
+
+Saving uses the admin password plus a publish key (sent separately). After
+Save, wait about a minute, then hard-refresh the public page to confirm.
+
+Hall of Famers photos, bios, and videos are still updated by the build
+team for now (they are not yet editable in the admin).
+
+A separate how-to guide—CLIENT-ADMIN-GUIDE.txt—covers sign-in steps and
+day-to-day editing. Login credentials are provided separately and are not
+listed in this update.
+
+
+WHAT WE’D LIKE FROM YOU
+-----------------------
+We welcome your feedback before official handoff, including:
+
+  • Design or wording notes on any page
+  • Missing or updated bios and photos
+  • Corrections to names, years, sports tags, or event details
+  • Confirmation of when you want this site to become the public home
+    (replacing the current WordPress site)
+
+Thank you for the materials and guidance so far. We’re ready to keep
+refining as you review.

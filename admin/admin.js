@@ -7,6 +7,7 @@
 
   const AUTH_KEY = "mshof_admin_ok";
   const TOKEN_KEY = "mshof_gh_token";
+  const PW_KEY = "mshof_admin_pw";
 
   const loginGate = document.getElementById("login-gate");
   const app = document.getElementById("app");
@@ -45,8 +46,21 @@
   let pendingTokenAction = null;
   let saveInFlight = false;
   let saveTimer = null;
+  /** Local tunnel server with write API (no GitHub publish key). */
+  let isLocalMode = false;
 
   const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
+
+  async function detectLocalMode() {
+    try {
+      const res = await fetch("/__mshof/api/status", { cache: "no-store" });
+      if (!res.ok) return false;
+      const data = await res.json();
+      return !!(data && data.mode === "local");
+    } catch {
+      return false;
+    }
+  }
 
   async function sha256Hex(text) {
     const buf = await crypto.subtle.digest(
@@ -113,6 +127,7 @@
 
   function showLogin() {
     sessionStorage.removeItem(AUTH_KEY);
+    sessionStorage.removeItem(PW_KEY);
     app.hidden = true;
     loginGate.hidden = false;
   }
@@ -128,6 +143,7 @@
         return;
       }
       sessionStorage.setItem(AUTH_KEY, "1");
+      sessionStorage.setItem(PW_KEY, pw);
       setStatus(loginStatus, "");
       await bootApp();
     } catch (err) {
@@ -137,6 +153,7 @@
 
   document.getElementById("btn-logout").addEventListener("click", () => {
     sessionStorage.removeItem(TOKEN_KEY);
+    sessionStorage.removeItem(PW_KEY);
     showLogin();
   });
 
@@ -237,9 +254,47 @@
 
   function beginSave() {
     clearTimeout(saveTimer);
-    saveTimer = setTimeout(() => {
+    saveTimer = setTimeout(async () => {
+      // Re-check in case an older cached admin.js session left this false.
+      if (!isLocalMode) {
+        isLocalMode = await detectLocalMode();
+      }
+      if (isLocalMode) {
+        saveCurrentTab(null).catch((err) => {
+          setStatus(appStatus, err.message || "Save failed.", "is-error");
+        });
+        return;
+      }
       withGithubToken((token) => saveCurrentTab(token));
     }, 700);
+  }
+
+  async function putLocalFile(path, content, { isBase64 = false } = {}) {
+    const password = sessionStorage.getItem(PW_KEY);
+    if (!password) {
+      throw new Error("Session expired. Sign out and sign in again.");
+    }
+    const res = await fetch("/__mshof/api/save", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-MSHOF-Password": password,
+      },
+      body: JSON.stringify({
+        path,
+        content,
+        encoding: isBase64 ? "base64" : "utf-8",
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.ok) {
+      if (res.status === 401) {
+        sessionStorage.removeItem(PW_KEY);
+        sessionStorage.removeItem(AUTH_KEY);
+      }
+      throw new Error(data.error || `Save failed (${res.status})`);
+    }
+    return data;
   }
 
   async function saveCurrentTab(token) {
@@ -254,12 +309,21 @@
     setStatus(appStatus, `Saving…`);
     try {
       const content = JSON.stringify(state[key], null, 2) + "\n";
-      await putGithubFile(path, content, `Update ${path} via admin`, token);
-      setStatus(
-        appStatus,
-        `Saved. Hard-refresh the live page in about a minute to see it (News & Events → Past events for archived items).`,
-        "is-ok"
-      );
+      if (isLocalMode) {
+        await putLocalFile(path, content);
+        setStatus(
+          appStatus,
+          "Saved. Hard-refresh the site to see your changes.",
+          "is-ok"
+        );
+      } else {
+        await putGithubFile(path, content, `Update ${path} via admin`, token);
+        setStatus(
+          appStatus,
+          `Saved. Hard-refresh the live page in about a minute to see it (News & Events → Past events for archived items).`,
+          "is-ok"
+        );
+      }
     } catch (err) {
       if (/401|403|Bad credentials|Resource not accessible/i.test(String(err.message))) {
         sessionStorage.removeItem(TOKEN_KEY);
@@ -389,6 +453,21 @@
     });
   }
 
+  async function uploadImageLocal(file, folder, inputId) {
+    const name = safeAssetName(file.name);
+    const path = `${String(folder).replace(/\/$/, "")}/${name}`;
+    setStatus(appStatus, `Uploading ${path}…`);
+    const base64 = await fileToBase64(file);
+    await putLocalFile(path, base64, { isBase64: true });
+    const input = document.getElementById(inputId);
+    if (input) input.value = `${path}?v=${Date.now()}`;
+    setStatus(
+      appStatus,
+      `Uploaded ${path}. Click Apply (if shown), then Save.`,
+      "is-ok"
+    );
+  }
+
   function uploadImageToRepo(file, folder, inputId) {
     if (!/^image\//.test(file.type) && !/\.(png|jpe?g|gif|webp|svg)$/i.test(file.name)) {
       setStatus(appStatus, "Please choose an image file (PNG, JPG, WebP, GIF, or SVG).", "is-error");
@@ -396,6 +475,13 @@
     }
     if (file.size > MAX_UPLOAD_BYTES) {
       setStatus(appStatus, "Image must be under 5 MB.", "is-error");
+      return;
+    }
+
+    if (isLocalMode) {
+      uploadImageLocal(file, folder, inputId).catch((err) => {
+        setStatus(appStatus, err.message || "Upload failed.", "is-error");
+      });
       return;
     }
 
@@ -1057,6 +1143,7 @@
   async function bootApp() {
     setStatus(appStatus, "Loading…");
     try {
+      isLocalMode = await detectLocalMode();
       await loadAll();
       showApp();
       setStatus(appStatus, "");
@@ -1067,7 +1154,15 @@
     }
   }
 
-  if (sessionStorage.getItem(AUTH_KEY) === "1") {
-    bootApp();
-  }
+  (async function init() {
+    isLocalMode = await detectLocalMode();
+    if (sessionStorage.getItem(AUTH_KEY) === "1") {
+      if (isLocalMode && !sessionStorage.getItem(PW_KEY)) {
+        sessionStorage.removeItem(AUTH_KEY);
+        showLogin();
+        return;
+      }
+      bootApp();
+    }
+  })();
 })();
