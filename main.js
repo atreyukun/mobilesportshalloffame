@@ -92,6 +92,9 @@
   const featuredEvent = document.querySelector("[data-featured-event]");
   if (featuredEvent) initFeaturedEvent(featuredEvent);
 
+  const springGallery = document.querySelector("[data-spring-gallery]");
+  if (springGallery) initSpringGallery(springGallery);
+
   const eventsList = document.querySelector("[data-events-list]");
   if (eventsList) initEventsList(eventsList);
 
@@ -114,6 +117,37 @@
     initInquiryForm(inquiryForm);
   }
 })();
+
+function initSpringGallery(root) {
+  const dialog = document.querySelector("[data-spring-lightbox]");
+  if (!dialog) return;
+  const img = dialog.querySelector("img");
+  const caption = dialog.querySelector("[data-spring-lightbox-caption]");
+
+  const close = () => {
+    dialog.hidden = true;
+    img.removeAttribute("src");
+    document.body.classList.remove("hof-modal-open");
+  };
+
+  root.querySelectorAll("[data-spring-src]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const alt = btn.dataset.springAlt || "";
+      img.src = btn.dataset.springSrc;
+      img.alt = alt;
+      if (caption) caption.textContent = alt;
+      dialog.hidden = false;
+      document.body.classList.add("hof-modal-open");
+    });
+  });
+
+  dialog.querySelectorAll("[data-spring-close]").forEach((el) => {
+    el.addEventListener("click", close);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !dialog.hidden) close();
+  });
+}
 
 function initInquiryForm(form) {
   const status = form.querySelector("[data-inquiry-status]");
@@ -143,7 +177,7 @@ function initInquiryForm(form) {
 
 // Bumped whenever the inductee photos are re-exported, so browsers holding an
 // older copy of a same-named file fetch the new one.
-const PHOTO_VERSION = 34;
+const PHOTO_VERSION = 35;
 
 function photoUrl(path) {
   return `${path}?v=${PHOTO_VERSION}`;
@@ -435,12 +469,12 @@ async function initHof(root) {
                   : ""
               } />${
                 p.crest
-                  ? `<img src="assets/crest.png?v=6" alt="" class="hof-card-crest" />`
+                  ? `<img src="assets/crest.png?v=7" alt="" class="hof-card-crest" />`
                   : ""
               }</div>`
             : `<div class="hof-card-thumb hof-card-thumb--placeholder" aria-hidden="true">
                 <span class="hof-card-placeholder-name">${label}</span>
-                <img src="assets/crest.png?v=6" alt="" class="hof-card-crest" />
+                <img src="assets/crest.png?v=7" alt="" class="hof-card-crest" />
               </div>`;
           return `
       <article class="hof-card">
@@ -642,7 +676,7 @@ async function initFeaturedNews(root) {
     section?.removeAttribute("hidden");
     const photo = story.image
       ? `<img src="${escapeHtml(story.image)}" alt="${escapeHtml(story.title || "")}" class="featured-news-photo" />`
-      : `<img src="assets/crest.png?v=6" alt="" class="featured-news-crest" />`;
+      : `<img src="assets/crest.png?v=7" alt="" class="featured-news-crest" />`;
     const external =
       story.link &&
       /^https?:/i.test(story.link) &&

@@ -355,6 +355,9 @@ body.admin-body {
   width: 120px;
   height: auto;
   margin: 0 0 18px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #ffffff;
 }
 
 .admin-logo--header {

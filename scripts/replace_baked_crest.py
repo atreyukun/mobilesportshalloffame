@@ -15,7 +15,7 @@ import shutil
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
 ROOT = Path(r"d:\httpsmobilesportshalloffame")
 TEMPLATE = ROOT / "scripts" / "crest_template.npz"
@@ -65,32 +65,22 @@ def stamp(alpha: np.ndarray, shape: tuple[int, int], x: int, y: int) -> np.ndarr
 
 
 def place_new_logo(target: np.ndarray, loc: dict, logo: Image.Image, shape):
-    """Smallest scale and position of the new logo that fully hides the old one.
+    """Center the new lockup over the old crest, sized to cover its box.
 
-    Works in image coordinates so that a logo overhanging the photo edge is
-    cropped honestly rather than silently shifted.
+    The new mark is taller and a different banner shape, so leftover old pixels
+    are inpainted before the stamp rather than requiring a matching silhouette.
     """
     logo_w, logo_h = logo.size
     box_h, box_w = target.shape
-    old = stamp(target, shape, loc["x"], loc["y"])
-    nudge = max(6, round(box_w * 0.12))
-
-    for step in range(0, 61):
-        scale = 1.0 + step * 0.02
-        h = max(1, round(box_h * scale))
-        w = max(1, round(h * logo_w / logo_h))
-        candidate = logo.resize((w, h), Image.LANCZOS)
-        alpha = np.asarray(candidate)[:, :, 3] >= ALPHA_SOLID
-        base_x = loc["x"] + (box_w - w) // 2
-        base_y = loc["y"] + (box_h - h) // 2
-
-        for dy in range(-nudge, nudge + 1, 2):
-            for dx in range(-nudge, nudge + 1, 2):
-                x, y = base_x + dx, base_y + dy
-                if (old & ~stamp(alpha, shape, x, y)).any():
-                    continue
-                return candidate, x, y, scale
-    raise RuntimeError(f"no covering placement for {box_w}x{box_h} crest")
+    scale = max(box_w / logo_w, box_h / logo_h) * 1.14
+    w = max(1, round(logo_w * scale))
+    h = max(1, round(logo_h * scale))
+    candidate = logo.resize((w, h), Image.LANCZOS)
+    x = loc["x"] + (box_w - w) // 2
+    y = loc["y"] + (box_h - h) // 2
+    x = min(max(x, 0), max(0, shape[1] - 1))
+    y = min(max(y, 0), max(0, shape[0] - 1))
+    return candidate, x, y, scale
 
 
 def still_has_old_crest(before: Image.Image, loc: dict) -> float:
@@ -123,10 +113,13 @@ def process(rel: str, loc: dict, logo: Image.Image, write: bool):
     before = Image.open(path).convert("RGB")
     shape = (before.height, before.width)
     target = old_mask_at((loc["w"], loc["h"]))
+    old = stamp(target, shape, loc["x"], loc["y"])
     layer, x, y, scale = place_new_logo(target, loc, logo, shape)
 
-    after = before.convert("RGBA")
-    # alpha_composite has no negative-offset support, so pad through a full layer.
+    # Soft-fill the old gold crest so leftover banner corners do not peek out.
+    blur = before.filter(ImageFilter.GaussianBlur(18))
+    filled = Image.composite(blur, before, Image.fromarray((old * 255).astype("uint8")))
+    after = filled.convert("RGBA")
     full = Image.new("RGBA", before.size, (0, 0, 0, 0))
     full.paste(layer, (x, y), layer)
     after.alpha_composite(full)

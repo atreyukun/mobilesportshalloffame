@@ -98,7 +98,13 @@ img, video { max-width: 100%; display: block; }
   line-height: 1.15;
   max-width: min(280px, 34vw);
 }
-.logo-img--nav { height: 64px; width: auto; }
+.logo-img--nav {
+  height: 64px;
+  width: auto;
+  padding: 4px 6px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.94);
+}
 .logo-text {
   color: #ffffff;
   font-size: 14px;
@@ -354,11 +360,15 @@ img, video { max-width: 100%; display: block; }
   height: 100%;
   width: auto;
   aspect-ratio: 5 / 4;
+  /* Global img { max-width:100% } collapses flex marquee tiles to empty gaps. */
+  max-width: none;
+  min-width: 11rem;
   object-fit: cover;
   object-position: center top;
   display: block;
   border-radius: 10px;
   flex: 0 0 auto;
+  background: #1a2438;
   filter: saturate(0.95) contrast(1.04);
 }
 
@@ -537,6 +547,9 @@ img, video { max-width: 100%; display: block; }
   height: clamp(110px, 20vw, 168px);
   width: auto;
   margin-bottom: 22px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.94);
   filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.45));
 }
 
@@ -702,6 +715,7 @@ img, video { max-width: 100%; display: block; }
 }
 .section--dark .section-lede,
 .section--dark .text-muted { color: rgba(255, 255, 255, 0.72); }
+.section--dark .section-eyebrow { color: rgba(255, 255, 255, 0.55); }
 
 .section-eyebrow {
   font-size: 12px;
@@ -1502,7 +1516,7 @@ body.hof-modal-open {
   position: absolute !important;
   top: 10px;
   right: 10px;
-  width: 52px !important;
+  width: 58px !important;
   height: auto !important;
   object-fit: contain !important;
   z-index: 2;
@@ -1516,7 +1530,7 @@ body.hof-modal-open {
   justify-content: center;
   background:
     linear-gradient(160deg, rgba(26, 21, 40, 0.75), rgba(12, 28, 52, 0.85)),
-    url("assets/crest.png?v=6") center 38% / 42% no-repeat,
+    url("assets/crest.png?v=7") center 38% / 42% no-repeat,
     #142038;
 }
 
@@ -1844,6 +1858,9 @@ body.hof-modal-open {
   height: 72px;
   width: auto;
   margin-bottom: 16px;
+  padding: 6px 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.94);
 }
 
 .footer-brand p {
@@ -1939,6 +1956,100 @@ body.hof-modal-open {
   transform: translateY(0);
 }
 
+/* Coming This Spring gallery */
+.spring-gallery {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  grid-auto-rows: minmax(160px, 22vw);
+  gap: 12px;
+}
+
+.spring-gallery-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: zoom-in;
+  background: #111;
+}
+
+.spring-gallery-item--wide {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.spring-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease);
+}
+
+.spring-gallery-item:hover img,
+.spring-gallery-item:focus-visible img {
+  transform: scale(1.04);
+}
+
+.spring-lightbox[hidden] { display: none !important; }
+
+.spring-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.spring-lightbox-scrim {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(0, 0, 0, 0.82);
+  cursor: zoom-out;
+}
+
+.spring-lightbox-frame {
+  position: relative;
+  z-index: 1;
+  max-width: min(1200px, 94vw);
+  max-height: 90vh;
+}
+
+.spring-lightbox-frame img {
+  max-height: 82vh;
+  width: auto;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.spring-lightbox-frame figcaption {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+}
+
+.spring-lightbox-close {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #111;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
 @media (max-width: 1180px) {
   .logo-text { display: none; }
 }
@@ -1948,6 +2059,7 @@ body.hof-modal-open {
   .pillar-grid,
   .mission-trio,
   .event-band,
+  .spring-gallery,
   .news-grid,
   .contact-grid,
   .form-grid,
@@ -1959,6 +2071,15 @@ body.hof-modal-open {
 
   .board-roster {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .spring-gallery {
+    grid-auto-rows: 220px;
+  }
+
+  .spring-gallery-item--wide {
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .logo-text { display: none; }
