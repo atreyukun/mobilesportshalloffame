@@ -2,7 +2,8 @@ Mobile Sports Hall of Fame — Site Handoff
 =========================================
 
 Package date: 2026-08-11
-Preview (current): https://atreyukun.github.io/mobilesportshalloffame/
+Preview (working copy): https://mobilehof.danielhathcock.com/
+Preview (GitHub Pages): https://atreyukun.github.io/mobilesportshalloffame/
 
 
 WHAT THIS IS

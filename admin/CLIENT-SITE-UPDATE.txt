@@ -15,7 +15,14 @@ team can update many pages without waiting on a developer for every change.
 
 WHERE TO PREVIEW
 ----------------
+Day-to-day working copy:
+  https://mobilehof.danielhathcock.com/
+
+GitHub Pages copy:
   https://atreyukun.github.io/mobilesportshalloffame/
+
+Both show the new site. Use either link to review. After a content save,
+wait about a minute on GitHub Pages, then hard-refresh.
 
 Note: mobilesportshalloffame.net remains the current public WordPress site
 until you decide to switch over officially.
@@ -98,6 +105,7 @@ CONTENT ADMIN (FOR YOUR TEAM)
 -----------------------------
 A password-protected content admin is available at:
 
+  https://mobilehof.danielhathcock.com/admin/
   https://atreyukun.github.io/mobilesportshalloffame/admin/
 
 Your team can update:
@@ -107,8 +115,10 @@ Your team can update:
   • Sponsors
   • Board roster
 
-Saving uses the admin password plus a publish key (sent separately). After
-Save, wait about a minute, then hard-refresh the public page to confirm.
+On the mobilehof.danielhathcock.com admin, saving uses the admin password
+only. On GitHub Pages, saving also needs a publish key (sent separately).
+After Save, hard-refresh the public page to confirm (wait about a minute
+on GitHub Pages).
 
 Hall of Famers photos, bios, and videos are still updated by the build
 team for now (they are not yet editable in the admin).

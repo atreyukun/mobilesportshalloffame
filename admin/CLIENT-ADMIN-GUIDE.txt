@@ -2,9 +2,11 @@ Mobile Sports Hall of Fame — Content Admin Guide
 ================================================
 
 Public site
+  https://mobilehof.danielhathcock.com/
   https://atreyukun.github.io/mobilesportshalloffame/
 
 Content admin
+  https://mobilehof.danielhathcock.com/admin/
   https://atreyukun.github.io/mobilesportshalloffame/admin/
 
 Admin password
@@ -13,7 +15,10 @@ Admin password
 Keep the password private. It can be changed later if needed.
 
 Publish key
-  Sent separately (do not store in this file or post publicly).
+  Needed only when saving from the GitHub Pages admin URL.
+  On the mobilehof.danielhathcock.com admin, Save writes with the password
+  alone (no publish key). Sent separately when using GitHub Pages (do not
+  store the key in this file or post it publicly).
 
 
 WHY THIS EXISTS
@@ -22,17 +27,21 @@ You can update news, events, partners, sponsors, and the board roster
 without waiting on a developer for every change.
 
 When you click Save (or when some actions save automatically), your updates
-are published so the live site can refresh—usually within about a minute.
-Then hard-refresh the public page (Ctrl+F5 / Cmd+Shift+R) to confirm.
+are published so the live site can refresh. On mobilehof.danielhathcock.com,
+that is usually immediate. On GitHub Pages, wait about a minute, then
+hard-refresh (Ctrl+F5 / Cmd+Shift+R) to confirm.
 
 
 WHY THERE IS ALSO A PUBLISH KEY
 -------------------------------
-Saving needs a publish key in addition to the admin password. That key is
-NOT the same as the password.
+On GitHub Pages, saving needs a publish key in addition to the admin
+password. That key is NOT the same as the password.
 
 You paste it once per browser session when you Save or upload an image. It
 stays in your browser only and is never stored on the public website.
+
+On mobilehof.danielhathcock.com, you do not need the publish key — only
+the password.
 
 Treat the publish key like a house key—do not post it publicly or share it
 outside your team.
@@ -43,8 +52,8 @@ HOW TO MAKE A CHANGE
 1. Open the content admin URL and sign in with the password above.
 2. Use the tabs: News, Events, Partners, Sponsors, Board.
 3. Edit or add an item, then click Apply to list / Apply changes (when shown).
-4. Click Save at the top. Paste the publish key if asked.
-5. Wait about one minute, then hard-refresh the public site to confirm.
+4. Click Save at the top. Paste the publish key if asked (GitHub Pages only).
+5. Hard-refresh the public site to confirm (wait ~1 minute on GitHub Pages).
 
 Some actions (Delete, Move to archive, Restore) save automatically after you
 confirm. Wait for the green “Saved” message before doing another save.
@@ -113,6 +122,6 @@ NOTES
 -----
 - The admin is not linked from the public navigation on purpose.
 - Hall of Famers will get an editor later; that section is unchanged for now.
-- GitHub Pages is the current preview host. The admin screens are meant to
-  stay when the site moves to the client’s WordPress hosting later; how Save
-  publishes may change at that time.
+- Two preview hosts are available: mobilehof.danielhathcock.com and
+  GitHub Pages. The admin screens are meant to stay when the site moves to
+  the client’s WordPress hosting later; how Save publishes may change then.
